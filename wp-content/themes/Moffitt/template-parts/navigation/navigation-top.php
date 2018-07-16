@@ -17,7 +17,9 @@
 		_e( 'Menu', 'twentyseventeen' );
 		?>
 	</button>
-
+	<div class="nav-logo-wrapper">
+		<?php the_custom_logo() ?>
+	</div>
 	<?php wp_nav_menu( array(
 		'theme_location' => 'top',
 		'menu_id'        => 'top-menu',
