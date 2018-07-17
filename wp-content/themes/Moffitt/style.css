@@ -457,6 +457,7 @@ h2,
 }
 
 h3 {
+	font-family: IM Fell French Canon, serif;
 	color: #333;
 	font-size: 18px;
 	font-size: 1.125rem;
@@ -3505,6 +3506,10 @@ p > object:only-child {
 
 	.main-navigation {
 		width: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.js .main-navigation ul,
@@ -3673,7 +3678,7 @@ p > object:only-child {
 	/* Scroll down arrow */
 
 	.site-header .menu-scroll-down {
-		display: block;
+		display: none;
 		padding: 1em;
 		position: absolute;
 		right: 0;
@@ -4351,10 +4356,34 @@ p > object:only-child {
 	letter-spacing: 1px;
 	font-size: 1.25rem;
 	transition: all .25s ease-in-out;
+	letter-spacing: .25rem;
 }
 
 .header-cta-button:hover	{
 	cursor: pointer;
 	color: #de5b49;
 	background: #fff;
+}
+
+.moffitt-entry-content	{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.moffitt-featured-article	{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.moffitt-featured-article-image	{
+	width: 80%;
+	padding: 2rem;
+	height: auto;
+	box-sizing: border-box;
+}
+
+.moffitt-featured-article-content h3	{
+	font-family: IM Fell French Canon, serif;
 }

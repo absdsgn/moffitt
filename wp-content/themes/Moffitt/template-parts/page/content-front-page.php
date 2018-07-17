@@ -26,20 +26,36 @@
 
 	<div class="panel-content">
 		<div class="wrap">
-			<header class="entry-header">
-				<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
+			<!-- <header class="entry-header">
+				<?php /* the_title( '<h2 class="entry-title">', '</h2>' ); ?>
 
-				<?php twentyseventeen_edit_link( get_the_ID() ); ?>
+				<?php twentyseventeen_edit_link( get_the_ID() ); */ ?>
 
-			</header><!-- .entry-header -->
-
-			<div class="entry-content">
+			</header> .entry-header -->
+			<?php
+				$featured_image = get_field('featured_article_image');
+			?>
+			<div class="moffitt-entry-content">
+				<div class="moffitt-featured-article">
+					<div class="moffitt-featured-article-image">
+						<img src="<?php echo $featured_image['url']; ?>">
+					</div>
+					<div class="moffitt-featured-article-content">
+						<h3>
+							<?php the_field('featured_article_title'); ?>
+						</h3>
+						<p>
+							<?php the_field('featured_article_intro'); ?>
+						</p>
+						<a class="moffitt-body-button" href="<?php the_field('featured_article_url'); ?>"><?php the_field('featured_article_button_text'); ?></a>
+					</div>
+				</div>
 				<?php
 					/* translators: %s: Name of current post */
-					the_content( sprintf(
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
-						get_the_title()
-					) );
+					// the_content( sprintf(
+					// 	__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
+					// 	get_the_title()
+					// ) );
 				?>
 			</div><!-- .entry-content -->
 
