@@ -490,6 +490,7 @@ h6 {
 p {
 	margin: 0 0 1.5em;
 	padding: 0;
+	color: #424242;
 }
 
 dfn,
@@ -4386,4 +4387,63 @@ p > object:only-child {
 
 .moffitt-featured-article-content h3	{
 	font-family: IM Fell French Canon, serif;
+}
+
+.moffitt-body-button	{
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	border-bottom: 2px solid currentColor;
+	transition: all .2s ease-in-out;
+}
+
+.moffitt-body-button:hover	{
+	border-bottom: 2px solid #262626;
+}
+
+.moffitt-callout-wrapper	{
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: space-between;
+	margin: 5rem 0;
+}
+
+.moffitt-callout	{
+	padding: 2rem;
+	box-sizing: border-box;
+	box-shadow: 3px 3px rgba(0, 0, 0, .5);
+	display: inline-block;
+	position: relative;
+}
+
+.moffitt-callout:first-child	{
+	margin-right: 1rem;
+}
+
+.moffitt-callout:nth-child(2) {
+	margin-left: 1rem;
+}
+
+.moffitt-callout h3, .moffitt-callout p	{
+	color: #fff;
+}
+
+.moffitt-callout-button	{
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	position: relative;
+	display: inline-block;
+}
+
+.moffitt-callout-button:after	{
+	content: "\f105";
+	font-family: "FontAwesome";
+	margin-left: 1rem;
+	display: inline-block;
+	position: absolute;
+	color: #fff;
+	font-size: 2.5rem;
+	top: -75%;
 }

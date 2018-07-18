@@ -47,7 +47,29 @@
 						<p>
 							<?php the_field('featured_article_intro'); ?>
 						</p>
-						<a class="moffitt-body-button" href="<?php the_field('featured_article_url'); ?>"><?php the_field('featured_article_button_text'); ?></a>
+						<a class="moffitt-body-button" href="<?php the_field('featured_article_button_url'); ?>" style="color: <?php the_field('featured_article_button_color'); ?>;"><?php the_field('featured_article_button_text'); ?></a>
+					</div>
+				</div>
+				<div class="moffitt-content">
+					<div class="moffitt-callout-wrapper">
+						<div class="moffitt-callout" style="background-color: <?php the_field('callout_1_background_color'); ?>;">
+							<h3>
+								<?php the_field('callout_1_title'); ?>
+							</h3>
+							<p>
+								<?php the_field('callout_1_introduction'); ?>
+							</p>
+							<a class="moffitt-callout-button" href="<?php the_field('callout_1_button_url'); ?>"><?php the_field('callout_1_button_text'); ?></a>
+						</div>
+						<div class="moffitt-callout" style="background-color: <?php the_field('callout_2_background_color'); ?>;">
+							<h3>
+								<?php the_field('callout_2_title'); ?>
+							</h3>
+							<p>
+								<?php the_field('callout_2_introduction'); ?>
+							</p>
+							<a class="moffitt-callout-button" href="<?php the_field('callout_2_button_url'); ?>;"><?php the_field('callout_2_button_text'); ?></a>
+						</div>
 					</div>
 				</div>
 				<?php
