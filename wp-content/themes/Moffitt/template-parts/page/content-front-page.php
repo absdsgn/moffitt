@@ -34,6 +34,7 @@
 			</header> .entry-header -->
 			<?php
 				$featured_image = get_field('featured_article_image');
+				$about_image = get_field('about_us_image');
 			?>
 			<div class="moffitt-entry-content">
 				<div class="moffitt-featured-article">
@@ -71,6 +72,23 @@
 							<a class="moffitt-callout-button" href="<?php the_field('callout_2_button_url'); ?>;"><?php the_field('callout_2_button_text'); ?></a>
 						</div>
 					</div>
+					<div class="moffitt-about-background-extend"></div>
+					<div class="moffitt-about-background">
+						<div class="moffitt-about-wrapper">
+							<div class="moffitt-about-content">
+								<h3>
+									<?php the_field('about_us_title'); ?>
+								</h3>
+								<?php the_field('about_us_introduction'); ?>
+								<a class="moffitt-about-button" href="<?php the_field('about_us_button_url') ?>"><?php the_field('about_us_button_text'); ?></a>
+							</div>
+							<div class="moffitt-about-image">
+								<img src="<?php echo $about_image['url']; ?>">
+							</div>
+						</div>
+					</div>
+					<div class="moffitt-secondary-callout-wrapper">
+						
 				</div>
 				<?php
 					/* translators: %s: Name of current post */
