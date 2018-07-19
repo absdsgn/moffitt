@@ -15,7 +15,9 @@
 		the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
 	}
 	?>
-	<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentyseventeen' ) ); ?>" class="imprint">
-		<?php printf( __( 'Proudly powered by %s', 'twentyseventeen' ), 'WordPress' ); ?>
-	</a>
+	<!-- <div class="moffitt-footer-contact-bar-wrapper">
+		<div class="moffitt-footer-contact-bar">
+			<p>GET IN TOUCH WITH US TODAY AT <a href="tel:1-828-651-8550">(828) 651-8550</a></p>
+		</div>
+	</div> -->
 </div><!-- .site-info -->

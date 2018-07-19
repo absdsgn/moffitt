@@ -15,7 +15,11 @@
 ?>
 
 		</div><!-- #content -->
-
+		<div class="moffitt-footer-contact-bar-wrapper">
+			<div class="moffitt-footer-contact-bar">
+				<p>GET IN TOUCH WITH US TODAY AT <a href="tel:1-828-651-8550">(828) 651-8550</a></p>
+			</div>
+		</div>
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="wrap">
 				<?php
