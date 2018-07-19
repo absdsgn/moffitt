@@ -35,6 +35,9 @@
 			<?php
 				$featured_image = get_field('featured_article_image');
 				$about_image = get_field('about_us_image');
+				$callout1_image = get_field('secondary_callout_1_image');
+				$callout2_image = get_field('secondary_callout_2_image');
+				$callout3_image = get_field('secondary_callout_3_image');
 			?>
 			<div class="moffitt-entry-content">
 				<div class="moffitt-featured-article">
@@ -87,9 +90,66 @@
 							</div>
 						</div>
 					</div>
+					<div class="moffitt-secondary-intro">
+						<h3 style="text-align: center;">
+							<?php the_field('secondary_callout_title'); ?>
+						</h3>
+						<p>
+							<?php the_field('secondary_callout_introduction'); ?>
+						</p>
+					</div>
 					<div class="moffitt-secondary-callout-wrapper">
-						
-				</div>
+						<!-- First Secondary Callout -->
+						<div class="moffitt-secondary-callout">
+							<img src="<?php echo $callout1_image['url']; ?>">
+							<h3>
+								<?php the_field('secondary_callout_1_title'); ?>
+							</h3>
+							<p>
+								<?php the_field('secondary_callout_1_introduction'); ?>
+							</p>
+							<div class="moffitt-secondary-callout-button">
+								<a class="moffitt-body-button" href="<?php the_field('secondary_callout_1_button_url') ?>"><?php the_field('secondary_callout_1_button_text'); ?></a>
+							</div>
+						</div>
+						<!-- Second Secondary Callout -->
+						<div class="moffitt-secondary-callout">
+							<img src="<?php echo $callout2_image['url']; ?>">
+							<h3>
+								<?php the_field('secondary_callout_2_title'); ?>
+							</h3>
+							<p>
+								<?php the_field('secondary_callout_2_introduction'); ?>
+							</p>
+							<div class="moffitt-secondary-callout-button">
+								<a class="moffitt-body-button" href="<?php the_field('secondary_callout_2_button_url') ?>"><?php the_field('secondary_callout_2_button_text'); ?></a>
+							</div>
+						</div>
+						<!-- Third Secondary Callout -->
+						<div class="moffitt-secondary-callout">
+							<img src="<?php echo $callout3_image['url']; ?>">
+							<h3>
+								<?php the_field('secondary_callout_3_title'); ?>
+							</h3>
+							<p>
+								<?php the_field('secondary_callout_3_introduction'); ?>
+							</p>
+							<div class="moffitt-secondary-callout-button">
+								<a class="moffitt-body-button" href="<?php the_field('secondary_callout_3_button_url') ?>"><?php the_field('secondary_callout_3_button_text'); ?></a>
+							</div>
+						</div>
+					</div>
+					<div class="moffitt-home-contact">
+						<div id="moffitt-contact" class="moffitt-secondary-intro" style="padding-top: 0;">
+							<h3 style="text-align: center;">
+								<?php the_field('contact_form_title'); ?>
+							</h3>
+							<p>
+								<?php the_field('contact_form_introduction'); ?>
+							</p>
+						</div>
+						<?php echo do_shortcode("[ninja_form id=1]"); ?>
+					</div>
 				<?php
 					/* translators: %s: Name of current post */
 					// the_content( sprintf(
