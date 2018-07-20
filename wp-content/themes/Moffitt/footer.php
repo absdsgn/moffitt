@@ -20,9 +20,39 @@
 				<p>GET IN TOUCH WITH US TODAY AT <a href="tel:1-828-651-8550">(828) 651-8550</a></p>
 			</div>
 		</div>
-		<footer id="colophon" class="site-footer" role="contentinfo">
-			<div class="wrap">
-				<?php
+		<footer id="colophon" class="moffitt-site-footer" role="contentinfo">
+			<div class="moffitt-footer-wrapper">
+				<div class="moffitt-footer-content">
+					<p>STAY CONNECTED</p>
+					<p>Get the latest news, insights, and opportunities.</p>
+					<a href="http://linkedin.com/" class="moffitt-footer-link">Follow us on LinkedIn</a>
+				</div>
+				<div class="moffitt-footer-content">
+					<p>NAVIGATION</p>
+					<a href="#" class="moffitt-footer-link">Home</a>
+					<a href="#" class="moffitt-footer-link">About Us</a>
+					<a href="#" class="moffitt-footer-link">Services</a>
+					<a href="#" class="moffitt-footer-link">Our Clients</a>
+					<a href="#" class="moffitt-footer-link">Candidates</a>
+					<a href="#" class="moffitt-footer-link">Contact Us</a>
+					<a href="#" class="moffitt-footer-link">Privacy Policy</a>
+				</div>
+				<div class="moffitt-footer-content">
+					<p>CONTACT</p>
+					<a class="moffitt-footer-link" href="tel:1-828-651-8550">(828) 651-8550</a>
+					<a href="mailto:info@emoffitt.com" class="moffitt-footer-link">info@emoffitt.com</a>
+					<br><br>
+					<p>Moffitt Intl, Inc.</p>
+					<p>3182 Sweeten Creek Rd.</p>
+					<p>Asheville, NC 28803</p>
+				</div>
+			</div>
+			<div class="moffitt-footer-bottom">
+				<div class="moffitt-footer-copyright">
+					<p>&copy <?php echo date("Y");?> Moffitt International, Inc. All Rights Reserved.</p>
+				</div>
+			</div>
+				<?php /*
 				get_template_part( 'template-parts/footer/footer', 'widgets' );
 
 				if ( has_nav_menu( 'social' ) ) : ?>
@@ -40,7 +70,7 @@
 				<?php endif;
 
 				get_template_part( 'template-parts/footer/site', 'info' );
-				?>
+				*/ ?>
 			</div><!-- .wrap -->
 		</footer><!-- #colophon -->
 	</div><!-- .site-content-contain -->

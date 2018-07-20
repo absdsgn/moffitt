@@ -1323,13 +1323,15 @@ a:hover .nav-title,
 }
 
 .navigation-top .wrap {
-	max-width: 1000px;
+
 	padding: 0;
 }
 
 .navigation-top a {
-	color: #222;
-	font-weight: 600;
+	font-size: .75rem;
+	letter-spacing: 1px;
+	color: #3d4252;
+	font-weight: 400;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
@@ -1395,6 +1397,32 @@ a:hover .nav-title,
 .main-navigation li li,
 .main-navigation li:last-child {
 	border: 0;
+}
+
+.main-navigation li:last-child a	{
+	font-weight: 400;
+	color: #de5b49;
+}
+
+.main-navigation li:last-child a:hover	{
+	opacity: .7;
+}
+
+.main-navigation li:last-child a:after {
+	content: "\f105";
+	font-family: "FontAwesome";
+	margin-left: .25rem;
+	display: inline-block;
+	font-weight: 900;
+	position: relative;
+	color: #de5b49;
+	font-size: inherit;
+	transition: all .2s ease-in-out;
+}
+
+.main-navigation li:last-child a:hover:after	{
+	opacity: .7;
+	transform: translateX(6px);
 }
 
 .main-navigation a {
@@ -1630,7 +1658,7 @@ body.has-header-video .site-description {
 
 body.home.title-tagline-hidden.has-header-image .custom-logo-link img,
 body.home.title-tagline-hidden.has-header-video .custom-logo-link img {
-	max-height: 200px;
+	max-height: 38px;
 	max-width: 100%;
 }
 
@@ -3231,7 +3259,7 @@ p > object:only-child {
 	}
 
 	h1 {
-		font-size: 3.5rem;
+		font-size: 2.5rem;
 	}
 
 	h2,
@@ -3367,7 +3395,7 @@ p > object:only-child {
 	/* Layout */
 
 	.wrap {
-		max-width: 1000px;
+		max-width: 1100px;
 		padding-left: 3em;
 		padding-right: 3em;
 	}
@@ -3444,7 +3472,7 @@ p > object:only-child {
 	.custom-logo-link img,
 	body.home.title-tagline-hidden.has-header-image .custom-logo-link img,
 	body.home.title-tagline-hidden.has-header-video .custom-logo-link img {
-		max-width: 350px;
+		max-width: 300px;
 	}
 
 	.title-tagline-hidden.home.has-header-image .custom-logo-link img,
@@ -3476,7 +3504,7 @@ p > object:only-child {
 	}
 
 	.navigation-top .wrap {
-		max-width: 1000px;
+		max-width: 1100px;
 		/* The font size is 14px here and we need 50px padding in ems */
 		padding: 0.75em 3.4166666666667em;
 	}
@@ -3542,6 +3570,11 @@ p > object:only-child {
 
 	.main-navigation a {
 		padding: 1em 1.25em;
+		text-transform: uppercase;
+	}
+
+	.nav-logo-wrapper a	{
+		padding: .25rem!important;
 	}
 
 	.main-navigation ul ul {
@@ -3745,7 +3778,7 @@ p > object:only-child {
 	}
 
 	.panel-content .wrap {
-		padding: 4rem 0;
+		padding: 4rem 0 0 0;
 	}
 
 	.panel-image {
@@ -4333,7 +4366,7 @@ p > object:only-child {
 	position: absolute;
 	z-index: 50;
 	right: 10%;
-	bottom: 30%;
+	bottom: 40%;
 	/* transform: translate(0,-50%); */
 	text-align: right;
 	width: 40%;
@@ -4347,7 +4380,7 @@ p > object:only-child {
 .header-cta h2	{
 	color: #fff;
 	padding: 0 0 2rem 20%;
-	font-size: 1.25rem;
+	font-size: 1rem;
 }
 
 .header-cta-button	{
@@ -4356,7 +4389,7 @@ p > object:only-child {
 	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font-size: 1.25rem;
+	font-size: 1rem;
 	transition: all .25s ease-in-out;
 	letter-spacing: .25rem;
 }
@@ -4366,6 +4399,7 @@ p > object:only-child {
 	color: #de5b49;
 	background: #fff;
 }
+
 
 .moffitt-entry-content	{
 	width: 100%;
@@ -4381,7 +4415,7 @@ p > object:only-child {
 }
 
 .moffitt-featured-article-image	{
-	width: 70%;
+	width: 50%;
 	padding-right: 2rem;
 	height: auto;
 	box-sizing: border-box;
@@ -4416,7 +4450,7 @@ p > object:only-child {
 }
 
 .moffitt-callout	{
-	padding: 2rem;
+	padding: 3rem;
 	box-sizing: border-box;
 	box-shadow: 3px 3px rgba(0, 0, 0, .5);
 	display: flex;
@@ -4502,6 +4536,7 @@ p > object:only-child {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0 2rem;
 }
 
 .moffitt-about-content	{
@@ -4548,11 +4583,19 @@ p > object:only-child {
 }
 
 .moffitt-secondary-callout	{
-	width: 30%;
+	width: 32%;
 	box-sizing: border-box;
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
+}
+
+.moffitt-callout-image-square	{
+	background-position: center center!important;
+	background-size: cover!important;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 200px;
 }
 
 .moffitt-secondary-callout p {
@@ -4572,7 +4615,7 @@ p > object:only-child {
 .moffitt-home-contact	{
 	position: relative;
 	width: 100vw;
-	background: #fff;
+	background: #f7f7f7;
 	margin-left: -50vw;
 	left: 50%;
 	padding: 5rem 0;
@@ -4581,7 +4624,7 @@ p > object:only-child {
 .moffitt-home-contact .nf-form-cont	{
 	max-width: 1100px;
 	margin: 0 auto;
-	background: #f9f9f9;
+	background: #fff;
 	padding: 5rem;
 	box-shadow: 3px 3px rgba(0, 0, 0, .25);
 }
@@ -4659,4 +4702,68 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 	font-weight: 400;
 	letter-spacing: 2px;
 	margin: 0;
+}
+
+.moffitt-site-footer	{
+	background: #616a7f;
+}
+
+.moffitt-footer-wrapper	{
+	display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1rem 5rem 1rem;
+}
+
+.moffitt-footer-content:first-child	{
+	width: 50%;
+}
+
+.moffitt-footer-content:nth-child(n+2) {
+	width: 25%;
+}
+
+.moffitt-footer-content p {
+	color: rgba(255, 255, 255, .4);
+	display: block;
+	margin: 0;
+	font-size: .9rem;
+}
+
+.moffitt-footer-content p:first-child {
+	color: #fff;
+	font-weight: 600;
+	letter-spacing: 2px;
+	font-size: .9rem;
+	margin-bottom: 1rem;
+}
+
+.moffitt-footer-link	{
+	color: rgba(255, 255, 255, .7);
+	font-size: .9rem;
+	display: block;
+	margin-top: .25rem;
+}
+
+.moffitt-footer-content:first-child .moffitt-footer-link	{
+	margin-top: 1rem;
+}
+
+.moffitt-footer-bottom	{
+	background: #3d4252;
+	padding: 1rem 0;
+}
+
+.moffitt-footer-copyright	{
+	max-width: 1100px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 0 1rem;
+}
+
+.moffitt-footer-copyright p {
+	color: rgba(255, 255, 255, .15);
+	margin: 0;
+	font-size: .8rem;
 }

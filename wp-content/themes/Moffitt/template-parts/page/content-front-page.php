@@ -101,7 +101,7 @@
 					<div class="moffitt-secondary-callout-wrapper">
 						<!-- First Secondary Callout -->
 						<div class="moffitt-secondary-callout">
-							<img src="<?php echo $callout1_image['url']; ?>">
+							<div class="moffitt-callout-image-square" style="background: url(<?php echo $callout1_image['url']; ?>);"></div>
 							<h3>
 								<?php the_field('secondary_callout_1_title'); ?>
 							</h3>
@@ -114,7 +114,7 @@
 						</div>
 						<!-- Second Secondary Callout -->
 						<div class="moffitt-secondary-callout">
-							<img src="<?php echo $callout2_image['url']; ?>">
+							<div class="moffitt-callout-image-square" style="background: url(<?php echo $callout2_image['url']; ?>);"></div>
 							<h3>
 								<?php the_field('secondary_callout_2_title'); ?>
 							</h3>
@@ -127,7 +127,7 @@
 						</div>
 						<!-- Third Secondary Callout -->
 						<div class="moffitt-secondary-callout">
-							<img src="<?php echo $callout3_image['url']; ?>">
+							<div class="moffitt-callout-image-square" style="background: url(<?php echo $callout3_image['url']; ?>);"></div>
 							<h3>
 								<?php the_field('secondary_callout_3_title'); ?>
 							</h3>
