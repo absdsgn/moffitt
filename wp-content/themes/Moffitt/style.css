@@ -3396,8 +3396,8 @@ p > object:only-child {
 
 	.wrap {
 		max-width: 1100px;
-		padding-left: 3em;
-		padding-right: 3em;
+		padding-left: 2em;
+		padding-right: 2em;
 	}
 
 	.has-sidebar:not(.error404) #primary {
@@ -4766,4 +4766,52 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 	color: rgba(255, 255, 255, .15);
 	margin: 0;
 	font-size: .8rem;
+}
+
+
+.moffitt-site-content	{
+	padding: 0;
+	margin: 0 auto;
+}
+
+.moffitt-entry-header-background	{
+	position: relative;
+	background-color: #445faa;
+	width: 100vw;
+	margin-left: -50vw;
+	left: 50%;
+	position: relative;
+}
+
+.moffitt-entry-header-wrapper	{
+	margin: 0 auto;
+	max-width: 1100px;
+	padding: 4rem 2rem 2rem 2rem;
+	box-sizing: border-box;
+}
+
+.moffitt-entry-header	{
+	text-align: left;
+	width: 55%;
+	margin: 0;
+	/* max-width: 600px; */
+}
+
+.moffitt-entry-title	{
+	color: #fff;
+	font-size: 2rem;
+	margin-bottom: .5rem;
+}
+
+.moffitt-entry-subtitle	{
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+	color: #ccc;
+}
+
+.moffitt-entry-content	{
+	width: 100%;
+	margin: 0 auto;
+	padding: 3rem 0;
 }
