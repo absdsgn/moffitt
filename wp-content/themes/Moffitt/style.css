@@ -4815,7 +4815,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 .moffitt-entry-content	{
 	width: 100%;
 	margin: 0 auto;
-	padding: 3rem 0;
+	padding: 3rem 0 0 0;
 }
 
 .moffitt-team-wrapper {
