@@ -4683,6 +4683,16 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 	opacity: .7;
 }
 
+.nf-error .ninja-forms-field{
+	border: none!important;
+	border-bottom: 2px solid rgba(0, 0, 0, .2)!important;
+}
+
+.nf-error-msg, .ninja-forms-req-symbol {
+	font-size: .6rem;
+	opacity: .5;
+}
+
 .moffitt-footer-contact-bar-wrapper	{
 	background-color: #de5b49;
 	width: 100vw;
@@ -4815,7 +4825,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 .moffitt-entry-content	{
 	width: 100%;
 	margin: 0 auto;
-	padding: 3rem 0 0 0;
+	padding: 3rem 0;
 }
 
 .moffitt-team-wrapper {
@@ -4943,4 +4953,70 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 	color: #de5b49;
 	font-size: inherit;
 	transition: all .2s ease-in-out;
+}
+
+.moffitt-testimonial {
+	width: 100%;
+	margin: 2rem auto;
+	padding: 4rem;
+	background-color: #f7f7f7;
+	box-shadow: 2px 2px rgba(0, 0, 0, .1);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.moffitt-testimonial h3	{
+	margin: 0;
+}
+
+.moffitt-testimonial h5	{
+	padding: 0;
+	margin: 0 0 2rem 0;
+}
+
+.moffitt-testimonial p:before	{
+	content: "\f10d";
+	font-family: "Font Awesome 5 Free";
+	margin-right: 1rem;
+	display: inline-block;
+	font-weight: 900;
+	position: relative;
+	color: #de5b49;
+	font-size: 1.5em;
+	vertical-align: bottom;
+}
+
+.moffitt-testimonial p:after	{
+	content: "\f10e";
+	font-family: "Font Awesome 5 Free";
+	margin-left: 1rem;
+	display: inline-block;
+	font-weight: 900;
+	position: relative;
+	color: #de5b49;
+	font-size: 1.5em;
+	vertical-align: top;
+}
+
+.moffitt-clients-wrapper	{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 3rem auto;
+	padding: 0;
+	justify-content: space-between;
+}
+
+.moffitt-clients-item	{
+	width: 49%;
+	padding: .5rem 1rem;
+	box-sizing: border-box;
+	margin: .5rem 0;
+	background-color: #f7f7f7;
+	box-shadow: 2px 2px rgba(0, 0, 0, .1);
+}
+
+.moffitt-clients-item h4	{
+	margin: .25rem 0;
 }
