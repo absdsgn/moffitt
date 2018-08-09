@@ -58,10 +58,10 @@
 	function adjustScrollClass() {
 
 		// Make sure we're not on a mobile screen.
-		if ( 'none' === $menuToggle.css( 'display' ) ) {
+		// if ( 'none' === $menuToggle.css( 'display' ) ) {
 
 			// Make sure the nav isn't taller than two rows.
-			if ( navIsNotTooTall ) {
+			// if ( navIsNotTooTall ) {
 
 				// When there's a custom header image or video, the header offset includes the height of the navigation.
 				if ( isFrontPage && ( $body.hasClass( 'has-header-image' ) || $body.hasClass( 'has-header-video' ) ) ) {
@@ -77,12 +77,12 @@
 					$navigation.removeClass( navigationFixedClass );
 				}
 
-			} else {
-
-				// Remove 'fixed' class if nav is taller than two rows.
-				$navigation.removeClass( navigationFixedClass );
-			}
-		}
+			// } else {
+			//
+			// 	// Remove 'fixed' class if nav is taller than two rows.
+			// 	$navigation.removeClass( navigationFixedClass );
+			// }
+		// }
 	}
 
 	// Set margins of branding in header.
