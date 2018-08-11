@@ -17,8 +17,28 @@
 		</div><!-- #content -->
 		<div class="moffitt-footer-contact-bar-wrapper">
 			<div class="moffitt-footer-contact-bar">
-				<p>GET IN TOUCH WITH US TODAY AT <a href="tel:1-828-651-8550">(828) 651-8550</a></p>
+				<p id="footer-contact-bar">GET IN TOUCH WITH US TODAY AT <a href="tel:1-828-651-8550">(828) 651-8550</a></p>
 			</div>
+			<script type="text/javascript">
+				if (jQuery(window).width() < 440) {
+					if (jQuery('body').hasClass("home")) {
+						jQuery('.moffitt-entry-content').attr('style', 'padding: 0;');
+					} else {
+					};
+				} else {
+				};
+			</script>
+			<script type="text/javascript">
+				function FooterContactBar() {
+					if (jQuery(window).width() < 600) {
+						jQuery('#footer-contact-bar').html("<p>CALL US <a href='tel:1-828-651-8550'>(828) 651-8550</a></p>");
+					} else {
+						jQuery('#footer-contact-bar').html("<p>GET IN TOUCH WITH US TODAY AT <a href='tel:1-828-651-8550'>(828) 651-8550</a></p>");
+					};
+				};
+				jQuery(FooterContactBar());
+				jQuery(window).on('resize', FooterContactBar);
+			</script>
 		</div>
 		<footer id="colophon" class="moffitt-site-footer" role="contentinfo">
 			<div class="moffitt-footer-wrapper">
