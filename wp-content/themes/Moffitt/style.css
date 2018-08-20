@@ -5252,8 +5252,12 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		width: 100%;
 		padding: 0;
 		padding-bottom: 1rem;
-		height: auto;
+		height: 100%;
 		box-sizing: border-box;
+	}
+
+	.moffitt-featured-article-content	{
+		max-width: 100%;
 	}
 
 	.moffitt-featured-article-content h3	{
