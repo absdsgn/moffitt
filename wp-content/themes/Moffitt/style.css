@@ -1470,6 +1470,8 @@ a:hover .nav-title,
   width: 100%;
   text-align: center;
 	right: 0;
+	top: 50%;
+	transform: translate(0,-50%);
 }
 
 .main-navigation.toggled-on ul.nav-menu {
@@ -5209,6 +5211,15 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		top: 0;
 		width: 100%;
 		z-index: 999;
+	}
+
+	.menu-main-container	{
+	  position: absolute;
+	  width: 100%;
+	  text-align: center;
+		right: 0;
+		top: 55px;
+		transform: translate(0,0);
 	}
 
 	.admin-bar .site-navigation-fixed.navigation-top {
