@@ -4470,6 +4470,7 @@ p > object:only-child {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	width: 50%;
 }
 
 .moffitt-callout:first-child	{
@@ -5279,6 +5280,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		flex-direction: column;
 		position: relative;
 		margin: 1rem 0;
+		width: 100%;
 	}
 
 	.moffitt-callout:first-child	{
