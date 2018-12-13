@@ -2562,11 +2562,28 @@ body:not(.twentyseventeen-front-page) .entry-header {
 --------------------------------------------------------------*/
 
 #secondary {
-	padding: 1em 0 2em;
+	float: none;
+	padding-top: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+	background: #f7f7f7;
+	padding: 1rem;
 }
 
 .widget {
+	width: 33%;
+	box-sizing: border-border-box;
 	padding-bottom: 3em;
+	padding: 1rem;
+}
+
+@media (max-width: 768px)	{
+	.widget	{
+		width: 100%;
+		padding: 1rem;
+	}
 }
 
 h2.widget-title {
@@ -2621,6 +2638,10 @@ h2.widget-title {
 }
 
 /* Widget lists of links */
+
+.widget_meta	{
+	display: none;
+}
 
 .widget_top-posts ul li ul,
 .widget_rss_links ul li ul,
@@ -2763,6 +2784,10 @@ h2.widget-title {
 
 /* Recent Comments */
 
+.widget_recent_comments {
+	display: none;
+}
+
 .widget_recent_comments table,
 .widget_recent_comments th,
 .widget_recent_comments td {
@@ -2787,6 +2812,7 @@ h2.widget-title {
 	position: absolute;
 	right: 3px;
 	top: 3px;
+	background: #445faa;
 }
 
 .search-form .search-submit .icon {
@@ -3417,14 +3443,19 @@ p > object:only-child {
 	}
 
 	.has-sidebar:not(.error404) #primary {
-		float: left;
-		width: 58%;
+		float: none;
+		width: 100%;
 	}
 
 	.has-sidebar #secondary {
-		float: right;
+		float: none;
 		padding-top: 0;
-		width: 36%;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 2rem;
+		background: #f7f7f7;
 	}
 
 	.error404 #primary {
@@ -4676,6 +4707,10 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 	border-bottom: 2px solid rgba(0, 0, 0, .2);
 	color: rgba(0, 0, 0, .4);
 	background-color: rgab(255, 255, 255, 0);
+}
+
+input[type="search"]	{
+	border-bottom: none;
 }
 
 #nf-field-4-wrap .nf-field-element	{

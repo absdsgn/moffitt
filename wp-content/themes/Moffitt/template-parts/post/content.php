@@ -13,11 +13,18 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-	if ( is_sticky() && is_home() ) :
-		echo twentyseventeen_get_svg( array( 'icon' => 'thumb-tack' ) );
-	endif;
-	?>
+	<div class="moffitt-entry-header-background">
+		<div class="moffitt-entry-header-wrapper">
+			<header class="moffitt-entry-header">
+				<?php single_post_title( '<h1 class="moffitt-entry-title">', '</h1>' ); ?>
+				<h2 class="moffitt-entry-subtitle">
+					<?php the_field('subtitle', get_option('page_for_posts')); ?>
+				</h2>
+				<?php /* twentyseventeen_edit_link( get_the_ID() ); */ ?>
+			</header><!-- .entry-header -->
+		</div>
+	</div>
+	<div class="moffitt-entry-content">
 	<header class="entry-header">
 		<?php
 		if ( 'post' === get_post_type() ) {
