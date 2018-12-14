@@ -2137,7 +2137,10 @@ body:not(.twentyseventeen-front-page) .entry-header {
 
 .single-featured-image-header {
 	background-color: #fafafa;
-	border-bottom: 1px solid #eee;
+	background-position: center center;
+	background-size: cover;
+	height: 170px;
+
 }
 
 .single-featured-image-header img {
@@ -2563,20 +2566,26 @@ body:not(.twentyseventeen-front-page) .entry-header {
 
 #secondary {
 	float: none;
-	padding-top: 0;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 2rem;
-	background: #f7f7f7;
-	padding: 1rem;
+	/* background: #f7f7f7; */
+	padding: 1rem 0 3rem 0;
 }
 
 .widget {
-	width: 33%;
+	width: 50%;
 	box-sizing: border-border-box;
-	padding-bottom: 3em;
-	padding: 1rem;
+	padding: 3rem;
+}
+
+.widget_search {
+	width: 60%;
+	margin: 0 auto;
+	margin-bottom: 2rem;
+	padding: 2rem 3rem;
+	background: #f7f7f7;
 }
 
 @media (max-width: 768px)	{
@@ -3449,13 +3458,16 @@ p > object:only-child {
 
 	.has-sidebar #secondary {
 		float: none;
-		padding-top: 0;
 		width: 100%;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		margin-bottom: 2rem;
-		background: #f7f7f7;
+		/* background: #f7f7f7; */
+		flex-wrap: wrap;
+		padding: 1rem;
+		padding-bottom: 3rem;
+		box-sizing: border-box;
 	}
 
 	.error404 #primary {
@@ -4470,7 +4482,7 @@ p > object:only-child {
 	font-family: IM Fell French Canon, serif;
 }
 
-.moffitt-body-button	{
+.moffitt-body-button,  .more-link	{
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -4478,7 +4490,7 @@ p > object:only-child {
 	transition: all .2s ease-in-out;
 }
 
-.moffitt-body-button:hover	{
+.moffitt-body-button:hover,  .more-link:hover	{
 	opacity: .7;
 	border-bottom: 2px solid currentColor;
 }
@@ -4631,7 +4643,7 @@ p > object:only-child {
 }
 
 .moffitt-secondary-callout	{
-	width: 32%;
+	width: 33%;
 	box-sizing: border-box;
 	padding: 1rem;
 	display: flex;
@@ -4650,13 +4662,13 @@ p > object:only-child {
 	flex-grow: 1;
 }
 
-.moffitt-secondary-callout	.moffitt-body-button	{
+.moffitt-secondary-callout	.moffitt-body-button,  .more-link	{
 	justify-content: flex-end;
 	color: #445faa;
 	border-bottom: 2px solid #6d7888;
 }
 
-.moffitt-secondary-callout	.moffitt-body-button:hover	{
+.moffitt-secondary-callout	.moffitt-body-button:hover,  .more-link:hover	{
 	border-bottom: 2px solid #445faa;
 }
 
@@ -4864,6 +4876,12 @@ input[type="search"]	{
 	/* max-width: 600px; */
 }
 
+.moffitt-post-entry-header	{
+	width: 100%;
+	text-align: left;
+	margin: 0;
+}
+
 .moffitt-entry-title	{
 	color: #fff;
 	font-size: 2rem;
@@ -4882,6 +4900,24 @@ input[type="search"]	{
 	margin: 0 auto;
 	padding: 0;
 	padding-top: 2rem;
+}
+
+.moffitt-post-wrapper	{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding: 0;
+	padding-top: 2rem;
+}
+
+.moffitt-entry-content-post	{
+	width: 33%;
+	box-sizing: border-box;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
 }
 
 .moffitt-team-wrapper {
@@ -5453,13 +5489,13 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		flex-grow: 1;
 	}
 
-	.moffitt-secondary-callout	.moffitt-body-button	{
+	.moffitt-secondary-callout	.moffitt-body-button, .more-link	{
 		justify-content: flex-end;
 		color: #445faa;
 		border-bottom: 2px solid #6d7888;
 	}
 
-	.moffitt-secondary-callout	.moffitt-body-button:hover	{
+	.moffitt-secondary-callout	.moffitt-body-button:hover, .more-link:hover	{
 		border-bottom: 2px solid #445faa;
 	}
 
@@ -5614,6 +5650,10 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		margin: 0 auto;
 		padding: 0;
 		padding-top: 0;
+	}
+
+	.moffitt-post-wrapper	{
+		padding: 2rem;
 	}
 
 	.moffitt-featured-article-content	{

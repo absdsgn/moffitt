@@ -27,6 +27,19 @@ get_header(); ?>
 	<div class="wrap">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<div class="moffitt-entry-header-background" style="background-color: <?php the_field('header_background_color', get_option('page_for_posts')); ?>;">
+						<div class="moffitt-entry-header-wrapper">
+							<header class="moffitt-entry-header">
+								<?php single_post_title( '<h1 class="moffitt-entry-title">', '</h1>' ); ?>
+								<h2 class="moffitt-entry-subtitle">
+									<?php the_field('subtitle', get_option('page_for_posts')); ?>
+								</h2>
+								<?php /* twentyseventeen_edit_link( get_the_ID() ); */ ?>
+							</header><!-- .entry-header -->
+						</div>
+					</div>
+					<div class="moffitt-post-wrapper">
 
 			<?php
 			if ( have_posts() ) :
@@ -55,7 +68,8 @@ get_header(); ?>
 
 			endif;
 			?>
-
+		</div> <!-- #post wrapper -->
+		</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	<?php get_sidebar(); ?>
