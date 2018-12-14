@@ -3462,12 +3462,12 @@ p > object:only-child {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		margin-bottom: 2rem;
+		margin: 2rem auto;
 		/* background: #f7f7f7; */
 		flex-wrap: wrap;
-		padding: 1rem;
-		padding-bottom: 3rem;
+		padding: 3rem 1rem;
 		box-sizing: border-box;
+		border-top: 1px solid #f7f7f7;
 	}
 
 	.error404 #primary {
@@ -3630,6 +3630,10 @@ p > object:only-child {
 	.main-navigation a {
 		padding: 1em 1.25em;
 		text-transform: uppercase;
+	}
+
+	.nav-logo-wrapper {
+		z-index: 999;
 	}
 
 	.nav-logo-wrapper a	{
@@ -4851,6 +4855,7 @@ input[type="search"]	{
 	margin: 0 auto;
 	position: relative;
 	z-index: 100;
+	min-height: calc(100vh - 400px);
 }
 
 .moffitt-entry-header-background	{
@@ -5309,6 +5314,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		margin: 0 auto;
 		position: relative;
 		z-index: 100;
+		min-height: calc(100vh - 400px);
 	}
 
 	.moffitt-featured-article	{
@@ -5643,6 +5649,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		margin: 0 auto;
 		position: relative;
 		z-index: 100;
+		min-height: calc(100vh - 400px);
 	}
 
 	.moffitt-entry-content	{

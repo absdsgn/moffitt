@@ -14,10 +14,10 @@
 
 
 <?php
-	if ( is_home() )	{ ?>
-		<div class="moffitt-secondary-callout">
-	<?php } else { ?>
+	if ( is_single() )	{ ?>
 		<div class="moffitt-post-wrapper">
+	<?php } else { ?>
+		<div class="moffitt-secondary-callout">
 <?php	}; ?>
 		<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
 			<div class="post-thumbnail">
@@ -50,15 +50,15 @@
 
 		<div class="entry-content">
 			<?php
-			if ( is_home() ) {
+			if ( is_single() ) {
 			/* translators: %s: Name of current post */
-			the_excerpt( sprintf(
+			the_content( sprintf(
 				__( 'Read More<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
 				get_the_title()
 			) );
 		} else {
 			/* translators: %s: Name of current post */
-			the_content( sprintf(
+			the_excerpt( sprintf(
 				__( 'Read More<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
 				get_the_title()
 			) );		}
