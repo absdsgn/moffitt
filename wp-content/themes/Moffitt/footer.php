@@ -98,4 +98,61 @@
 <?php wp_footer(); ?>
 
 </body>
+
+<script type="text/javascript">
+// Team Bio Modal
+
+// On click of bio link
+$('.moffitt-team-bio').on('click', function(moffittModal) {
+
+	moffittModal.preventDefault();
+
+	// Get window height, header height, and scroll position
+	var mWindowHeight = $(window).height();
+	var mHeaderHeight = $('.navigation-top').outerHeight();
+	var mScrollPosition = $(document).scrollTop();
+	var mModalOffset = (mHeaderHeight + mScrollPosition);
+
+	// Set modal as variable
+	var mModalWrapper = $(this).closest('.moffitt-team-item').find('.moffitt-team-modal-wrapper');
+	var mModalOverlay = $(this).closest('.moffitt-team-item').find('.moffitt-team-modal-overlay');
+
+	// Add margin-top of scroll position to modal wrapper
+	$(mModalWrapper).css('margin-top', mModalOffset);
+
+	$(mModalWrapper).show(300);
+	$(mModalOverlay).fadeIn(150);
+
+});
+
+// Define function modalClose
+
+function modalClose() {
+	// Hide overlay and modal
+	$('.moffitt-team-modal-overlay').fadeOut(300);
+	$('.moffitt-team-modal-wrapper').hide(150);
+}
+
+// On click of overlay
+$('.moffitt-team-modal-overlay').on('click', function(moffittModalo) {
+	moffittModalo.preventDefault();
+	modalClose();
+});
+
+// On click of close
+$('.moffitt-team-modal-close').on('click', function(moffittModalx) {
+	moffittModalx.preventDefault();
+	modalClose();
+});
+
+$('.moffitt-team-modal-print').on('click', function(moffittModalp) {
+
+	moffittModalp.preventDefault();
+	var mModalPrint = $(this).closest('.moffitt-team-item').find('.moffitt-team-modal-content');
+
+	$(mModalPrint).printElement({printMode:'popup'});
+});
+
+</script>
+
 </html>
