@@ -120,7 +120,7 @@ $('.moffitt-team-bio').on('click', function(moffittModal) {
 	// Add margin-top of scroll position to modal wrapper
 	$(mModalWrapper).css('margin-top', mModalOffset);
 
-	$(mModalWrapper).show(300);
+	$(mModalWrapper).fadeIn(300);
 	$(mModalOverlay).fadeIn(150);
 
 });
@@ -130,7 +130,7 @@ $('.moffitt-team-bio').on('click', function(moffittModal) {
 function modalClose() {
 	// Hide overlay and modal
 	$('.moffitt-team-modal-overlay').fadeOut(300);
-	$('.moffitt-team-modal-wrapper').hide(150);
+	$('.moffitt-team-modal-wrapper').fadeOut(150);
 }
 
 // On click of overlay

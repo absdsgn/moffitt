@@ -5034,8 +5034,8 @@ input[type="search"]	{
 	font-weight: 900;
 	position: absolute;
 	z-index: 1000;
-	bottom: 1rem;
-	right: 1rem;
+	top: 1rem;
+	right: 3rem;
 	opacity: .6;
 	transition: all .2s ease-in-out;
 }
@@ -5058,10 +5058,12 @@ input[type="search"]	{
 .moffitt-team-modal-content h5	{
 	font-weight: 500;
 	letter-spacing: 0;
+	padding-bottom: 1rem;
 }
 
 .moffitt-team-modal-content h6 {
-	padding: 1rem 0;
+	padding: 0;
+	padding-bottom: 1rem;
 }
 
 .moffitt-history	{
@@ -5571,6 +5573,16 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.moffitt-team-item	{
 		width: 50%;
+	}
+
+	.moffitt-team-modal-wrapper	{
+		width: 100%;
+		padding: 1rem;
+		box-sizing: border-box;
+	}
+
+	.moffitt-team-modal-content	{
+		padding: 3rem 1rem;
 	}
 
 	.moffitt-secondary-intro	{
