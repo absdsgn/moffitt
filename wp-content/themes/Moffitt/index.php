@@ -19,9 +19,7 @@ get_header(); ?>
 
 	<?php if ( is_home() && ! is_front_page() ) : ?>
 	<?php else : ?>
-	<header class="page-header">
-		<h2 class="page-title"><?php _e( 'Posts', 'twentyseventeen' ); ?></h2>
-	</header>
+
 	<?php endif; ?>
 
 	<div class="wrap">
@@ -31,7 +29,13 @@ get_header(); ?>
 					<div class="moffitt-entry-header-background" style="background-color: <?php the_field('header_background_color', get_option('page_for_posts')); ?>;">
 						<div class="moffitt-entry-header-wrapper">
 							<header class="moffitt-entry-header">
-								<?php single_post_title( '<h1 class="moffitt-entry-title">', '</h1>' ); ?>
+								<?php
+									if ( is_search() ) {
+										echo "<h1 class='moffitt-entry-title'>Search Results</h1>";
+									} else {
+										single_post_title( '<h1 class="moffitt-entry-title">', '</h1>' );
+									};
+								?>
 								<h2 class="moffitt-entry-subtitle">
 									<?php the_field('subtitle', get_option('page_for_posts')); ?>
 								</h2>

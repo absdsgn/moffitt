@@ -24,9 +24,9 @@
 
 		<?php else : ?>
 
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyseventeen' ); ?></p>
+			<p><?php _e( "Sorry, we couldn't find what you were looking for.", 'twentyseventeen' ); ?></p>
 			<?php
-				get_search_form();
+				// get_search_form();
 
 		endif; ?>
 	</div><!-- .page-content -->

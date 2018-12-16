@@ -1390,6 +1390,7 @@ a:hover .nav-title,
 	padding: 0.4em 0;
 	position: relative;
 	text-transform: none;
+	font-size: .8rem;
 }
 
 .main-navigation li {
@@ -1406,6 +1407,19 @@ a:hover .nav-title,
 .main-navigation li:last-child a	{
 	font-weight: 400;
 	color: #de5b49;
+}
+
+.main-navigation li li:last-child a	{
+	color: inherit;
+}
+
+.main-navigation li li:last-child a:after	{
+	content: '';
+}
+
+.main-navigation li li:last-child a:hover, .main-navigation li li a:hover	{
+	color: #de5b49;
+	opacity: .8;
 }
 
 .main-navigation li:last-child a:hover	{
@@ -3642,7 +3656,7 @@ p > object:only-child {
 
 	.main-navigation ul ul {
 		background: #fff;
-		border: 1px solid #bbb;
+		/* border: 1px solid #bbb; */
 		left: -999em;
 		padding: 0;
 		position: absolute;
@@ -3656,7 +3670,7 @@ p > object:only-child {
 	.main-navigation ul li.page_item_has_children:after {
 		border-style: solid;
 		border-width: 0 6px 6px;
-		content: "";
+		/* content: ""; */
 		display: none;
 		height: 0;
 		position: absolute;
@@ -3695,7 +3709,7 @@ p > object:only-child {
 	}
 
 	.main-navigation ul ul a {
-		padding: 0.75em 1.25em;
+		padding: 0.5rem .75rem;
 		width: 16em;
 	}
 
@@ -3706,7 +3720,7 @@ p > object:only-child {
 
 	.main-navigation li li:hover,
 	.main-navigation li li.focus {
-		background: #767676;
+		background: #fff;
 	}
 
 	.main-navigation li li a {
@@ -3723,7 +3737,7 @@ p > object:only-child {
 	.main-navigation li li.current-menu-item a:hover,
 	.main-navigation li li.current_page_item a:focus,
 	.main-navigation li li.current-menu-item a:focus {
-		color: #fff;
+		color: #de5b49;
 	}
 
 	.main-navigation ul li:hover > ul,
@@ -5402,6 +5416,19 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		z-index: 999;
 	}
 
+	.main-navigation .menu-item-has-children a {
+		padding-right: 1.5rem;
+	}
+
+	.main-navigation .menu-item-has-children ul {
+		padding: 0;
+		text-align: right;
+	}
+
+	.main-navigation .menu-item-has-children ul li a {
+		opacity: .65;
+	}
+
 	.menu-main-container	{
 	  position: absolute;
 	  width: 100%;
@@ -5696,6 +5723,15 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		box-sizing: border-box;
 		/* border-left: 1px solid rgba(255, 255, 255, .1); */
 	}
+
+	.custom-logo-link img {
+		display: inline-block;
+		max-height: 40px;
+		width: auto;
+		max-width: 250px;
+		padding: .5rem;
+	}
+
 }
 
 /*************************************** Mobile styling ***************************************/
