@@ -360,7 +360,7 @@ function twentyseventeen_excerpt_more( $link ) {
 	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
-		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ), get_the_title( get_the_ID() ) )
+		sprintf( __( 'Read More<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ), get_the_title( get_the_ID() ) )
 	);
 	return ' &hellip; ' . $link;
 }
@@ -450,6 +450,13 @@ function twentyseventeen_scripts() {
 	wp_enqueue_script( 'twentyseventeen-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
 
 	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
+
+	add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+ function my_jquery_enqueue() {
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", false, null);
+    wp_enqueue_script('jquery');
+ }
 
 	wp_localize_script( 'twentyseventeen-skip-link-focus-fix', 'twentyseventeenScreenReaderText', $twentyseventeen_l10n );
 
@@ -589,3 +596,18 @@ function custom_add_google_fonts() {
  wp_enqueue_style( 'custom-google-fonts', '<link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer|Open+Sans:400,700" rel="stylesheet">', false );
  }
  add_action( 'wp_enqueue_scripts', 'custom_add_google_fonts' );
+
+ // Add menu item for draft posts
+function add_staff_admin_menu_item() {
+  // $page_title, $menu_title, $capability, $menu_slug, $callback_function
+  add_posts_page(__('Staff'), __('Staff'), 'read', 'edit.php?tag=staff');
+}
+add_action('admin_menu', 'add_staff_admin_menu_item');
+
+// Exclude staff entries from blog
+function exclude_staff_tag( $excludeQuery ) {
+    if ( !is_admin() && !is_page('256') ) :
+        $excludeQuery->set( 'tag__not_in', array('6') );
+    endif;
+}
+add_action( 'pre_get_posts', 'exclude_staff_tag' );

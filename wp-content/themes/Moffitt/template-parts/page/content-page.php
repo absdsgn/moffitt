@@ -13,11 +13,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="moffitt-entry-header-background">
+	<div class="moffitt-entry-header-background" style="background-color: <?php the_field('header_background_color'); ?>;">
 		<div class="moffitt-entry-header-wrapper">
 			<header class="moffitt-entry-header">
-				<?php the_title( '<h1 class="moffitt-entry-title">', '</h1>' ); ?>
-				<h2 class="moffitt-entry-subtitle">
+				<h1 class="moffitt-entry-title" style="color: <?php the_field('title_color'); ?>;">
+					<?php the_title(); ?>
+				</h1>
+				<h2 class="moffitt-entry-subtitle" style="color: <?php the_field('subtitle_color'); ?>;">
 					<?php the_field('subtitle'); ?>
 				</h2>
 				<?php /* twentyseventeen_edit_link( get_the_ID() ); */ ?>
@@ -26,7 +28,20 @@
 	</div>
 	<div class="moffitt-entry-content">
 		<?php
+			if ( get_field('two_column') == 'yes' ) { ?>
+			<div class="moffitt-two-column-wrapper">
+				<div class="moffitt-two-column">
+					<?php the_field('column_1'); ?>
+				</div>
+				<div class="moffitt-two-column">
+					<?php the_field('column_2'); ?>
+				</div>
+
+		<?php } else {
+
 			the_content();
+
+		};
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),

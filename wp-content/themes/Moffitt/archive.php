@@ -15,16 +15,33 @@ get_header(); ?>
 <div class="wrap">
 
 	<?php if ( have_posts() ) : ?>
-		<header class="page-header">
-			<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="taxonomy-description">', '</div>' );
-			?>
-		</header><!-- .page-header -->
+		<div class="moffitt-entry-header-background" style="background-color: <?php the_field('header_background_color'); ?>;">
+			<div class="moffitt-entry-header-wrapper">
+				<header class="moffitt-entry-header">
+					<h1 class="moffitt-entry-title" style="color: <?php the_field('title_color'); ?>;">
+						<?php
+						if ( is_category() ) :
+							single_cat_title();
+						endif;
+						if ( is_author() ) :
+							$author_name = get_the_author_meta( 'display_name' );
+							echo 'Articles by ' .$author_name ;
+						endif;
+						?>
+					</h1>
+					<h2 class="moffitt-entry-subtitle" style="color: <?php the_field('subtitle_color'); ?>;">
+						<?php the_archive_description(); ?>
+					</h2>
+				</header><!-- .entry-header -->
+			</div>
+		</div>
+
 	<?php endif; ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+			<div class="moffitt-post-wrapper">
+
 
 		<?php
 		if ( have_posts() ) : ?>

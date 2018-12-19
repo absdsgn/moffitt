@@ -15,18 +15,19 @@ get_header(); ?>
 <div class="wrap">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'twentyseventeen' ); ?></h1>
-				</header><!-- .page-header -->
-				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentyseventeen' ); ?></p>
-
-					<?php get_search_form(); ?>
-
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+			<div class="moffitt-entry-header-background">
+				<div class="moffitt-entry-header-wrapper">
+					<header class="moffitt-entry-header">
+						<h1 class="moffitt-entry-title">
+							Our apologies
+						</h1>
+						<h2 class="moffitt-entry-subtitle">
+							That page couldn't be found. Please try again or contact us.
+						</h2>
+						<?php /* twentyseventeen_edit_link( get_the_ID() ); */ ?>
+					</header><!-- .entry-header -->
+				</div>
+			</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div><!-- .wrap -->
