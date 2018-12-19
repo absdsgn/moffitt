@@ -160,6 +160,7 @@ $('.moffitt-team-modal-print').on('click', function(moffittModalp) {
 $('.header-cta-button').on('click', function(s) {
 	s.preventDefault();
 	$('html, body').animate({scrollTop: ($('.wrap').offset().top)},500);
+	$(this).css('color', '#fff');
 });
 </script>
 
