@@ -160,7 +160,16 @@ $('.moffitt-team-modal-print').on('click', function(moffittModalp) {
 $('.header-cta-button').on('click', function(s) {
 	s.preventDefault();
 	$('html, body').animate({scrollTop: ($('.wrap').offset().top)},500);
-	$(this).css('color', '#fff');
+});
+
+// Hide CTA button on scroll
+$('.header-cta-button').on('scroll', function() {
+	var $winHeight = $(window).height();
+
+	if ( $('html, body').scrollTop() > $winHeight ) {
+		$(this).hide();
+	} else {
+	}
 });
 </script>
 
