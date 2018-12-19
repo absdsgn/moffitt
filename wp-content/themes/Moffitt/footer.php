@@ -155,4 +155,12 @@ $('.moffitt-team-modal-print').on('click', function(moffittModalp) {
 
 </script>
 
+<script type="text/javascript">
+// Scroll on header cta click
+$('.header-cta-button').on('click', function(s) {
+	s.preventDefault();
+	$('html, body').animate({scrollTop: ($('.wrap').offset().top)},500);
+});
+</script>
+
 </html>

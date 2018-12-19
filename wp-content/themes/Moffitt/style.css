@@ -1160,8 +1160,8 @@ td:last-child {
 --------------------------------------------------------------*/
 
 a {
-	color: #222;
-	text-decoration: none;
+	color: #445faa;
+	text-decoration: underline;
 }
 
 a:focus {
@@ -1183,12 +1183,12 @@ a:active {
 .site-footer .widget-area a,
 .posts-navigation a,
 .widget_authors a strong {
-	-webkit-box-shadow: inset 0 -1px 0 rgba(15, 15, 15, 1);
+	/* -webkit-box-shadow: inset 0 -1px 0 rgba(15, 15, 15, 1);
 	box-shadow: inset 0 -1px 0 rgba(15, 15, 15, 1);
 	-webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
 	transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
 	transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
-	transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+	transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out; */
 }
 
 .entry-title a,
@@ -1213,13 +1213,13 @@ a .nav-title,
 .widget ul li a,
 .site-footer .widget-area ul li a,
 .site-footer .widget-area ul li a {
-	-webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 1);
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 1);
+	/* -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 1);
+	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 1); */
 	text-decoration: none;
-	-webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+	/* -webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
 	transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
 	transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
-	transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+	transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out; */
 }
 
 .entry-content a:focus,
@@ -1273,8 +1273,8 @@ a:hover .nav-title,
 .widget ul li a:focus,
 .widget ul li a:hover {
 	color: #000;
-	-webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 3px 0 rgba(0, 0, 0, 1);
-	box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 3px 0 rgba(0, 0, 0, 1);
+	/* -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 3px 0 rgba(0, 0, 0, 1); */
+	/* box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 3px 0 rgba(0, 0, 0, 1); */
 }
 
 /* Fixes linked images */
@@ -4484,6 +4484,7 @@ p > object:only-child {
 	font-size: 1rem;
 	transition: all .25s ease-in-out;
 	letter-spacing: .25rem;
+	text-decoration: none;
 }
 
 .header-cta-button:hover	{
@@ -4518,6 +4519,7 @@ p > object:only-child {
 	letter-spacing: 2px;
 	border-bottom: 2px solid #6d7888;
 	transition: all .2s ease-in-out;
+	text-decoration: none;
 }
 
 .moffitt-body-button:hover,  .more-link:hover	{
@@ -4563,13 +4565,14 @@ p > object:only-child {
 }
 
 .moffitt-callout-button	{
-	color: #fff;
+	color: #fff!important;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	position: relative;
 	display: inline-block;
 	margin-top: 2rem;
 	transition: all .2s ease-in-out;
+	text-decoration: none;
 }
 
 .moffitt-callout-button:after	{
@@ -4648,6 +4651,7 @@ p > object:only-child {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: all .2s ease-in-out;
+	text-decoration: none;
 
 }
 
@@ -4696,6 +4700,7 @@ p > object:only-child {
 	justify-content: flex-end;
 	color: #445faa;
 	border-bottom: 2px solid #6d7888;
+	text-decoration: none;
 }
 
 .moffitt-secondary-callout	.moffitt-body-button:hover,  .more-link:hover	{
@@ -4851,6 +4856,7 @@ input[type="search"]	{
 	font-size: .9rem;
 	display: block;
 	margin-top: .25rem;
+	text-decoration: none;
 }
 
 .moffitt-footer-content:first-child .moffitt-footer-link	{
@@ -4913,6 +4919,10 @@ input[type="search"]	{
 	margin: 0;
 }
 
+.moffit-post-entry-header a {
+	text-decoration: none;
+}
+
 .moffitt-entry-title	{
 	color: #fff;
 	font-size: 2rem;
@@ -4931,6 +4941,11 @@ input[type="search"]	{
 	margin: 0 auto;
 	padding: 0;
 	padding-top: 2rem;
+}
+
+.moffitt-entry-content a {
+	/* color: #445faa; */
+	/* text-decoration: underline; */
 }
 
 .moffitt-post-wrapper	{
@@ -4988,6 +5003,7 @@ input[type="search"]	{
 
 .moffitt-team-bio	.moffitt-body-button {
 	font-size: .75rem;
+	text-decoration: none;
 }
 
 .moffitt-team-info	h4, .moffitt-team-info h5, .moffitt-team-info p	{
@@ -5037,7 +5053,7 @@ input[type="search"]	{
 	width: 100%;
 	min-width: 400px;
 	max-width: 900px;
-	max-height: calc(100vh - 150px);
+	max-height: calc(100vh - 180px);
 	background: #fff;
 	padding: 3rem;
 	z-index: 998;
@@ -5084,12 +5100,21 @@ input[type="search"]	{
 .moffitt-team-modal-content h5	{
 	font-weight: 500;
 	letter-spacing: 0;
-	padding-bottom: 1rem;
+	padding-bottom: .5rem;
 }
 
 .moffitt-team-modal-content h6 {
 	padding: 0;
-	padding-bottom: 1rem;
+	padding-bottom: .5rem;
+}
+
+.moffitt-team-modal-content a {
+	font-size: 1rem;
+	padding-bottom: .5rem;
+}
+
+.moffitt-team-modal-content p {
+	padding-top: 1rem;
 }
 
 .moffitt-two-column-wrapper	{
@@ -5259,6 +5284,10 @@ input[type="search"]	{
 	justify-content: space-between;
 }
 
+.moffitt-clients-item a {
+	text-decoration: none;
+}
+
 /* .moffitt-clients-item h4:after	{
 	content: "\f105";
 	font-family: "Font Awesome 5 Free";
@@ -5398,6 +5427,13 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 	margin-left: 2rem;
 }
 
+.moffitt-accent-letter	{
+	font-family: IM Fell French Canon, serif;
+	font-size: 1.5rem;
+	color: #445faa;
+	font-weight: 600;
+}
+
 @media (max-width: 960px) {
 	.moffitt-team-item	{
 		width: 33%;
@@ -5533,13 +5569,14 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 	}
 
 	.moffitt-callout-button	{
-		color: #fff;
+		color: #fff!important;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		position: relative;
 		display: inline-block;
 		margin-top: 2rem;
 		transition: all .2s ease-in-out;
+		text-decoration: none;
 	}
 
 	.moffitt-callout-button:after	{
@@ -5598,6 +5635,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		transition: all .2s ease-in-out;
+		text-decoration: none;
 
 	}
 
@@ -5623,6 +5661,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.moffitt-team-modal-content	{
 		padding: 3rem 1rem;
+		min-width: 0;
 	}
 
 	.moffitt-secondary-intro	{
@@ -5665,6 +5704,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		justify-content: flex-end;
 		color: #445faa;
 		border-bottom: 2px solid #6d7888;
+		text-decoration: none;
 	}
 
 	.moffitt-secondary-callout	.moffitt-body-button:hover, .more-link:hover	{
@@ -5800,6 +5840,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		font-size: 1rem;
 		transition: all .25s ease-in-out;
 		letter-spacing: .25rem;
+		text-decoration: none;
 	}
 
 	.header-cta-button:hover	{
@@ -5886,7 +5927,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 	}
 
 	.moffitt-callout-button	{
-		color: #fff;
+		color: #fff!important;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		position: relative;
@@ -5894,6 +5935,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		font-size: .75rem;
 		margin-top: 2rem;
 		transition: all .2s ease-in-out;
+		text-decoration: none;
 	}
 
 	.moffitt-callout-button:after	{
@@ -5976,6 +6018,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		transition: all .2s ease-in-out;
+		text-decoration: none;
 
 	}
 
