@@ -4571,6 +4571,7 @@ p > object:only-child {
 	position: relative;
 	display: inline-block;
 	margin-top: 2rem;
+	font-size: 1rem;
 	transition: all .2s ease-in-out;
 	text-decoration: none;
 }
@@ -4583,8 +4584,8 @@ p > object:only-child {
 	display: inline-block;
 	position: absolute;
 	color: #fff;
-	font-size: 2.5rem;
-	top: -75%;
+	font-size: 1.5rem;
+	top: -25%;
 	transition: all .2s ease-in-out;
 }
 
@@ -4919,7 +4920,11 @@ input[type="search"]	{
 	margin: 0;
 }
 
-.moffit-post-entry-header a {
+.moffitt-post-entry-header h3 {
+	padding-top: 1rem;
+}
+
+.moffitt-post-entry-header a {
 	text-decoration: none;
 }
 
@@ -5587,8 +5592,8 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		display: inline-block;
 		position: absolute;
 		color: #fff;
-		font-size: 2.5rem;
-		top: -75%;
+		font-size: 1.5rem;
+		top: -18%;
 		transition: all .2s ease-in-out;
 	}
 
@@ -5933,7 +5938,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		letter-spacing: 2px;
 		position: relative;
 		display: inline-block;
-		font-size: .75rem;
+		font-size: .8rem;
 		margin-top: 2rem;
 		transition: all .2s ease-in-out;
 		text-decoration: none;
@@ -5948,7 +5953,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		position: absolute;
 		color: #fff;
 		font-size: 1.25rem;
-		top: -25%;
+		top: -40%;
 		transition: all .2s ease-in-out;
 	}
 
