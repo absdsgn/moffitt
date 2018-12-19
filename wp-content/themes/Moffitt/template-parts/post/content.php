@@ -20,18 +20,14 @@
 		<div class="moffitt-secondary-callout">
 <?php	}; ?>
 		<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
-			<div class="post-thumbnail">
-				<a href="<?php the_permalink(); ?>">
-					<?php the_post_thumbnail( 'twentyseventeen-featured-image' ); ?>
-				</a>
-			</div><!-- .post-thumbnail -->
+			<a href="<?php the_permalink(); ?>">
+				<div class="moffitt-callout-image-square" style="background-image: url('<?php the_post_thumbnail_url(); ?>')"></div>
+			</a>
 		<?php endif; ?>
-		<header class="moffitt-post-entry-header">
+		<div class="moffitt-post-entry-header">
 			<?php
 			if ( is_single() ) {
 				the_title( '<h3>', '</h3>' );
-			} elseif ( is_front_page() && is_home() ) {
-				the_title( '<h3><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 			} else {
 				the_title( '<h3><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 			}
@@ -46,7 +42,7 @@
 				echo '</div><!-- .entry-meta -->';
 			};
 			?>
-		</header><!-- .entry-header -->
+		</div><!-- .entry-header -->
 
 		<div class="entry-content">
 			<?php
