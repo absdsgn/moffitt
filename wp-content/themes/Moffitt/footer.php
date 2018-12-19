@@ -163,12 +163,12 @@ $('.header-cta-button').on('click', function(s) {
 });
 
 // Hide CTA button on scroll
-$('.header-cta-button').on('scroll', function() {
-	var $winHeight = $(window).height();
+$(window).on('scroll', function() {
 
-	if ( $('html, body').scrollTop() > $winHeight ) {
-		$(this).hide();
+	if ( $(window).scrollTop() > 200 ) {
+		$('.header-cta-button').css({'opacity':'0'}, 200);
 	} else {
+		$('.header-cta-button').css({'opacity':'1'}, 200);
 	}
 });
 </script>
