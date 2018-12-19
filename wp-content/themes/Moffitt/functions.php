@@ -596,3 +596,18 @@ function custom_add_google_fonts() {
  wp_enqueue_style( 'custom-google-fonts', '<link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer|Open+Sans:400,700" rel="stylesheet">', false );
  }
  add_action( 'wp_enqueue_scripts', 'custom_add_google_fonts' );
+
+ // Add menu item for draft posts
+function add_staff_admin_menu_item() {
+  // $page_title, $menu_title, $capability, $menu_slug, $callback_function
+  add_posts_page(__('Staff'), __('Staff'), 'read', 'edit.php?tag=staff');
+}
+add_action('admin_menu', 'add_staff_admin_menu_item');
+
+// Exclude staff entries from blog
+function exclude_staff_tag( $excludeQuery ) {
+    if ( !is_admin() && !is_page('256') ) :
+        $excludeQuery->set( 'tag__not_in', array('6') );
+    endif;
+}
+add_action( 'pre_get_posts', 'exclude_staff_tag' );

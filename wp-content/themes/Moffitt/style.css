@@ -4977,7 +4977,7 @@ input[type="search"]	{
 
 .moffitt-team-info	{
 	width: 100%;
-	padding: 1rem .5rem .5rem .5rem;
+	padding: 1rem .5rem 0 .5rem;
 	flex-grow: 1;
 }
 
@@ -5092,14 +5092,14 @@ input[type="search"]	{
 	padding-bottom: 1rem;
 }
 
-.moffitt-history	{
+.moffitt-two-column-wrapper	{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
 
-.moffitt-history-content	{
-	width: 48%;
+.moffitt-two-column	{
+	width: 50%;
 	padding: 1rem;
 	box-sizing: border-box;
 	text-align: left;
@@ -5671,17 +5671,21 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		border-bottom: 2px solid #445faa;
 	}
 
-	.moffitt-history	{
+	.moffitt-two-column-wrapper	{
 		display: flex;
 		flex-direction: column-reverse;
 		justify-content: space-between;
 	}
 
-	.moffitt-history-content	{
+	.moffitt-two-column	{
 		width: 100%;
 		padding: 1rem;
 		box-sizing: border-box;
 		text-align: left;
+	}
+
+	.moffitt-two-column p {
+		margin-bottom: .5rem;
 	}
 
 	.moffitt-history-image	{
@@ -6068,6 +6072,10 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.moffitt-team-item	{
 		width: 100%;
+	}
+
+	.moffitt-team-image	{
+		height: 300px;
 	}
 
 	.moffitt-history-content	{

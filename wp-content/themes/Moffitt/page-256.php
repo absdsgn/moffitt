@@ -45,7 +45,8 @@ get_header(); ?>
 			$args = array (
 				'tag' => 'staff',
 				'orderby' => 'title',
-				'order' => 'ASC'
+				'order' => 'ASC',
+				'posts_per_page' => '-1'
 			);
 
 			$staffQuery = new WP_Query( $args );
