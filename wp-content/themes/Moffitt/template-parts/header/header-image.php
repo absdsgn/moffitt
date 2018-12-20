@@ -21,11 +21,8 @@
 				<?php the_field('cta_button_text'); ?>
 			</a>
 	</div>
-		<div class="custom-header-media">
-			<?php the_custom_header_markup(); ?>
-		</div>
-
-		<?php /* get_template_part( 'template-parts/header/site', 'branding' ); */ ?>
+	<?php $headerImage = get_header_image();?>
+	<div class="header-background-image" style="background-image: url('<?php echo $headerImage ?>');"></div>
 	<div class="header-background-overlay" style="position: absolute; left: 0; top: 0; background: rgba(0, 0, 0, .35); width: 100%; height: 100%;">
 	</div>
 </div><!-- .custom-header -->
