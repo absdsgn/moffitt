@@ -32,10 +32,11 @@ get_header(); ?>
 								<?php
 									if ( is_search() ) {
 										echo "<h1 class='moffitt-entry-title'>Search Results</h1>";
-									} else {
-										single_post_title( '<h1 class="moffitt-entry-title">', '</h1>' );
-									};
-								?>
+									} else { ?>
+										<h1 class="moffitt-entry-title">
+										<?php single_post_title(); ?>
+									</h1>
+								<?php	}; ?>
 								<h2 class="moffitt-entry-subtitle">
 									<?php the_field('subtitle', get_option('page_for_posts')); ?>
 								</h2>

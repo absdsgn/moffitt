@@ -99,6 +99,20 @@
 
 </body>
 
+<?php if ( is_front_page() ) : ?>
+	<script type="text/javascript">
+	// Adjust screen size for mobile browser bottom bar
+	var $OGHeight = $(window).innerHeight();
+	var $newHeight = ( $OGHeight - 102 );
+
+	if ( $(window).width() < 768 ) {
+		$(document).ready( function() {
+			$('.custom-header').css('height', $newHeight);
+		});
+	}
+	</script>
+<?php endif; ?>
+
 <script type="text/javascript">
 // Team Bio Modal
 
