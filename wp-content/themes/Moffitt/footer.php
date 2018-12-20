@@ -102,12 +102,13 @@
 <?php if ( is_front_page() ) : ?>
 	<script type="text/javascript">
 	// Adjust screen size for mobile browser bottom bar
-	var $OGHeight = $(window).innerHeight();
-	var $newHeight = ( $OGHeight - 44 );
+	var OGHeight = $(window).innerHeight();
+	var HeaderHeight = $('.navigation-top').outerHeight();
+	var newHeight = ( OGHeight - HeaderHeight );
 
 	if ( $(window).width() < 768 ) {
 		$(document).ready( function() {
-			$('.custom-header').css('height', $newHeight);
+			$('.custom-header').css('height', newHeight);
 		});
 	}
 	</script>
