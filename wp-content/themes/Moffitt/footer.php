@@ -103,7 +103,7 @@
 	<script type="text/javascript">
 	// Adjust screen size for mobile browser bottom bar
 	var $OGHeight = $(window).innerHeight();
-	var $newHeight = ( $OGHeight - 102 );
+	var $newHeight = ( $OGHeight - 44 );
 
 	if ( $(window).width() < 768 ) {
 		$(document).ready( function() {
