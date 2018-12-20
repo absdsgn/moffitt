@@ -6,7 +6,7 @@ Description: IE8 specific style.
 body {
 	font-size: 16px;
 }
-
+/*
 h1 {
 	font-size: 30px;
 	font-size: 1.875rem;
@@ -36,7 +36,7 @@ h5 {
 h6 {
 	font-size: 16px;
 	font-size: 1rem;
-}
+} */
 
 img {
 	width: inherit;  /* Make images fill their parent's space. */
