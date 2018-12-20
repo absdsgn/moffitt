@@ -123,6 +123,27 @@
 	</script>
 <?php endif; ?>
 
+<?php if ( !is_front_page() ): ?>
+	<script type="text/javascript">
+	function ContentTopAdjust() {
+		// Get header height
+		var HeaderHeight = $('.navigation-top').outerHeight();
+		// Set margin-top of site content to height of header
+		$('.site-content-contain').css('margin-top', HeaderHeight);
+	}
+
+	// Run on page load and window resize
+	$(document).ready( function() {
+		ContentTopAdjust();
+	});
+
+	$(window).on('resize', function() {
+		ContentTopAdjust();
+	});
+
+	</script>
+<?php endif; ?>
+
 <script type="text/javascript">
 // Team Bio Modal
 
@@ -186,15 +207,15 @@ $('.header-cta-button').on('click', function(s) {
 	$('html, body').animate({scrollTop: ($('.wrap').offset().top)},500);
 });
 
-// Hide CTA button on scroll
-$(window).on('scroll', function() {
-
-	if ( $(window).scrollTop() > 200 ) {
-		$('.header-cta-button').css({'opacity':'0'}, 200);
-	} else {
-		$('.header-cta-button').css({'opacity':'1'}, 200);
-	}
-});
+// // Hide CTA button on scroll
+// $(window).on('scroll', function() {
+//
+// 	if ( $(window).scrollTop() > 200 ) {
+// 		// $('.header-cta').fadeOut(800);
+// 	} else {
+// 		// $('.header-cta').fadeIn(800);
+// 	}
+// });
 </script>
 
 </html>
