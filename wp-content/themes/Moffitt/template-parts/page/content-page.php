@@ -37,6 +37,8 @@
 					<?php the_field('column_2'); ?>
 				</div>
 
+				<?php the_content(); ?>
+
 		<?php } else {
 
 			the_content();
