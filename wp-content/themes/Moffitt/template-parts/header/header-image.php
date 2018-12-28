@@ -10,6 +10,7 @@
 
 ?>
 <div class="custom-header">
+	<div class="header-cta-wrap">
 		<div class="header-cta">
 			<h1>
 				<?php the_field('cta_header'); ?>
@@ -20,6 +21,7 @@
 			<a href="<?php the_field('cta_url') ?>" class="header-cta-button">
 				<?php the_field('cta_button_text'); ?>
 			</a>
+		</div>
 	</div>
 	<?php $headerImage = get_header_image();?>
 	<div class="header-background-image" style="background-image: url('<?php echo $headerImage ?>');"></div>

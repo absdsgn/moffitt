@@ -99,32 +99,75 @@
 
 </body>
 
-<?php if ( is_front_page() ) : ?>
-	<script type="text/javascript">
+<script type="text/javascript">
+// Script to adjust the margin-top of the site content for the fixed nav
 	function customHeaderResize() {
 		// Get window inner heights, header height, and calculate new header height
 		var OGHeight = $(window).innerHeight();
 		var HeaderHeight = $('.navigation-top').outerHeight();
 		var newHeight = ( OGHeight - HeaderHeight );
 
-		// add new height to custom header
-		$('.custom-header').css('height', newHeight);
+		// add new margin-top to custom header
+		$('.custom-header').css('margin-top', HeaderHeight );
+		<?php if ( !is_front_page() ) : ?>
+		// Add new margin-top to site-content if it's not the home page
+		$('.site-content-contain').css('margin-top', HeaderHeight );
+		<?php endif; ?>
 	}
-	// Run on page load and window resize
+
+// Script to set margin top of submenu bar
+	function submenuHeightResize() {
+		// Get nav height
+		var NavHeight = $('.navigation-top').outerHeight();
+
+		// Add new top position to submenu bar
+		$('.moffitt-submenu-bar').css('top', NavHeight );
+	}
+
+// Run both functions on page load and window resize
 	$(document).ready( function() {
-		$('.navigation-top').removeClass('site-navigation-fixed');
 		customHeaderResize();
+		submenuHeightResize();
 	});
 
 	$(window).on('resize', function() {
 		customHeaderResize();
+		submenuHeightResize();
 	});
 
-	</script>
-<?php endif; ?>
+</script>
+
+<script type="text/javascript">
+// Show submenu bar if has-children menu item or sub menu items are hovered
+	$('li.menu-item-has-children').hover(
+		function() {
+			$('.moffitt-submenu-bar').show();
+		}, function() {
+			$('.moffitt-submenu-bar').hide();
+		}
+	);
+</script>
+
+<script type="text/javascript">
+	// Get width of item, set as image div height to maintain square
+	function teamImageSquare() {
+		var teamItemWidth = $('.moffitt-team-item').width();
+
+		// Set item width at image div height
+		$('.moffitt-team-image').css('height', teamItemWidth );
+	}
+
+	$(document).ready( function() {
+		teamImageSquare();
+	});
+
+	$(window).on('resize', function() {
+		teamImageSquare();
+	});
+</script>
 
 <?php if ( !is_front_page() ): ?>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 	function ContentTopAdjust() {
 		// Get header height
 		var HeaderHeight = $('.navigation-top').outerHeight();
@@ -141,34 +184,34 @@
 		ContentTopAdjust();
 	});
 
-	</script>
+	</script> -->
 <?php endif; ?>
 
 <script type="text/javascript">
 // Team Bio Modal
 
-// On click of bio link
-$('.moffitt-team-bio').on('click', function(moffittModal) {
+// On click of bio
+	$('.moffitt-team-image, .moffitt-team-info, .moffitt-team-bio').on('click', function(moffittModal) {
 
-	moffittModal.preventDefault();
+		moffittModal.preventDefault();
 
-	// Get window height, header height, and scroll position
-	var mWindowHeight = $(window).height();
-	var mHeaderHeight = $('.navigation-top').outerHeight();
-	var mScrollPosition = $(document).scrollTop();
-	var mModalOffset = (mHeaderHeight + mScrollPosition);
+		// Get window height, header height, and scroll position
+		var mWindowHeight = $(window).height();
+		var mHeaderHeight = $('.navigation-top').outerHeight();
+		var mScrollPosition = $(document).scrollTop();
+		var mModalOffset = (mHeaderHeight + mScrollPosition);
 
-	// Set modal as variable
-	var mModalWrapper = $(this).closest('.moffitt-team-item').find('.moffitt-team-modal-wrapper');
-	var mModalOverlay = $(this).closest('.moffitt-team-item').find('.moffitt-team-modal-overlay');
+		// Set modal as variable
+		var mModalWrapper = $(this).closest('.moffitt-team-item').find('.moffitt-team-modal-wrapper');
+		var mModalOverlay = $(this).closest('.moffitt-team-item').find('.moffitt-team-modal-overlay');
 
-	// Add margin-top of scroll position to modal wrapper
-	$(mModalWrapper).css('margin-top', mModalOffset);
+		// Add margin-top of scroll position to modal wrapper
+		$(mModalWrapper).css('margin-top', mModalOffset);
 
-	$(mModalWrapper).fadeIn(300);
-	$(mModalOverlay).fadeIn(150);
+		$(mModalWrapper).fadeIn(300);
+		$(mModalOverlay).fadeIn(150);
 
-});
+	});
 
 // Define function modalClose
 
@@ -203,8 +246,10 @@ $('.moffitt-team-modal-print').on('click', function(moffittModalp) {
 <script type="text/javascript">
 // Scroll on header cta click
 $('.header-cta-button').on('click', function(s) {
+	var ctaHeaderHeight = $('.navigation-top').outerHeight();
+
 	s.preventDefault();
-	$('html, body').animate({scrollTop: ($('.wrap').offset().top)},500);
+	$('html, body').animate({scrollTop: ($('.site-content-contain').offset().top - ctaHeaderHeight )},500);
 });
 
 // // Hide CTA button on scroll
