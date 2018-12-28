@@ -36,6 +36,7 @@
 				<div class="moffitt-two-column">
 					<?php the_field('column_2'); ?>
 				</div>
+			</div>
 
 				<?php the_content(); ?>
 
