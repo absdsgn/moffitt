@@ -119,9 +119,10 @@
 	function submenuHeightResize() {
 		// Get nav height
 		var NavHeight = $('.navigation-top').outerHeight();
+		var newSubMenuHeight = ( NavHeight - 1 );
 
 		// Add new top position to submenu bar
-		$('.moffitt-submenu-bar').css('top', NavHeight );
+		$('.moffitt-submenu-bar').css('top', newSubMenuHeight );
 	}
 
 // Run both functions on page load and window resize
