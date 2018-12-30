@@ -1462,6 +1462,10 @@ a:hover .nav-title,
 	color: #fff;
 }
 
+.main-navigation ul.sub-menu li:last-child:hover a 	{
+	color: #fa8b31;
+}
+
 @media (max-width: 768px) {
 	.main-navigation ul.sub-menu li:last-child a {
 		color: rgba(0, 0, 0, .4);
