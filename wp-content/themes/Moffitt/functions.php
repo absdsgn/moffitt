@@ -597,10 +597,14 @@ function custom_add_google_fonts() {
  }
  add_action( 'wp_enqueue_scripts', 'custom_add_google_fonts' );
 
- // Add menu item for draft posts
+ // Add menu item for Staff posts
 function add_staff_admin_menu_item() {
   // $page_title, $menu_title, $capability, $menu_slug, $callback_function
-  add_posts_page(__('Staff'), __('Staff'), 'read', 'edit.php?tag=staff');
+	$staff_menu_slug = ( get_admin_url() . '/edit.php?tag=staff' );
+
+	add_menu_page( __('Staff Members'), __('Staff Members'), 'read', $staff_menu_slug);
+	add_posts_page( __('Staff Members'), __('Staff Members'), 'read', $staff_menu_slug);
+
 }
 add_action('admin_menu', 'add_staff_admin_menu_item');
 
