@@ -599,13 +599,12 @@ function custom_add_google_fonts() {
 
  // Add menu item for Staff posts
 function add_staff_admin_menu_item() {
-  // $page_title, $menu_title, $capability, $menu_slug, $callback_function
-	$staff_menu_slug = ( get_admin_url() . '/edit.php?tag=staff' );
-
-	add_menu_page( __('Staff Members'), __('Staff Members'), 'read', $staff_menu_slug);
-	add_posts_page( __('Staff Members'), __('Staff Members'), 'read', $staff_menu_slug);
-
+	// add_menu_page( __('Staff Members'), __('Staff Members'), 'read', $staff_menu_slug);
+	// add_posts_page( __('Staff Members'), __('Staff Members'), 'read', $staff_menu_slug);
+	$staff_menu_url = ( get_admin_url() . 'edit.php?tag=staff' );
+	add_menu_page( 'staff', 'Staff', 'read', $staff_menu_url, '', 'dashicons-groups', 9 );
 }
+
 add_action('admin_menu', 'add_staff_admin_menu_item');
 
 // Exclude staff entries from blog
