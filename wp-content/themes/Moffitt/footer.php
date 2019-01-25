@@ -49,13 +49,14 @@
 				</div>
 				<div class="moffitt-footer-content">
 					<p>NAVIGATION</p>
-					<a href="#" class="moffitt-footer-link">Home</a>
-					<a href="#" class="moffitt-footer-link">About Us</a>
-					<a href="#" class="moffitt-footer-link">Services</a>
-					<a href="#" class="moffitt-footer-link">Our Clients</a>
-					<a href="#" class="moffitt-footer-link">Candidates</a>
-					<a href="#" class="moffitt-footer-link">Contact Us</a>
-					<a href="#" class="moffitt-footer-link">Privacy Policy</a>
+					<a href="/" class="moffitt-footer-link">Home</a>
+					<a href="/?page_id=7" class="moffitt-footer-link">About Us</a>
+					<a href="/?page_id=9" class="moffitt-footer-link">Services</a>
+					<a href="/?page_id=11" class="moffitt-footer-link">Our Clients</a>
+					<a href="/?page_id=13" class="moffitt-footer-link">Candidates</a>
+					<a href="/?page_id=15" class="moffitt-footer-link">Contact Us</a>
+					<a href="/?page_id=494" class="moffitt-footer-link">Privacy Policy</a>
+					<a href="/?page_id=496" class="moffitt-footer-link">Terms & Conditions</a>
 				</div>
 				<div class="moffitt-footer-content">
 					<p>CONTACT</p>
