@@ -53,7 +53,7 @@
 	if ( ( is_single() || ( is_page() && ! twentyseventeen_is_frontpage() ) ) && has_post_thumbnail( get_queried_object_id() ) ) : ?>
 		<div class="single-featured-image-header" style="background-image: url('<?php the_post_thumbnail_url( get_queried_object_id() ); ?>');">
 		<?php echo '</div><!-- .single-featured-image-header -->';
-	endif;
+	endif; 
 	?>
 
 	<div class="site-content-contain">

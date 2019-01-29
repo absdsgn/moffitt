@@ -44,19 +44,21 @@
 			<div class="moffitt-footer-wrapper">
 				<div class="moffitt-footer-content">
 					<p>STAY CONNECTED</p>
-					<p>Get the latest news, insights, and opportunities.</p>
-					<a href="http://linkedin.com/" class="moffitt-footer-link">Follow us on LinkedIn</a>
+					<p>Follow us to get the latest news, insights, and opportunities.</p>
+					<a href="http://linkedin.com/" target="_blank" class="moffitt-footer-link-fa"><i class="fab fa-linkedin-in"></i></a>
+					<a href="http://facebook.com/" target="_blank" class="moffitt-footer-link-fa"><i class="fab fa-facebook-f"></i></a>
+					<a href="http://twitter.com/" target="_blank" class="moffitt-footer-link-fa"><i class="fab fa-twitter"></i></a>
 				</div>
 				<div class="moffitt-footer-content">
 					<p>NAVIGATION</p>
-					<a href="/" class="moffitt-footer-link">Home</a>
-					<a href="/?page_id=7" class="moffitt-footer-link">About Us</a>
-					<a href="/?page_id=9" class="moffitt-footer-link">Services</a>
-					<a href="/?page_id=11" class="moffitt-footer-link">Our Clients</a>
-					<a href="/?page_id=13" class="moffitt-footer-link">Candidates</a>
-					<a href="/?page_id=15" class="moffitt-footer-link">Contact Us</a>
-					<a href="/?page_id=494" class="moffitt-footer-link">Privacy Policy</a>
-					<a href="/?page_id=496" class="moffitt-footer-link">Terms & Conditions</a>
+					<a href="/dev/moffitt/" class="moffitt-footer-link">Home</a>
+					<a href="/dev/moffitt/?page_id=7" class="moffitt-footer-link">About Us</a>
+					<a href="/dev/moffitt/?page_id=9" class="moffitt-footer-link">Services</a>
+					<a href="/dev/moffitt/?page_id=11" class="moffitt-footer-link">Our Clients</a>
+					<a href="/dev/moffitt/?page_id=13" class="moffitt-footer-link">Candidates</a>
+					<a href="/dev/moffitt/?page_id=15" class="moffitt-footer-link">Contact Us</a>
+					<a href="/dev/moffitt/?page_id=494" class="moffitt-footer-link">Privacy Policy</a>
+					<a href="/dev/moffitt/?page_id=496" class="moffitt-footer-link">Terms & Conditions</a>
 				</div>
 				<div class="moffitt-footer-content">
 					<p>CONTACT</p>
@@ -113,6 +115,10 @@
 		<?php if ( !is_front_page() ) : ?>
 		// Add new margin-top to site-content if it's not the home page
 		$('.site-content-contain').css('margin-top', HeaderHeight );
+		<?php endif; ?>
+		<?php if ( is_single() && has_post_thumbnail( get_queried_object_id() ) ) : ?>
+		$('.single-featured-image-header').css('margin-top', HeaderHeight );
+		$('.site-content-contain').removeAttr('style');
 		<?php endif; ?>
 	}
 
