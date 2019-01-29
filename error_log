@@ -217,3 +217,443 @@
 [19-Dec-2018 13:55:04 UTC] PHP Warning:  Illegal string offset 'url' in /home/absdsgn/public_html/dev/moffitt/wp-content/themes/Moffitt/template-parts/page/content-front-page.php on line 104
 [19-Dec-2018 13:55:04 UTC] PHP Warning:  Illegal string offset 'url' in /home/absdsgn/public_html/dev/moffitt/wp-content/themes/Moffitt/template-parts/page/content-front-page.php on line 117
 [19-Dec-2018 13:55:04 UTC] PHP Warning:  Illegal string offset 'url' in /home/absdsgn/public_html/dev/moffitt/wp-content/themes/Moffitt/template-parts/page/content-front-page.php on line 130
+[12-Jan-2019 09:34:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpi5so.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 09:34:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wphuwx.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 09:34:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpqf62.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 09:34:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpzyrc.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 10:04:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wprgm3.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 10:04:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpo3e4.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 10:04:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpdsxk.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 10:04:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpawlv.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 15:33:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpnxyd.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 15:33:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp8rpx.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 15:33:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wptu3i.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 15:33:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpwzft.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 16:17:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpwrtp.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 16:17:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp0ecj.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 16:17:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpnmpa.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 16:17:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpd6cg.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 21:33:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpdjnv.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 21:33:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpeqvn.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 21:33:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpe0ze.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 21:33:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpncxs.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 21:57:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wplvz3.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 21:57:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpcbs0.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 21:57:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpbuav.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[12-Jan-2019 21:57:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpv5vw.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 03:36:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpluin.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 03:36:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpd8yx.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 03:36:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wppu91.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 03:36:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpwvdy.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 04:35:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wppo0q.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 04:35:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpp10u.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 04:35:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpto4i.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 04:35:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpkiek.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 09:33:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpypen.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 09:33:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp6fad.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 09:33:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpudoy.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 09:33:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpcusi.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 10:34:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpm1ig.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 10:34:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpgy06.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 10:34:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wprzcf.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 10:34:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpitcd.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 15:33:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpqmio.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 15:33:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpvbsw.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 15:33:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpwnsg.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 15:33:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp0ldd.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 16:33:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpef13.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 16:33:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpoyua.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 16:33:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpjqcl.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 16:33:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp57zr.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 21:33:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpcmja.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 21:33:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp8fnn.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 21:33:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpfemw.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 21:33:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wppllm.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 22:08:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp18b4.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 22:08:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpajlh.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 22:08:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpdjqg.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[13-Jan-2019 22:08:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpaxxf.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 03:33:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wptf0i.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 03:33:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpndw1.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 03:33:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp8ajj.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 03:33:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpah9m.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 09:35:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wplggn.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 09:35:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpfhws.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 09:35:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp7iz6.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 09:35:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpimcg.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 10:16:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpixug.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 10:16:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpzj9a.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 10:16:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpyg7x.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 10:16:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpuco0.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 15:33:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp5usd.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 15:33:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp7gfu.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 15:33:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpihu2.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[14-Jan-2019 15:33:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpdivb.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[15-Jan-2019 09:33:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpiyaa.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[15-Jan-2019 09:33:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp2zy7.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[15-Jan-2019 09:33:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpmljt.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[15-Jan-2019 09:33:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp6v1j.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[15-Jan-2019 10:40:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wprqkr.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[15-Jan-2019 10:40:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpjnwx.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[15-Jan-2019 10:40:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpf85p.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[15-Jan-2019 10:40:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpspdp.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[16-Jan-2019 09:44:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wptagg.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[16-Jan-2019 09:44:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp1vrz.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[16-Jan-2019 09:44:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpdm7n.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[16-Jan-2019 09:44:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpmrkt.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[16-Jan-2019 10:27:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpbyok.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[16-Jan-2019 10:27:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpup34.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[16-Jan-2019 10:27:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wpglnf.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16
+[16-Jan-2019 10:27:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php:16
+Stack trace:
+#0 /home/absdsgn/public_html/dev/moffitt/deleteme.wp0x94.php(16): include_once()
+#1 {main}
+  thrown in /home/absdsgn/public_html/dev/moffitt/wp-admin/includes/file.php on line 16

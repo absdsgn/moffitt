@@ -231,3 +231,4 @@
 [13-Dec-2018 00:40:16 UTC] WordPress database error Lost connection to MySQL server during query for query SELECT autoload FROM wp_options WHERE option_name = '_site_transient_update_core' made by do_core_upgrade, Core_Upgrader->upgrade, update_core, delete_site_transient, delete_site_option, delete_network_option, delete_option
 [19-Dec-2018 13:45:47 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL), expecting end of file in /home/absdsgn/public_html/dev/moffitt/wp-includes/version.php on line 7
 [27-Dec-2018 15:36:30 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/absdsgn/public_html/dev/moffitt/wp-content/plugins/social-media-auto-publish/admin/install.php on line 108
+[16-Jan-2019 13:01:27 UTC] WordPress database error Unknown column 'wp_' in 'field list' for query SELECT wp_
