@@ -260,17 +260,9 @@ $('.header-cta-button').on('click', function(s) {
 	s.preventDefault();
 	$('html, body').animate({scrollTop: ($('.site-content-contain').offset().top - ctaHeaderHeight )},500);
 });
+</script>
+
 <?php endif; ?>
 
-// // Hide CTA button on scroll
-// $(window).on('scroll', function() {
-//
-// 	if ( $(window).scrollTop() > 200 ) {
-// 		// $('.header-cta').fadeOut(800);
-// 	} else {
-// 		// $('.header-cta').fadeIn(800);
-// 	}
-// });
-</script>
 
 </html>
