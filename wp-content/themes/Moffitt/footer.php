@@ -251,6 +251,7 @@ $('.moffitt-team-modal-print').on('click', function(moffittModalp) {
 
 </script>
 
+<?php if ( is_front_page() ) :?>
 <script type="text/javascript">
 // Scroll on header cta click
 $('.header-cta-button').on('click', function(s) {
@@ -259,6 +260,7 @@ $('.header-cta-button').on('click', function(s) {
 	s.preventDefault();
 	$('html, body').animate({scrollTop: ($('.site-content-contain').offset().top - ctaHeaderHeight )},500);
 });
+<?php endif; ?>
 
 // // Hide CTA button on scroll
 // $(window).on('scroll', function() {

@@ -15,6 +15,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="moffitt-entry-header-background" style="background-color: <?php the_field('header_background_color'); ?>;">
 		<div class="moffitt-entry-header-wrapper">
+			<a href="mailto:info@emoffitt.com?subject=New Resume Submission" class="header-cta-button">Submit a Resume</a>
 			<header class="moffitt-entry-header">
 				<h1 class="moffitt-entry-title" style="color: <?php the_field('title_color'); ?>;">
 					<?php the_title(); ?>

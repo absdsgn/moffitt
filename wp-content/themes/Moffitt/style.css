@@ -1529,7 +1529,7 @@ a:hover .nav-title,
 	padding: 1rem;
 	text-shadow: none;
 	position: absolute;
-	right: 0;
+	right: 1rem;
 	top: 50%;
 	transform: translate(0, -50%);
 }
@@ -5081,6 +5081,15 @@ input[type="search"]	{
 	max-width: 1100px;
 	padding: 4rem 2rem 2rem 2rem;
 	box-sizing: border-box;
+	position: relative;
+}
+
+.moffitt-entry-header-wrapper .header-cta-button {
+	position: absolute;
+	right: 2rem;
+	top: 50%;
+	transform: translate(0, -50%);
+	border: none;
 }
 
 .moffitt-entry-header	{
@@ -6054,6 +6063,16 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 	.moffitt-footer-content:nth-child(n+2) {
 		width: 100%;
 		padding: 1rem 0;
+	}
+
+	.moffitt-entry-header-wrapper .header-cta-button {
+		width: 100%;
+		top: 0;
+		right: 0;
+		transform: none;
+		text-align: center;
+		padding: .5rem;
+		box-sizing: border-box;
 	}
 
 }
