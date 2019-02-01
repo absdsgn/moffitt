@@ -6146,15 +6146,15 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.custom-logo-link img {
 		display: inline-block;
-		max-height: 40px;
+		max-height: 55px;
 		width: auto;
-		max-width: 250px;
+		max-width: 325px;
 		padding: .5rem;
 	}
 
 	body.home.title-tagline-hidden.has-header-image .custom-logo-link img,
 	body.home.title-tagline-hidden.has-header-video .custom-logo-link img {
-		max-height: 40px;
+		max-height: 55px;
 		max-width: auto;
 	}
 
