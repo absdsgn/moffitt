@@ -4,8 +4,14 @@ Built by: ABS DSGN
 */
 
 /*
-Warm: fa8b31
-Cool: 3d6f8d
+ABS Colors
+Orange: d0a14a
+Blue/Grey: 477991
+
+Moffitt Colors - 02/01/2019
+Orange: d0a14a
+Blue: 477991
+Grey: 939597
 */
 
 /*--------------------------------------------------------------
@@ -1167,7 +1173,7 @@ td:last-child {
 --------------------------------------------------------------*/
 
 a {
-	color: #3d6f8d;
+	color: #477991;
 	text-decoration: underline;
 }
 
@@ -1442,7 +1448,7 @@ a:hover .nav-title,
 
 .main-navigation li:last-child a	{
 	font-weight: 400;
-	color: #fa8b31;
+	color: #d0a14a;
 }
 
 .main-navigation li li:last-child a	{
@@ -1454,7 +1460,7 @@ a:hover .nav-title,
 }
 
 .main-navigation li li:last-child a:hover, .main-navigation li li a:hover	{
-	color: #fa8b31;
+	color: #d0a14a;
 	opacity: .8;
 }
 
@@ -1463,7 +1469,7 @@ a:hover .nav-title,
 }
 
 .main-navigation ul.sub-menu li:last-child:hover a 	{
-	color: #fa8b31;
+	color: #d0a14a;
 }
 
 @media (max-width: 960px) {
@@ -1488,7 +1494,7 @@ a:hover .nav-title,
 	display: inline-block;
 	font-weight: 900;
 	position: relative;
-	color: #fa8b31;
+	color: #d0a14a;
 	font-size: inherit;
 	transition: all .2s ease-in-out;
 	-webkit-backface-visibility: hidden;
@@ -1509,7 +1515,7 @@ a:hover .nav-title,
 }
 
 .main-navigation a:hover {
-	color: #3d6f8d;
+	color: #477991;
 }
 
 /* Menu toggle */
@@ -2918,7 +2924,7 @@ h2.widget-title {
 	position: absolute;
 	right: 3px;
 	top: 3px;
-	background: #3d6f8d;
+	background: #477991;
 }
 
 .search-form .search-submit .icon {
@@ -3843,7 +3849,7 @@ p > object:only-child {
 	.main-navigation li li.current-menu-item a:hover,
 	.main-navigation li li.current_page_item a:focus,
 	.main-navigation li li.current-menu-item a:focus {
-		color: #fa8b31;
+		color: #d0a14a;
 	}
 
 	.main-navigation ul li:hover > ul,
@@ -4633,7 +4639,7 @@ p > object:only-child {
 
 .header-cta-button:hover	{
 	cursor: pointer;
-	color: #fa8b31;
+	color: #d0a14a;
 	background: #fff;
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
 	text-shadow: none;
@@ -4804,7 +4810,7 @@ p > object:only-child {
 
 .moffitt-about-button:hover	{
 	cursor: pointer;
-	color: #fa8b31;
+	color: #d0a14a;
 	background: #fff;
 }
 
@@ -4845,13 +4851,13 @@ p > object:only-child {
 
 .moffitt-secondary-callout	.moffitt-body-button,  .more-link	{
 	justify-content: flex-end;
-	color: #3d6f8d;
+	color: #477991;
 	border-bottom: 2px solid #6d7888;
 	text-decoration: none;
 }
 
 .moffitt-secondary-callout	.moffitt-body-button:hover,  .more-link:hover	{
-	border-bottom: 2px solid #3d6f8d;
+	border-bottom: 2px solid #477991;
 }
 
 .moffitt-home-contact	{
@@ -4916,7 +4922,7 @@ input[type="search"]	{
 }
 
 .field-wrap>div input[type=checkbox], .field-wrap button, .field-wrap input[type=button], .field-wrap input[type=submit] {
-	background: #3d6f8d;
+	background: #477991;
 	padding: 1rem 1.5rem;
 	letter-spacing: 2px;
 	font-weight: 600;
@@ -4943,7 +4949,7 @@ input[type="search"]	{
 }
 
 .moffitt-footer-contact-bar-wrapper	{
-	background-color: #fa8b31;
+	background-color: #d0a14a;
 	width: 100vw;
 	left: 50%;
 	margin-left: -50vw;
@@ -4996,7 +5002,7 @@ input[type="search"]	{
 }
 
 .moffitt-footer-content p:first-child {
-	color: #fa8b31;
+	color: #d0a14a;
 	font-weight: 600;
 	letter-spacing: 2px;
 	font-size: .9rem;
@@ -5070,7 +5076,7 @@ input[type="search"]	{
 
 .moffitt-entry-header-background	{
 	position: relative;
-	background-color: #3d6f8d;
+	background-color: #477991;
 	width: 100vw;
 	margin-left: -50vw;
 	left: 50%;
@@ -5137,7 +5143,7 @@ input[type="search"]	{
 }
 
 .moffitt-entry-content a {
-	/* color: #3d6f8d; */
+	/* color: #477991; */
 	/* text-decoration: underline; */
 }
 
@@ -5227,7 +5233,7 @@ input[type="search"]	{
 }
 
 .moffitt-team-item:hover > .moffitt-team-info h4 {
-	color: #fa8b31;
+	color: #d0a14a;
 }
 
 .moffitt-team-bio	.moffitt-body-button {
@@ -5242,7 +5248,7 @@ input[type="search"]	{
 }
 
 .moffitt-team-info h4	{
-	color: #3d6f8d;
+	color: #477991;
 	transition: all .2s ease-in-out;
 }
 
@@ -5325,7 +5331,7 @@ input[type="search"]	{
 }
 
 .moffitt-team-modal-content h4	{
-	color: #3d6f8d;
+	color: #477991;
 }
 
 .moffitt-team-modal-content h5	{
@@ -5399,7 +5405,7 @@ input[type="search"]	{
 	display: inline-block;
 	font-weight: 900;
 	position: relative;
-	color: #fa8b31;
+	color: #d0a14a;
 	font-size: inherit;
 	transition: all .2s ease-in-out;
 }
@@ -5411,7 +5417,7 @@ input[type="search"]	{
 	display: inline-block;
 	font-weight: 900;
 	position: relative;
-	color: #fa8b31;
+	color: #d0a14a;
 	font-size: inherit;
 	transition: all .2s ease-in-out;
 }
@@ -5423,7 +5429,7 @@ input[type="search"]	{
 	display: inline-block;
 	font-weight: 900;
 	position: relative;
-	color: #fa8b31;
+	color: #d0a14a;
 	font-size: inherit;
 	transition: all .2s ease-in-out;
 }
@@ -5435,7 +5441,7 @@ input[type="search"]	{
 	display: inline-block;
 	font-weight: 900;
 	position: relative;
-	color: #fa8b31;
+	color: #d0a14a;
 	font-size: inherit;
 	transition: all .2s ease-in-out;
 }
@@ -5467,7 +5473,7 @@ input[type="search"]	{
 	display: inline-block;
 	font-weight: 900;
 	position: relative;
-	color: #fa8b31;
+	color: #d0a14a;
 	font-size: 1.5em;
 	vertical-align: bottom;
 }
@@ -5479,7 +5485,7 @@ input[type="search"]	{
 	display: inline-block;
 	font-weight: 900;
 	position: relative;
-	color: #fa8b31;
+	color: #d0a14a;
 	font-size: 1.5em;
 	vertical-align: top;
 }
@@ -5529,7 +5535,7 @@ input[type="search"]	{
 	font-weight: 900;
 	display: inline-block;
 	position: relative;
-	color: #fa8b31;
+	color: #d0a14a;
 	font-size: inherit;
 	transition: all .2s ease-in-out;
 	margin-left: .6rem
@@ -5554,7 +5560,7 @@ input[type="search"]	{
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	padding: 2rem 3rem;
-	background: #fa8b31;
+	background: #d0a14a;
 	/* box-shadow: 3px 3px rgba(0, 0, 0, .6); */
 }
 
@@ -5666,13 +5672,13 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 .moffitt-accent-letter	{
 	font-family: IM Fell French Canon, serif;
 	font-size: 1.6rem;
-	color: #3d6f8d;
+	color: #477991;
 	font-weight: 600;
 }
 
 .moffitt-accent-copy {
 	font-weight: 600;
-	color: #3d6f8d;
+	color: #477991;
 }
 
 @media (max-width: 960px) {
@@ -5890,7 +5896,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.moffitt-about-button:hover	{
 		cursor: pointer;
-		color: #fa8b31;
+		color: #d0a14a;
 		background: #fff;
 	}
 
@@ -5960,13 +5966,13 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.moffitt-secondary-callout	.moffitt-body-button, .more-link	{
 		justify-content: flex-end;
-		color: #3d6f8d;
+		color: #477991;
 		border-bottom: 2px solid #6d7888;
 		text-decoration: none;
 	}
 
 	.moffitt-secondary-callout	.moffitt-body-button:hover, .more-link:hover	{
-		border-bottom: 2px solid #3d6f8d;
+		border-bottom: 2px solid #477991;
 	}
 
 	.moffitt-two-column-wrapper	{
@@ -6026,7 +6032,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 		flex-wrap: wrap;
 		justify-content: space-between;
 		padding: 2rem;
-		background: #fa8b31;
+		background: #d0a14a;
 		/* box-shadow: 3px 3px rgba(0, 0, 0, .6); */
 	}
 
@@ -6133,7 +6139,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.header-cta-button:hover	{
 		cursor: pointer;
-		color: #fa8b31;
+		color: #d0a14a;
 		background: #fff;
 	}
 
@@ -6315,7 +6321,7 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.moffitt-about-button:hover	{
 		cursor: pointer;
-		color: #fa8b31;
+		color: #d0a14a;
 		background: #fff;
 	}
 
