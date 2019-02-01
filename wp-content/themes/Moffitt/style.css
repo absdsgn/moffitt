@@ -4874,6 +4874,10 @@ p > object:only-child {
 	display: none;
 }
 
+.moffitt-about-image img {
+	max-width: 525px;
+}
+
 nf-fields-wrap	{
 	display: flex;
 	flex-direction: row;
@@ -5882,10 +5886,6 @@ input.ninja-forms-field::placeholder, textarea.ninja-forms-field::placeholder	{
 
 	.moffitt-about-image 	{
 		margin-top: 4rem;
-	}
-
-	.moffitt-about-image img {
-		max-width: 525px;
 	}
 
 	.moffitt-team-item	{
