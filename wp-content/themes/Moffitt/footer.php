@@ -106,18 +106,19 @@
 // Script to adjust the margin-top of the site content for the fixed nav
 	function customHeaderResize() {
 		// Get window inner heights, header height, and calculate new header height
-		var OGHeight = $(window).innerHeight();
-		var HeaderHeight = $('.navigation-top').outerHeight();
-		var newHeight = ( OGHeight - HeaderHeight );
+		var OGHeight 		= $(window).innerHeight();
+		var MenuHeight 	= $('.navigation-top').outerHeight();
+		var newHeight 	= ( OGHeight - MenuHeight );
+		var HeadHeight 	= ( OGHeight - MenuHeight );
 
-		// add new margin-top to custom header
-		$('.custom-header').css('margin-top', HeaderHeight );
+		// add new margin-top and height to custom header
+		$('.custom-header').css({'margin-top': MenuHeight,  'height': HeadHeight });
 		<?php if ( !is_front_page() ) : ?>
 		// Add new margin-top to site-content if it's not the home page
-		$('.site-content-contain').css('margin-top', HeaderHeight );
+		$('.site-content-contain').css('margin-top', MenuHeight );
 		<?php endif; ?>
 		<?php if ( is_single() && has_post_thumbnail( get_queried_object_id() ) ) : ?>
-		$('.single-featured-image-header').css('margin-top', HeaderHeight );
+		$('.single-featured-image-header').css('margin-top', MenuHeight );
 		$('.site-content-contain').removeAttr('style');
 		<?php endif; ?>
 	}
@@ -152,6 +153,7 @@
 			$('.moffitt-submenu-bar').show();
 		}, function() {
 			$('.moffitt-submenu-bar').hide();
+			$(this).removeClass('focus');
 		}
 	);
 </script>
@@ -253,8 +255,8 @@ $('.moffitt-team-modal-print').on('click', function(moffittModalp) {
 
 <?php if ( is_front_page() ) :?>
 <script type="text/javascript">
-// Scroll on header cta click
-$('.header-cta-button').on('click', function(s) {
+// Scroll on header cta or scroll icon click
+$('.header-cta-button, .header-scroll-icon').on('click', function(s) {
 	var ctaHeaderHeight = $('.navigation-top').outerHeight();
 
 	s.preventDefault();
