@@ -1361,7 +1361,7 @@ a:hover .nav-title,
 
 .navigation-top .current-menu-item > a,
 .navigation-top .current_page_item > a {
-	color: #767676;
+	color: #CE8845;
 }
 
 .main-navigation {
@@ -4581,7 +4581,7 @@ p > object:only-child {
 	max-width: 1100px;
 	width: 100%;
 	margin: 0 auto;
-	padding: 12rem 4rem;
+	padding: 12rem 4rem 2rem 4rem;
 	position: relative;
 	box-sizing: border-box;
 	display: flex;
@@ -4600,6 +4600,24 @@ p > object:only-child {
 	min-width: 350px;
 	max-width: 500px;
 	z-index: 25;
+}
+
+.header-scroll-icon {
+	position: absolute;
+	bottom: 1rem;
+	padding: 1rem;
+	font-size: 1.5rem;
+	color: rgba(255, 255, 255, .5);
+	z-index: 999;
+	left: 50%;
+	transform: translate(-50%, 0);
+	transition: all .1s ease-in-out;
+	cursor: pointer;
+}
+
+.header-scroll-icon:hover {
+	color: #fff;
+	font-size: 1.75rem;
 }
 
 @media (max-width: 960px)	{
