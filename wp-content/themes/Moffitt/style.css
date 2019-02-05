@@ -3761,7 +3761,6 @@ p > object:only-child {
 		z-index: 999;
 		width: 72px;
 		overflow: hidden;
-		margin-left: 2rem;
 		box-sizing: border-box;
 	}
 
