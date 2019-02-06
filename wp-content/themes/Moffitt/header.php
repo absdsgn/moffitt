@@ -17,6 +17,23 @@
 <head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon|Open+Sans:300,400,700">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+<!-- Header Test Font Loading -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700,800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:200,300,400,500,600,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,500,600,700,800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700" rel="stylesheet">
+
+
+<!-- Body Test Font Loading -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
+
+
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -53,7 +70,7 @@
 	if ( ( is_single() || ( is_page() && ! twentyseventeen_is_frontpage() ) ) && has_post_thumbnail( get_queried_object_id() ) ) : ?>
 		<div class="single-featured-image-header" style="background-image: url('<?php the_post_thumbnail_url( get_queried_object_id() ); ?>');">
 		<?php echo '</div><!-- .single-featured-image-header -->';
-	endif; 
+	endif;
 	?>
 
 	<div class="site-content-contain">
