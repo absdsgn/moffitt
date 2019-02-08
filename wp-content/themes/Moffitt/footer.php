@@ -106,13 +106,19 @@
 // Script to adjust the margin-top of the site content for the fixed nav
 	function customHeaderResize() {
 		// Get window inner heights, header height, and calculate new header height
-		var OGHeight 		= $(window).innerHeight();
-		var MenuHeight 	= $('.navigation-top').outerHeight();
-		var newHeight 	= ( OGHeight - MenuHeight );
-		var HeadHeight 	= ( OGHeight - MenuHeight );
+		var OGHeight 				= $(window).innerHeight();
+		var MenuHeight 			= $('.navigation-top').outerHeight();
+		var ArticleHeight 	= $('.moffitt-featured-article').outerHeight();
+		var ComboHeight			= ( MenuHeight + ArticleHeight + 70 );
+		var HeadHeight 			= ( OGHeight - ComboHeight );
+		var MobileHeight		= ( OGHeight - MenuHeight );
 
 		// add new margin-top and height to custom header
-		$('.custom-header').css({'margin-top': MenuHeight,  'height': HeadHeight });
+		if ( $(window).innerWidth() > 480 ) {
+			$('.custom-header').css({'margin-top': MenuHeight,  'height': HeadHeight });
+		} else {
+			$('.custom-header').css({'margin-top': MenuHeight,  'height': MobileHeight });
+		}
 		<?php if ( !is_front_page() ) : ?>
 		// Add new margin-top to site-content if it's not the home page
 		$('.site-content-contain').css('margin-top', MenuHeight );
