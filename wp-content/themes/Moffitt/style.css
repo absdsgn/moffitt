@@ -475,7 +475,7 @@ h3 {
 	font-size: 22px;
 	font-size: 2rem;
 	font-weight: 300;
-	line-height: 1.6em;
+	line-height: 1.25;
 }
 
 h4 {
@@ -3993,7 +3993,7 @@ p > object:only-child {
 
 	.page-two-column .panel-content .entry-content {
 		float: right;
-		width: 58%;
+		width: 100%;
 	}
 
 	/* Front Page - Recent Posts */
@@ -4001,7 +4001,7 @@ p > object:only-child {
 	.page-two-column .panel-content .recent-posts {
 		clear: right;
 		float: right;
-		width: 58%;
+		width: 100%;
 	}
 
 	.panel-content .recent-posts article {
@@ -4083,7 +4083,7 @@ p > object:only-child {
 	body.page-two-column:not(.archive) #primary .entry-content,
 	body.page-two-column #comments {
 		float: right;
-		width: 58%;
+		width: 100%;
 	}
 
 	.blog .site-main > article,

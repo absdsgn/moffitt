@@ -100,8 +100,8 @@
 					</div>
 					<div class="moffitt-secondary-callout-wrapper">
 						<!-- First Secondary Callout -->
-						<div class="moffitt-secondary-callout">
-							<div class="moffitt-callout-image-square" style="background: url(<?php echo $callout1_image['url']; ?>);"></div>
+						<!-- <div class="moffitt-secondary-callout">
+							<div class="moffitt-callout-image-square" style="background: url(<?php /* echo $callout1_image['url']; ?>);"></div>
 							<h3>
 								<?php the_field('secondary_callout_1_title'); ?>
 							</h3>
@@ -135,9 +135,63 @@
 								<?php the_field('secondary_callout_3_introduction'); ?>
 							</p>
 							<div class="moffitt-secondary-callout-button">
-								<a class="moffitt-body-button" href="<?php the_field('secondary_callout_3_button_url') ?>"><?php the_field('secondary_callout_3_button_text'); ?></a>
+								<a class="moffitt-body-button" href="<?php the_field('secondary_callout_3_button_url') ?>"><?php the_field('secondary_callout_3_button_text'); */ ?></a>
 							</div>
-						</div>
+						</div> -->
+						<?php
+
+							$args = array(
+								'post_type'				=> 'post',
+								'posts_per_page'	=> '3',
+							);
+
+							$the_query = new WP_Query( $args );
+
+							// The Loop
+							if ( $the_query->have_posts() ) {
+							    while ( $the_query->have_posts() ) {
+
+							        $the_query->the_post(); ?>
+
+							        <div class="moffitt-secondary-callout">
+
+												<a href="<?php the_permalink(); ?>">
+													<div class="moffitt-callout-image-square" style="background-image: url('<?php the_post_thumbnail_url(); ?>')"></div>
+												</a>
+
+												<div class="moffitt-post-entry-header">
+													<?php the_title( '<h3><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+
+													if ( 'post' === get_post_type() ) {
+														echo '<div class="entry-meta">';
+															if ( is_single() ) {
+																twentyseventeen_posted_on();
+															} else {
+																echo twentyseventeen_time_link();
+																twentyseventeen_edit_link();
+															};
+														echo '</div><!-- .entry-meta -->';
+													}; ?>
+
+												</div>
+
+												<div class="entry-content">
+													<?php the_excerpt( sprintf(
+														__( 'Read More<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
+														get_the_title()
+													) );
+													?>
+												</div><!-- .entry-content -->
+
+											</div>
+
+							    <?php }
+							} else {
+							    // no posts found
+							}
+							/* Restore original Post Data */
+							wp_reset_postdata();
+						?>
 					</div>
 					<div class="moffitt-home-contact">
 						<div id="moffitt-contact" class="moffitt-secondary-intro" style="padding-top: 0;">
