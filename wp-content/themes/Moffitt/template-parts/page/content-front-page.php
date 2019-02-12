@@ -184,7 +184,6 @@
 												</div><!-- .entry-content -->
 
 											</div>
-
 							    <?php }
 							} else {
 							    // no posts found
@@ -192,6 +191,9 @@
 							/* Restore original Post Data */
 							wp_reset_postdata();
 						?>
+					</div>
+					<div style="margin: 0 auto; width: 100%; text-align: center; padding: 0 1rem 4rem 1rem;">
+						<a class="moffitt-articles-button" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">More Articles</a>
 					</div>
 					<div class="moffitt-home-contact">
 						<div id="moffitt-contact" class="moffitt-secondary-intro" style="padding-top: 0;">
