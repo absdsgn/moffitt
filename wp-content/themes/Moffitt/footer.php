@@ -55,8 +55,8 @@
 					<p>STAY CONNECTED</p>
 					<p>Follow us to get the latest news, insights, and opportunities.</p>
 					<a href="http://linkedin.com/" target="_blank" class="moffitt-footer-link-fa"><i class="fab fa-linkedin-in"></i></a>
-					<a href="http://facebook.com/" target="_blank" class="moffitt-footer-link-fa"><i class="fab fa-facebook-f"></i></a>
-					<a href="http://twitter.com/" target="_blank" class="moffitt-footer-link-fa"><i class="fab fa-twitter"></i></a>
+					<a href="http://facebook.com/emoffittint" target="_blank" class="moffitt-footer-link-fa"><i class="fab fa-facebook-f"></i></a>
+					<a href="http://twitter.com/emoffittint" target="_blank" class="moffitt-footer-link-fa"><i class="fab fa-twitter"></i></a>
 				</div>
 				<div class="moffitt-footer-content">
 					<p>NAVIGATION</p>
