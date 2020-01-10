@@ -36,7 +36,23 @@ Thanks again for using the plugin. We will never show the message again.
 
 <?php
 }
+if(!$_POST && isset($_GET['ln_auth_err']) && $_GET['ln_auth_err'] != '')
+{
+	?>
+<style type='text/css'>
+#smap_notice_td
+{
+display:none !important;
+}
+</style>
+<div class="system_notice_area_style0" id="system_notice_area">
+<?php echo esc_html($_GET['ln_auth_err']);?>
+ &nbsp;&nbsp;&nbsp;<span
+		id="system_notice_area_dismiss" class="xyz_smap_hide_ln_authErr">Dismiss</span>
+</div>
 
+<?php
+}
 
 $erf=0;
 if(isset($_POST['fb']))
@@ -153,10 +169,8 @@ if(isset($_POST['twit']))
 		exit();
 	}
 
-	//$posting_method=$_POST['xyz_smap_po_method'];
 	$tappid=sanitize_text_field($_POST['xyz_smap_twconsumer_id']);
 	$tappsecret=sanitize_text_field($_POST['xyz_smap_twconsumer_secret']);
-	//$messagetopost=$_POST['xyz_smap_twmessage'];
 	$twid=sanitize_text_field($_POST['xyz_smap_tw_id']);
 	$taccess_token=sanitize_text_field($_POST['xyz_smap_current_twappln_token']);
 	$taccess_token_secret=sanitize_text_field($_POST['xyz_smap_twaccestok_secret']);
@@ -195,7 +209,7 @@ if(isset($_POST['twit']))
 	}
 	elseif($tmessagetopost=="" && $tposting_permission==1)
 	{
-		$tms6="Please fill mssage format for posting.";
+		$tms6="Please fill message format for posting.";
 		$terf=1;
 	}
 	else
@@ -221,7 +235,7 @@ if(isset($_POST['twit']))
 
 $lms1="";
 $lms2="";
-// $lms3="";
+$lms3=$lms4="";
 $lerf=0;
 
 if(isset($_POST['linkdn']))
@@ -231,19 +245,23 @@ if(isset($_POST['linkdn']))
 		wp_nonce_ays( 'xyz_smap_ln_settings_form_nonce' );
 		exit();
 	}
-	//$posting_method=$_POST['xyz_smap_po_method'];
+	$lnaf=get_option('xyz_smap_lnaf');
+	$posting_method=$_POST['xyz_smap_lnpost_method'];
 	$lnappikeyold=get_option('xyz_smap_lnapikey');
 	$lnapisecretold=get_option('xyz_smap_lnapisecret');
-
+	$xyz_smap_ln_api_permissionold = get_option('xyz_smap_ln_api_permission');
 	$lnappikey=sanitize_text_field($_POST['xyz_smap_lnapikey']);
 	$lnapisecret=sanitize_text_field($_POST['xyz_smap_lnapisecret']);
 	
 	$lmessagetopost=trim($_POST['xyz_smap_lnmessage']);
 	
 	$lnposting_permission=intval($_POST['xyz_smap_lnpost_permission']);
+	$xyz_smap_lnshare_to_profile=get_option('xyz_smap_lnshare_to_profile');
+	if (isset($_POST['xyz_smap_lnshare_to_profile']))
 	$xyz_smap_lnshare_to_profile=intval($_POST['xyz_smap_lnshare_to_profile']);
 	$xyz_smap_ln_shareprivate=intval($_POST['xyz_smap_ln_shareprivate']);
-	$xyz_smap_ln_sharingmethod=intval($_POST['xyz_smap_ln_sharingmethod']);
+// 	$xyz_smap_ln_sharingmethod=intval($_POST['xyz_smap_ln_sharingmethod']);
+	$xyz_smap_ln_api_permission=intval($_POST['xyz_smap_ln_api_permission']);
 	$xyz_smap_ln_share_post_company=array();
 	if(isset($_POST['xyz_smap_ln_share_post_company']))
 		$xyz_smap_ln_share_post_company=$_POST['xyz_smap_ln_share_post_company'];
@@ -260,25 +278,32 @@ if(isset($_POST['linkdn']))
 			}
 			$xyz_smap_ln_company_ids=rtrim($xyz_smap_ln_company_ids,',');
 		}
-	if($lnappikey=="" && $lnposting_permission==1)
+		if ($xyz_smap_ln_api_permission==2)
+		$xyz_smap_ln_company_ids=get_option('xyz_smap_ln_company_ids');
+	if($lnappikey=="" && $lnposting_permission==1 && $xyz_smap_ln_api_permission!=2)
 	{
 		$lms1="Please fill linkedin api key";
 		$lerf=1;
 	}
-	elseif($lnapisecret=="" && $lnposting_permission==1)
+	elseif($lnapisecret=="" && $lnposting_permission==1  && $xyz_smap_ln_api_permission!=2)
 	{
 		$lms2="Please fill linked api secret";
 		$lerf=1;
 	}
-	elseif($xyz_smap_ln_company_ids=="" && $xyz_smap_lnshare_to_profile!=1 && $lnposting_permission==1)
+	elseif($lnaf==0 && $xyz_smap_ln_company_ids=="" && $xyz_smap_lnshare_to_profile!=1 && $lnposting_permission==1)
 	{
-		$lms3="Please select share post to profile or company page";
+		$lms3="Please select share post to profile or company page ";
+		$lerf=1;
+	}
+	elseif($lnaf==0 && $lmessagetopost=='' && $posting_method==1)
+	{
+		$lms4="Please fill message format for posting ";
 		$lerf=1;
 	}
 	else
 	{
 		$lerf=0;
-		if($lnappikey!=$lnappikeyold || $lnapisecret!=$lnapisecretold )
+		if($lnappikey!=$lnappikeyold || $lnapisecret!=$lnapisecretold || $xyz_smap_ln_api_permission!=$xyz_smap_ln_api_permissionold)
 		{
 			update_option('xyz_smap_lnaf',1);
 		}
@@ -286,11 +311,13 @@ if(isset($_POST['linkdn']))
 		update_option('xyz_smap_lnapikey',$lnappikey);
 		update_option('xyz_smap_lnapisecret',$lnapisecret);
 		update_option('xyz_smap_lnpost_permission',$lnposting_permission);
+		update_option('xyz_smap_lnpost_method', $posting_method);
 		update_option('xyz_smap_ln_shareprivate',$xyz_smap_ln_shareprivate);
-		update_option('xyz_smap_ln_sharingmethod',$xyz_smap_ln_sharingmethod);
+// 		update_option('xyz_smap_ln_sharingmethod',$xyz_smap_ln_sharingmethod);
 		update_option('xyz_smap_lnmessage',$lmessagetopost);
 		update_option('xyz_smap_ln_company_ids', $xyz_smap_ln_company_ids);
 		update_option('xyz_smap_lnshare_to_profile', $xyz_smap_lnshare_to_profile);
+		update_option('xyz_smap_ln_api_permission', $xyz_smap_ln_api_permission);
 	}	
 }
 
@@ -348,7 +375,7 @@ if(isset($_GET['msg']) && $_GET['msg']==5)
 </div>
 	<?php 
 }
-if(isset($_GET['msg']) && $_GET['msg']==6)
+if(isset($_GET['msg']) && ($_GET['msg']==6|| $_GET['msg']==7))
 {
 	?>
 <div class="system_notice_area_style1" id="system_notice_area">
@@ -372,7 +399,7 @@ if((isset($_POST['twit']) && $terf==1)|| (isset($_POST['fb']) && $erf==1) || (is
 	}
 	else if(isset($_POST['linkdn']))
 	{
-		echo esc_html($lms1);echo esc_html($lms2);echo esc_html($lms3);
+		echo esc_html($lms1);echo esc_html($lms2);echo esc_html($lms3);echo esc_html($lms4);
 	}
 	?>
 	&nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
@@ -388,7 +415,7 @@ function dethide_smap(id)
 	document.getElementById(id).style.display='none';
 }
 
-function drpdisplay()
+/*function drpdisplay()
 {
 	var shmethod= document.getElementById('xyz_smap_ln_sharingmethod').value;
 	if(shmethod==1)	
@@ -399,7 +426,7 @@ function drpdisplay()
 	{
 		document.getElementById('shareprivate').style.display="";
 	}
-}
+}*/
 </script>
 
 <div style="width: 100%">
@@ -450,7 +477,8 @@ function drpdisplay()
 	 		$xyzscripts_user_id=trim(get_option('xyz_smap_xyzscripts_user_id'));
 	 		$xyz_smap_accountId=0;
 	 		$xyz_smap_licence_key='';
-	 		$auth_secret_key=md5('smapsolutions'.$domain_name.$xyz_smap_accountId.$xyz_smap_smapsoln_userid.$xyzscripts_user_id.$xyzscripts_hash_val.$xyz_smap_licence_key);
+	 		$request_hash=md5($xyzscripts_user_id.$xyzscripts_hash_val);
+	 		$auth_secret_key=md5('smapsolutions'.$domain_name.$xyz_smap_accountId.$xyz_smap_smapsoln_userid.$xyzscripts_user_id.$request_hash.$xyz_smap_licence_key.'smap');
 			if($af==1 )
 			{
 				?>
@@ -461,7 +489,7 @@ function drpdisplay()
 		 			     <?php wp_nonce_field( 'xyz_smap_fb_auth_form_nonce' );?>
 		 			     <input type="hidden" value="<?php echo  (is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST']; ?>" id="parent_domain">
 		 					<input type="submit" class="submit_smap_new" name="fb_auth"
-	 						value="Authorize" onclick="javascript:return smap_popup_fb_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_smap_smapsoln_userid;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>');void(0);"/><br><br>
+	 						value="Authorize" onclick="javascript:return smap_popup_fb_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_smap_smapsoln_userid;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>','<?php echo $request_hash;?>');void(0);"/><br><br>
 	 				</form></span>
 		 				<?php }
 		 				else if($af==0 )
@@ -472,7 +500,7 @@ function drpdisplay()
 		 				<?php wp_nonce_field( 'xyz_smap_fb_auth_form_nonce' );?>
 		 				<input type="hidden" value="<?php echo  (is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST']; ?>" id="parent_domain">
 		 				<input type="submit" class="submit_smap_new" name="fb_auth"
-	 				value="Reauthorize" title="Reauthorize the account" onclick="javascript:return smap_popup_fb_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_smap_smapsoln_userid;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>');void(0);"/><br><br>
+	 				value="Reauthorize" title="Reauthorize the account" onclick="javascript:return smap_popup_fb_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_smap_smapsoln_userid;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>','<?php echo $request_hash;?>');void(0);"/><br><br>
 		 				</form>
 		 				<?php }
 		 	}
@@ -542,10 +570,15 @@ function drpdisplay()
 			</td>
 				<td>
 				<input type="radio" name="xyz_smap_app_sel_mode" id="xyz_smap_app_sel_mode_reviewd" value="0" <?php if($xyz_smap_app_sel_mode==0) echo 'checked';?>>
-				Use your own Facebook reviewed application<br>
+				<span style="color: #a7a7a7;font-weight: bold;">Own App ( requires app submission and Facebook review )</span><br>
 				<a href="http://help.xyzscripts.com/docs/social-media-auto-publish/faq/how-can-i-create-facebook-application/" target="_blank" style="padding-left: 30px;">How can I create a Facebook Application?</a><br/>
-				<input type="radio" name="xyz_smap_app_sel_mode" id="xyz_smap_app_sel_mode_xyzapp" value="1" <?php if($xyz_smap_app_sel_mode==1) echo 'checked';?>>
-				Use smapsolution.com's Facebook application(Starts from 10 USD per year)<br>
+				<br/><input type="radio" name="xyz_smap_app_sel_mode" id="xyz_smap_app_sel_mode_xyzapp" value="1" <?php if($xyz_smap_app_sel_mode==1) echo 'checked';?>>
+				<span style="color: #000000;font-size: 13px;background-color: #f7a676;font-weight: 500;padding: 3px 5px;"><i class="fa fa-star-o" aria-hidden="true" style="margin-right:5px;"></i>SMAPsolution.com's App ( ready to publish )<i class="fa fa-star-o" aria-hidden="true" style="margin-right:5px;"></i></span><br> <span style="padding-left: 30px;">Starts from 10 USD per year</span><br>
+				<?php if(get_option('xyz_smap_smapsoln_userid')==0)
+				{?>
+				<span style="color: #ff5e00;padding-left: 27px;font-size: small;"><b>30 DAYS FREE TRIAL AVAILABLE*</b></span>
+				<br/>
+				<?php }?>
 				<a target="_blank" href="https://help.xyzscripts.com/docs/social-media-auto-publish/faq/how-can-i-use-the-alternate-solution-for-publishing-posts-to-facebook/" style="padding-left: 30px;">How to use smapsolution.com's application?</a>
 				</td>
 			</tr>
@@ -704,18 +737,20 @@ function drpdisplay()
 				<input type="checkbox" class="selpages" name="smap_pages_list[]"  value="<?php  echo $data[$i]->id."-".$data[$i]->access_token;?>" <?php if(in_array($data[$i]->id, $smap_pages_ids)) echo "checked" ?>><?php echo $data[$i]->name; ?>
 				<br><?php }
 				//	$page_name=base64_encode(serialize($page_name));?>
-				<input type="hidden" value="<?php echo $page_name;?>" name="hidden_page_name" >
+			<!--  	<input type="hidden" value="<?php //echo $page_name;?>" name="hidden_page_name" >-->
 				</div>
 				</td></tr>
 			<?php 
 			}
-			elseif ($xyz_smap_app_sel_mode==1)// &&pagelist frm smap solutions is not empty )
+			elseif ($xyz_smap_app_sel_mode==1 && $af==0)// &&pagelist frm smap solutions is not empty )
 			{
 				$xyz_smap_page_names=stripslashes(get_option('xyz_smap_page_names'));
 				?>
 							<tr id="xyz_smap_selected_pages_tr" style="<?php if($xyz_smap_page_names=='')echo "display:none;";?>">
 							<td>Selected facebook pages for auto publish</td>
-							<td><div class="scroll_checkbox" id="xyz_smap_selected_pages" >
+							<td>
+							<div>
+							<div class="scroll_checkbox" id="xyz_smap_selected_pages" style="float: left;" >
 							<?php
 							if($xyz_smap_page_names!=''){
 								$xyz_smap_page_names_array=json_decode($xyz_smap_page_names);
@@ -725,6 +760,8 @@ function drpdisplay()
 							 <input type="checkbox" class="selpages" name="smap_pages_list[]"  value="<?php echo $sel_pageid;?>" disabled checked="checked"><?php echo $sel_pagename; ?><br>
 								<?php }}
 							?>
+							</div>
+							<div style="float: left;width: 10px;color: #ce5c19;font-size: 20px;">*</div>
 							</div>
 							</td>
 							</tr>
@@ -737,6 +774,12 @@ function drpdisplay()
 								name="fb" value="Save" /></div>
 					</td>
 				</tr>
+				<?php if(get_option('xyz_smap_smapsoln_userid')==0){?>
+				<tr><td style='color: #ce5c19;padding-left:0px;'>*Free trial is available only for first time users</td></tr>
+				<?php }
+				else{?>
+				<tr><td style='color: #ce5c19;padding-left:0px;'>*Use reauthorize button to change selected values</td></tr>
+				<?php }?>
 			</table>
 
 	</form>
@@ -907,11 +950,10 @@ $xyz_smap_ln_company_ids=get_option('xyz_smap_ln_company_ids');
 // 	$xyz_smap_ln_company_ids=-1;
 
 $lnaf=get_option('xyz_smap_lnaf');
-
+if ( get_option('xyz_smap_ln_api_permission')!=2){
 	if($lnaf==1 && $lnappikey!="" && $lnapisecret!="" )
-{
 
-	?>
+		{ ?>
 	
 	<span style="color:red; ">Application needs authorisation</span><br>	
             <form method="post" >
@@ -921,9 +963,8 @@ $lnaf=get_option('xyz_smap_lnaf');
 			</form>
 			<?php  }
 			if($lnaf==0 && $lnappikey!="" && $lnapisecret!="" )
-			{
 			
-				?>
+		{?>
 			
 			<form method="post" >
 			<?php wp_nonce_field( 'xyz_smap_ln_auth_form_nonce' );?>
@@ -931,10 +972,44 @@ $lnaf=get_option('xyz_smap_lnaf');
 			<br><br>
 			</form>
 			<?php  }
-
+}
+else{
+	//add trim
+	$domain_name=trim(get_option('siteurl'));
+	$xyz_smap_smapsoln_userid_ln=intval(trim(get_option('xyz_smap_smapsoln_userid_ln')));
+	$xyzscripts_hash_val=trim(get_option('xyz_smap_xyzscripts_hash_val'));
+	$xyzscripts_user_id=trim(get_option('xyz_smap_xyzscripts_user_id'));
+	$xyz_smap_accountId=0;
+	$xyz_smap_licence_key='';
+	$request_hash=md5($xyzscripts_user_id.$xyzscripts_hash_val);
+	$auth_secret_key=md5('smapsolutions'.$domain_name.$xyz_smap_accountId.$xyz_smap_smapsoln_userid_ln.$xyzscripts_user_id.$request_hash.$xyz_smap_licence_key.'smap');
+	if($lnaf==1 )
+	{
 			?>
+	 			<span id='ajax-save' style="display:none;"><img	class="img"  title="Saving details"	src="<?php echo plugins_url('../images/ajax-loader.gif',__FILE__);?>" style="width:65px;height:70px; "></span>
+	 			<span id="auth_message">
+	 				<span style="color: red;" >Application needs authorisation</span> <br>
+	 				<form method="post">
+	 			     <?php wp_nonce_field( 'xyz_smap_fb_auth_nonce' );?>
+	 			     <input type="hidden" value="<?php echo  (is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST']; ?>" id="parent_domain">
+	 					<input type="submit" class="submit_smap_new" name="lnauth"
+	 						value="Authorize" onclick="javascript:return smap_popup_ln_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_smap_smapsoln_userid_ln;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>','<?php echo $request_hash;?>');void(0);"/><br><br>
+	 				</form></span>
+	 				<?php }
+	 				else if($lnaf==0 )
+	 				{
+ 					?>
+ 					<span id='ajax-save' style="display:none;"><img	class="img"  title="Saving details"	src="<?php echo plugins_url('../images/ajax-loader.gif',__FILE__);?>" style="width:65px;height:70px; "></span>
+	 				<form method="post" id="re_auth_message">
+	 				<?php wp_nonce_field( 'xyz_smap_fb_auth_nonce' );?>
+	 				<input type="hidden" value="<?php echo  (is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST']; ?>" id="parent_domain">
+	 				<input type="submit" class="submit_smap_new" name="lnauth"
+	 				value="Reauthorize" title="Reauthorize the account" onclick="javascript:return smap_popup_ln_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_smap_smapsoln_userid_ln;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>','<?php echo $request_hash;?>');void(0);"/><br><br>
+	 				</form>
+	 				<?php }
+}?>
 			
-			<table class="widefat" style="width: 99%;background-color: #FFFBCC">
+	<table class="widefat" style="width: 99%;background-color: #FFFBCC" id="xyz_linkedin_settings_note" >
 	<tr>
 	<td id="bottomBorderNone" style="border: 1px solid #FCC328;">
 	<div>
@@ -956,15 +1031,46 @@ $lnaf=get_option('xyz_smap_lnaf');
 		<?php wp_nonce_field( 'xyz_smap_ln_settings_form_nonce' );?>
 	<div style="font-weight: bold;padding: 3px;">All fields given below are mandatory</div> 
 	
-	<table class="widefat xyz_smap_widefat_table" style="width: 99%">
+	<table class="widefat xyz_smap_widefat_table"  style="width: 99%;">
 		
 	<tr valign="top"><td>Enable auto publish posts to my linkedin account</td>
-		<td  class="switch-field">
+		<td width="50%" class="switch-field">
 			<label id="xyz_smap_lnpost_permission_yes"><input type="radio" name="xyz_smap_lnpost_permission" value="1" <?php  if(get_option('xyz_smap_lnpost_permission')==1) echo 'checked';?>/>Yes</label>
 			<label id="xyz_smap_lnpost_permission_no"><input type="radio" name="xyz_smap_lnpost_permission" value="0" <?php  if(get_option('xyz_smap_lnpost_permission')==0) echo 'checked';?>/>No</label>
 		</td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top"><td width="50%"> V2 API usage <span class="mandatory">*</span>
+	</td>
+	<td>
+	<input type="radio" name="xyz_smap_ln_api_permission" id="xyz_smap_ln_api_permission_basic" value="0" <?php if (get_option('xyz_smap_ln_api_permission')==0) echo 'checked';?>/>
+	<span style="color: #a7a7a7;font-weight: bold;">Own app-Basic profile fields only</span><br>
+	<input type="radio" name="xyz_smap_ln_api_permission" id="xyz_smap_ln_api_permission_company" value="1" <?php if (get_option('xyz_smap_ln_api_permission')==1) echo 'checked';?>/>
+	<span style="color: #a7a7a7;font-weight: bold;">Own app-Basic profile fields + company pages <br/><span style='padding-left: 25px;'>(requires app submission and LinkedIn review)</span></span><br/>
+	<span style="padding-left: 25px;"><a href="http://help.xyzscripts.com/docs/social-media-auto-publish/faq/how-can-i-create-linkedin-application/" target="_blank">How can I create a Linkedin Application?</a></span><br/>
+	<input type="radio" name="xyz_smap_ln_api_permission" id="xyz_smap_ln_api_permission_smapsolutions" value="2" <?php if(get_option('xyz_smap_ln_api_permission')==2) echo 'checked';?>>
+	<span style="color: #000000;font-size: 13px;background-color: #f7a676;font-weight: 500;padding: 3px 5px;"><i class="fa fa-star-o" aria-hidden="true" style="margin-right:5px;"></i>SMAPsolution.com's App ( ready to publish )<i class="fa fa-star-o" aria-hidden="true" style="margin-right:5px;"></i></span><br> <span style="padding-left: 25px;">Starts from 10 USD per year</span>
+	<br>
+	<?php if(get_option('xyz_smap_smapsoln_userid_ln')==0)
+	{?>
+	<span style="color: #ff5e00;padding-left: 27px;font-size: small;"><b>30 DAYS FREE TRIAL AVAILABLE*</b></span>
+	<br/>
+	<?php }?>
+	
+	</td></tr>
+	<?php if( ($xyzscripts_user_id =='' || $xyzscripts_hash_val=='') && get_option('xyz_smap_ln_api_permission')==2)
+	{  ?>
+	<tr valign="top" id="xyz_smap_conn_to_xyzscripts">
+	<td width="50%">	</td>
+	<td width="50%">
+	<span id='ajax-save-xyzscript_acc_ln' style="display:none;"><img	class="img"  title="Saving details"	src="<?php echo plugins_url('../images/ajax-loader.gif',__FILE__);?>" style="width:65px;height:70px; "></span>
+	<span id="connect_to_xyzscripts_ln" style="background-color: #1A87B9;color: white; padding: 4px 5px;
+    text-align: center; text-decoration: none;   display: inline-block;border-radius: 4px;">
+	<a href="javascript:smap_popup_connect_to_xyzscripts();" style="color:white !important;">Connect your xyzscripts account</a>
+	</span>
+	</td>
+	</tr>
+	<?php }?>
+	<tr valign="top" class="xyz_linkedin_settings">
 	<td width="50%">Client ID </td>					
 	<td>
 		<input id="xyz_smap_lnapikey" name="xyz_smap_lnapikey" type="text" value="<?php if($lms1=="") {echo esc_html(get_option('xyz_smap_lnapikey'));}?>"/>
@@ -972,7 +1078,7 @@ $lnaf=get_option('xyz_smap_lnaf');
 	</td></tr>
 	
 
-	<tr valign="top"><td>Client Secret</td>
+	<tr valign="top" class="xyz_linkedin_settings"><td>Client Secret</td>
 	<td>
 		<input id="xyz_smap_lnapisecret" name="xyz_smap_lnapisecret" type="text" value="<?php if($lms2=="") { echo esc_html(get_option('xyz_smap_lnapisecret')); }?>" />
 	</td></tr>
@@ -1008,22 +1114,57 @@ $lnaf=get_option('xyz_smap_lnaf');
 	</td></tr>
 	
 	<tr valign="top">
+		<td>Posting method
+		</td>
+		<td>
+		<select id="xyz_smap_lnpost_method" name="xyz_smap_lnpost_method">
+				<option value="1"
+	<?php  if(get_option('xyz_smap_lnpost_method')==1) echo 'selected';?>>Simple text message</option>
+				<option value="2"
+	<?php  if(get_option('xyz_smap_lnpost_method')==2) echo 'selected';?>>Attach your blog post </option>
+		</select>
+		</td>
+	</tr>
+	<!-- ///////////////////////////////// -->
+	<?php if (get_option('xyz_smap_lnaf')==0 && get_option('xyz_smap_ln_api_permission')==2)
+	{
+		?>
+	<tr valign="top" id="share_post_profile"><td>Share post to profile	<span class="mandatory">*</span> </td>
+	<td  class="switch-field">
+	<?php  if(get_option('xyz_smap_lnshare_to_profile')==0){?>
+		<label id="xyz_smap_lnshare_to_profile_smap_yes" class="xyz_smap_toggle_off"><input type="radio" name="xyz_smap_lnshare_to_profile_smap" value="1" disabled/>Yes</label>
+		<label id="xyz_smap_lnshare_to_profile_smap_no" class="xyz_smap_toggle_on"><input type="radio" name="xyz_smap_lnshare_to_profile_smap" value="0" checked/>No</label>
+		<?php }
+		elseif(get_option('xyz_smap_lnshare_to_profile')==1){
+			?>
+		<label id="xyz_smap_lnshare_to_profile_smap_yes" class="xyz_smap_toggle_on"><input type="radio" name="xyz_smap_lnshare_to_profile_smap" value="1" checked/>Yes</label>
+		<label id="xyz_smap_lnshare_to_profile_smap_no" class="xyz_smap_toggle_off"><input type="radio" name="xyz_smap_lnshare_to_profile_smap" value="0" disabled/>No</label>
+			<?php 
+		}?>
+		  <span style="width: 10px;color: #ce5c19;font-size: 20px;">*</span>
+		</td>
+	</tr> 
+			<?php 
+	}else{?>
+	<!-- ///////////////////////////////// -->
+	<tr valign="top">
 	<td>Share post to profile</td>
 	<td  class="switch-field">
 		<label id="xyz_smap_lnshare_to_profile_yes" ><input type="radio" name="xyz_smap_lnshare_to_profile" value="1" <?php  if(get_option('xyz_smap_lnshare_to_profile')==1) echo 'checked';?>/>Yes</label>
 		<label id="xyz_smap_lnshare_to_profile_no" ><input type="radio" name="xyz_smap_lnshare_to_profile" value="0" <?php  if(get_option('xyz_smap_lnshare_to_profile')==0) echo 'checked';?>/>No</label>
 	</td>
 	</tr>
+	<?php }?>
 	
 	<tr valign="top" id="shareprivate">
-	<input type="hidden" name="xyz_smap_ln_sharingmethod" id="xyz_smap_ln_sharingmethod" value="0">
+<!-- 	<input type="hidden" name="xyz_smap_ln_sharingmethod" id="xyz_smap_ln_sharingmethod" value="0"> -->
 	<td>Share post content with</td>
 	<td  class="switch-field">
 		<label id="xyz_smap_ln_shareprivate_yes" ><input type="radio" name="xyz_smap_ln_shareprivate" value="1" <?php  if(get_option('xyz_smap_ln_shareprivate')==1) echo 'checked';?>/>Connections</label>
 		<label id="xyz_smap_ln_shareprivate_no" ><input type="radio" name="xyz_smap_ln_shareprivate" value="0" <?php  if(get_option('xyz_smap_ln_shareprivate')==0) echo 'checked';?>/>Public</label>
-	</td>
+		</td>
 	</tr>
-	
+		<?php if(get_option('xyz_smap_lnaf')==0 && get_option('xyz_smap_ln_api_permission')==1){?>
 		<tr valign="top" id="share_post_company"><td>Select pages for auto publish </td>
 		<td>
 			<?php 
@@ -1037,24 +1178,58 @@ $lnaf=get_option('xyz_smap_lnaf');
 			$xyz_smap_ln_company_idArray=explode(',',$xyz_smap_ln_company_ids);
 			?><div class="scroll_checkbox" style="width:220px !important;" >
 				<?php if(isset($ln_acc_tok_arr->access_token))
+				{		
+				$ln_err_flag=0;
+				$url="https://api.linkedin.com/v2/organizationalEntityAcls?q=roleAssignee&role=ADMINISTRATOR&projection=(elements*(*,roleAssignee~(localizedFirstName,%20localizedLastName),%20organizationalTarget~(localizedName)))&oauth2_access_token=".$ln_acc_tok_arr->access_token;
+				$ar=wp_remote_get($url);
+				if (is_object( $ar ) &&  is_a( $ar, 'wp_Error' ))
+						echo "Failed to fetch company details.";
+				elseif (is_array($ar))
 				{
-					$ObjLinkedin = new SMAPLinkedInOAuth2($ln_acc_tok_arr->access_token);
-					$ar = $ObjLinkedin->getAdminCompanies();//print_r($ar);die;
-					if (isset($ar['_total'])&&$ar['_total']>0)
-					{
-						foreach ($ar['values'] as $ark => $arv)
-						{ ?>
-		<input type="checkbox" name="xyz_smap_ln_share_post_company[]"  value="<?php echo $arv['id']."-".$arv['name']; ?>" <?php if(in_array($arv['id'], $xyz_smap_ln_company_idArray)) echo "checked" ?>><?php echo $arv['id']."-".$arv['name']; ?><br/>
-   				  <?php } ?>
-	                 </div>
-						<?php 
+					$ar=json_decode($ar['body'],true);
+							if (isset($ar['elements'])){
+					$ar=$ar['elements'];
+					foreach ($ar as $ark)
+					{ 
+						$comp_id=str_replace('urn:li:organization:', '',$ark['organizationalTarget']);
+						?>
+					<input type="checkbox" name="xyz_smap_ln_share_post_company[]"  value="<?php echo $comp_id."-".$ark['organizationalTarget~']['localizedName']; ?>" <?php if(in_array($comp_id, $xyz_smap_ln_company_idArray)) echo "checked" ?>><?php echo $ark['organizationalTarget~']['localizedName']; ?><br/>
+   				 <?php } }
+   				 else $ln_err_flag=1;
+   				 if ($ln_err_flag==1){
+   				 	echo "No companies found.";
+   				 	if (isset($ar['body']))print_r($ar['body']);}
+   				 }
 					}
-					else{echo "No companies found.";}
-				}
 				else {echo "No companies found.";}
-				?>
+				?></div>
 		</td>
 	</tr>
+	<?php }elseif (get_option('xyz_smap_ln_api_permission')==2 && get_option('xyz_smap_lnaf')==0 ){
+		if (get_option('xyz_smap_ln_page_names')!=''){
+		$xyz_smap_ln_company_names=unserialize(base64_decode(get_option('xyz_smap_ln_page_names')));
+		////////////////////////////////////smap api linkedin //////////////////////////////
+		?>
+				<tr valign="top" id="share_post_company"><td>Share post to company page </td>
+				<td>
+				<div>
+					<div class="scroll_checkbox" style="float: left;"><?php
+						foreach ($xyz_smap_ln_company_names as $xyz_ln_company_id => $xyz_ln_company_name)
+						   {?>
+							 <input type="checkbox" name="xyz_smap_ln_share_post_company[]"  value="<?php echo $xyz_ln_company_id."-".$xyz_ln_company_name; ?>" <?php /*if(in_array($xyz_ln_company_id, $xyz_smap_ln_company_idArray))*/ echo "checked" ?> disabled><?php echo $xyz_ln_company_name; ?><br/>
+	   				       <?php 	$ln_company_name[$xyz_ln_company_id]=$xyz_ln_company_name;
+						   } 
+	   				 	$ln_company_name1=base64_encode(serialize($ln_company_name));
+					?>
+	                 </div>
+	                 <div style="float: left;width: 10px;color: #ce5c19;font-size: 20px;">*</div>
+	             </div>
+	                   <input type="hidden" value="<?php echo $ln_company_name1;?>" name="hidden_company_name" >
+				</td>
+			</tr> 
+			<?php 
+		}
+ }?>
 		<tr>
 			<td   id="bottomBorderNone"></td>
 					<td   id="bottomBorderNone"><div style="height: 50px;">
@@ -1063,6 +1238,12 @@ $lnaf=get_option('xyz_smap_lnaf');
 								name="linkdn" value="Save" /></div>
 					</td>
 				</tr>
+		<?php if(get_option('xyz_smap_smapsoln_userid_ln')==0){?>
+		<tr><td style='color: #ce5c19;padding-left:0px;'>*Free trial is available only for first time users</td></tr>
+		<?php }
+		else{?>
+			<tr><td style='color: #ce5c19;padding-left:0px;'>*Use reauthorize button to change selected values</td></tr>
+			<?php }?>
 
 </table>
 
@@ -1085,7 +1266,7 @@ $lnaf=get_option('xyz_smap_lnaf');
 		$xyz_smap_include_posts=intval($_POST['xyz_smap_include_posts']);
 		
 		if($_POST['xyz_smap_cat_all']=="All")
-			$smap_category_ids=$_POST['xyz_smap_cat_all'];//redio btn name
+			$smap_category_ids=$_POST['xyz_smap_cat_all'];//radio btn name
 		else
 		{
 			$smap_category_ids=$_POST['xyz_smap_catlist'];//dropdown
@@ -1099,6 +1280,7 @@ $lnaf=get_option('xyz_smap_lnaf');
         $xyz_smap_peer_verification=intval($_POST['xyz_smap_peer_verification']);
         $xyz_smap_premium_version_ads=intval($_POST['xyz_smap_premium_version_ads']);
         $xyz_smap_default_selection_edit=intval($_POST['xyz_smap_default_selection_edit']);
+        $xyz_smap_free_enforce_og_tags=intval($_POST['xyz_smap_free_enforce_og_tags']);
         //$xyz_smap_future_to_publish=$_POST['xyz_smap_future_to_publish'];
 //         $xyz_smap_utf_decode_enable=intval($_POST['xyz_smap_utf_decode_enable']);
 		$smap_customtype_ids="";
@@ -1140,7 +1322,7 @@ $lnaf=get_option('xyz_smap_lnaf');
 		update_option('xyz_smap_peer_verification',$xyz_smap_peer_verification);
 		update_option('xyz_smap_premium_version_ads',$xyz_smap_premium_version_ads);
 		update_option('xyz_smap_default_selection_edit',$xyz_smap_default_selection_edit);
-// 		update_option('xyz_smap_utf_decode_enable',$xyz_smap_utf_decode_enable);
+		update_option('xyz_smap_free_enforce_og_tags',$xyz_smap_free_enforce_og_tags);
 		//update_option('xyz_smap_std_future_to_publish',$xyz_smap_future_to_publish);
 	}
 
@@ -1156,6 +1338,7 @@ $lnaf=get_option('xyz_smap_lnaf');
 	$xyz_smap_peer_verification=get_option('xyz_smap_peer_verification');
 	$xyz_smap_premium_version_ads=get_option('xyz_smap_premium_version_ads');
 	$xyz_smap_default_selection_edit=get_option('xyz_smap_default_selection_edit');
+	$xyz_smap_free_enforce_og_tags=get_option('xyz_smap_free_enforce_og_tags');
 // 	$xyz_smap_utf_decode_enable=get_option('xyz_smap_utf_decode_enable');
 	?>
 <div id="xyz_smap_basic_settings" class="xyz_smap_tabcontent">
@@ -1216,6 +1399,19 @@ $lnaf=get_option('xyz_smap_lnaf');
 					</td>
 					</tr>
 					<tr><td><h2>Advanced Settings</h2></td></tr>
+					<tr valign="top">
+						<td>Enforce og tags for Facebook and LinkedIn<img src="<?php echo $heimg?>" onmouseover="detdisplay_smap('xyz_smap_free_enforce_og')" onmouseout="dethide_smap('xyz_smap_free_enforce_og')" style="width:13px;height:auto;">
+						<div id="xyz_smap_free_enforce_og" class=smap_informationdiv style="display: none;width: 400px;">
+						If you enable, Open Graph tags will be generated while posting to Facebook and LinkedIn.<br/>
+						When sharing links to Facebook and LinkedIn, <b>Facebook/LinkedIn Crawler</b> uses internal heuristics to set the preview image for your content when using the posting method <b>Share a link to your blog post</b> or <b>Attach your blog post</b> in Facebook and also when sharing to LinkedIn.
+						<br/>If Open Graph tags are present, most major content sharing platform's crawler will not have to rely on it's own analysis to determine what content will be shared, which improves the likelihood that the information that is shared is exactly what you intended.
+						</div>
+						</td>
+						<td  class="switch-field">
+							<label id="xyz_smap_free_enforce_og_tags_yes" class="xyz_smap_toggle_off"><input type="radio" name="xyz_smap_free_enforce_og_tags" value="1" <?php  if($xyz_smap_free_enforce_og_tags==1) echo 'checked';?>/>Yes</label>
+							<label id="xyz_smap_free_enforce_og_tags_no" class="xyz_smap_toggle_on"><input type="radio" name="xyz_smap_free_enforce_og_tags" value="0" <?php  if($xyz_smap_free_enforce_og_tags==0) echo 'checked';?>/>No</label>
+					    </td>
+					</tr> 
 
 	<tr valign="top" id="selPostCat">
 
@@ -1273,9 +1469,10 @@ $lnaf=get_option('xyz_smap_lnaf');
 
 					<td scope="row" colspan="1" width="50%">Auto publish on editing posts/pages/custom post types
 					</td>
-					<td  class="switch-field">
-						<label id="xyz_smap_default_selection_edit_yes"><input type="radio" name="xyz_smap_default_selection_edit" value="1" <?php  if($xyz_smap_default_selection_edit==1) echo 'checked';?>/>Enabled</label>
-						<label id="xyz_smap_default_selection_edit_no"><input type="radio" name="xyz_smap_default_selection_edit" value="0" <?php  if($xyz_smap_default_selection_edit==0) echo 'checked';?>/>Disabled</label>
+					<td>
+					<input type="radio" name="xyz_smap_default_selection_edit" value="1" <?php  if($xyz_smap_default_selection_edit==1) echo 'checked';?>/>Enabled
+					<br/><input type="radio" name="xyz_smap_default_selection_edit" value="0" <?php  if($xyz_smap_default_selection_edit==0) echo 'checked';?>/>Disabled
+					<br/><input type="radio" name="xyz_smap_default_selection_edit" value="2" <?php  if($xyz_smap_default_selection_edit==2) echo 'checked';?>/>Use settings from post creation or post updation
 					</td>
 					</tr>
 					
@@ -1369,6 +1566,10 @@ var catval='<?php echo esc_html($xyz_smap_include_categories1); ?>';
 var custtypeval='<?php echo esc_html($xyz_smap_include_customposttypes); ?>';
 var get_opt_cats='<?php echo esc_html(get_option('xyz_smap_include_posts'));?>';
 jQuery(document).ready(function() {
+			jQuery('.xyz_smap_hide_ln_authErr').click(function() {
+				 var base = '<?php echo admin_url('admin.php?page=social-media-auto-publish-settings');?>';
+				  window.location.href = base;
+		});
 
 	<?php 
 			if(isset($_POST['bsettngs']))
@@ -1380,7 +1581,7 @@ jQuery(document).ready(function() {
 			document.getElementById("xyz_smap_default_twtab_settings").click();
 				
 			<?php }
-			else if(isset($_POST['linkdn']) ){?>
+			else if(isset($_POST['linkdn']) ||  isset($_GET['err'])){?>
 			document.getElementById("xyz_smap_default_lntab_settings").click();
 				
 			<?php }
@@ -1389,7 +1590,7 @@ jQuery(document).ready(function() {
 				document.getElementById("xyz_smap_default_fbtab_settings").click();
 				
 				<?php }
-				else if( isset($_GET['msg'])&& $_GET['msg']==4){
+				else if( isset($_GET['msg'])&& ($_GET['msg']==4 ||$_GET['msg']==7)){
 					?>
 					document.getElementById("xyz_smap_default_lntab_settings").click();
 					<?php 
@@ -1431,7 +1632,7 @@ jQuery(document).ready(function() {
 
    var smap_toggle_element_ids=['xyz_smap_post_permission','xyz_smap_include_categories','xyz_smap_default_selection_edit','xyz_smap_peer_verification',
 		'xyz_smap_twpost_image_permission','xyz_smap_twpost_permission','xyz_smap_ln_shareprivate',
-		 'xyz_smap_lnpost_permission','xyz_smap_include_pages','xyz_smap_include_posts','xyz_credit_link','xyz_smap_premium_version_ads','xyz_smap_lnshare_to_profile'];
+		 'xyz_smap_lnpost_permission','xyz_smap_include_pages','xyz_smap_include_posts','xyz_credit_link','xyz_smap_premium_version_ads','xyz_smap_lnshare_to_profile','xyz_smap_free_enforce_og_tags'];
 
    jQuery.each(smap_toggle_element_ids, function( index, value ) {
 		   checkedval= jQuery("input[name='"+value+"']:checked").val();
@@ -1439,6 +1640,8 @@ jQuery(document).ready(function() {
 		   if(value=='xyz_smap_lnshare_to_profile')
 				xyz_smap_show_visibility(checkedval);
    	});
+var xyz_smap_lnshare_to_profile='<?php echo get_option('xyz_smap_lnshare_to_profile'); ?>';
+   		xyz_smap_show_visibility(xyz_smap_lnshare_to_profile);
    var xyz_smap_app_sel_mode=jQuery("input[name='xyz_smap_app_sel_mode']:checked").val();
    if(xyz_smap_app_sel_mode !=0){
 		jQuery('.xyz_smap_facebook_settings').hide();
@@ -1461,6 +1664,26 @@ jQuery(document).ready(function() {
 			jQuery('#xyz_smap_app_creation_note').show(); 
 		   	jQuery('.xyz_smap_facebook_settings').show();
 		   	jQuery('#xyz_smap_conn_to_xyzscripts').hide();
+		   	}
+	   });
+   var xyz_smap_app_sel_mode=jQuery("input[name='xyz_smap_ln_api_permission']:checked").val();
+   if(xyz_smap_app_sel_mode ==2){
+		jQuery('.xyz_linkedin_settings').hide();
+		jQuery('#xyz_linkedin_settings_note').hide();
+   }
+   else{
+	   	jQuery('.xyz_linkedin_settings').show();
+		jQuery('#xyz_linkedin_settings_note').show();
+   }
+   jQuery("input[name='xyz_smap_ln_api_permission']").click(function(){
+	   var xyz_smap_app_sel_mode=jQuery("input[name='xyz_smap_ln_api_permission']:checked").val();
+	   if(xyz_smap_app_sel_mode ==2){
+			jQuery('.xyz_linkedin_settings').hide();
+			jQuery('#xyz_linkedin_settings_note').hide();
+	  		}
+		   else{
+		   	jQuery('.xyz_linkedin_settings').show();
+		   	jQuery('#xyz_linkedin_settings_note').show();
 		   	}
 	   });
    window.addEventListener('message', function(e) {
@@ -1553,7 +1776,7 @@ function xyz_smap_show_visibility(val)
 }
 var smap_toggle_element_ids=['xyz_smap_post_permission','xyz_smap_include_categories','xyz_smap_default_selection_edit','xyz_smap_peer_verification',
 	'xyz_smap_twpost_image_permission','xyz_smap_twpost_permission','xyz_smap_ln_shareprivate',
-	 'xyz_smap_lnpost_permission','xyz_smap_include_pages','xyz_smap_include_posts','xyz_credit_link','xyz_smap_premium_version_ads','xyz_smap_lnshare_to_profile'];
+	 'xyz_smap_lnpost_permission','xyz_smap_include_pages','xyz_smap_include_posts','xyz_credit_link','xyz_smap_premium_version_ads','xyz_smap_lnshare_to_profile','xyz_smap_free_enforce_og_tags'];
 
 jQuery.each(smap_toggle_element_ids, function( index, value ) {
 	jQuery("#"+value+"_no").click(function(){
@@ -1571,7 +1794,7 @@ jQuery.each(smap_toggle_element_ids, function( index, value ) {
 			xyz_smap_show_visibility(1);
 	});
 	});
-function smap_popup_fb_auth(domain_name,xyz_smap_smapsoln_userid,xyzscripts_user_id,xyzscripts_hash_val,auth_secret_key)
+function smap_popup_fb_auth(domain_name,xyz_smap_smapsoln_userid,xyzscripts_user_id,xyzscripts_hash_val,auth_secret_key,request_hash)
 {
 	if(xyzscripts_user_id==''|| xyzscripts_hash_val==''){
 		if(jQuery('#system_notice_area').length==0)
@@ -1592,8 +1815,31 @@ function smap_popup_fb_auth(domain_name,xyz_smap_smapsoln_userid,xyzscripts_user
 	var account_id=0;
 	var smap_solution_url='<?php echo XYZ_SMAP_SOLUTION_AUTH_URL;?>';
 	childWindow = window.open(smap_solution_url+"authorize/facebook.php?smap_id="+xyz_smap_smapsoln_userid+"&account_id="+account_id+
-			"&domain_name="+domain_name+"&xyzscripts_user_id="+xyzscripts_user_id+"&xyzscripts_hash_val="+xyzscripts_hash_val
-			+"&smap_licence_key="+smap_licence_key+"&auth_secret_key="+auth_secret_key+"&free_plugin_source=smap", "SmapSolutions Authorization", "toolbar=yes,scrollbars=yes,resizable=yes,left=500,width=600,height=600");
+			"&domain_name="+domain_name+"&xyzscripts_user_id="+xyzscripts_user_id+"&smap_licence_key="+smap_licence_key+"&auth_secret_key="+auth_secret_key+"&free_plugin_source=smap&request_hash="+request_hash, "SmapSolutions Authorization", "toolbar=yes,scrollbars=yes,resizable=yes,left=500,width=600,height=600");
+	return false;	}
+}
+function smap_popup_ln_auth(domain_name,xyz_smap_smapsoln_userid,xyzscripts_user_id,xyzscripts_hash_val,auth_secret_key,request_hash)
+{
+	if(xyzscripts_user_id==''|| xyzscripts_hash_val==''){
+		if(jQuery('#system_notice_area').length==0)
+			jQuery('body').append('<div class="system_notice_area_style0" id="system_notice_area"></div>');
+			jQuery("#system_notice_area").html('Please connect your xyzscripts member account  <span id="system_notice_area_dismiss">Dismiss</span>');
+			jQuery("#system_notice_area").show();
+			jQuery('#system_notice_area_dismiss').click(function() {
+				jQuery('#system_notice_area').animate({
+					opacity : 'hide',
+					height : 'hide'
+				}, 500);
+			});
+			return false;
+	}
+	else{
+	var childWindow = null;
+	var smap_licence_key='';
+	var account_id=0;
+	var smap_solution_url='<?php echo XYZ_SMAP_SOLUTION_AUTH_URL;?>';
+	childWindow = window.open(smap_solution_url+"authorize_linkedIn/linkedin.php?smap_ln_auth_id="+xyz_smap_smapsoln_userid+"&account_id="+account_id+
+			"&domain_name="+domain_name+"&xyzscripts_user_id="+xyzscripts_user_id+"&smap_licence_key="+smap_licence_key+"&auth_secret_key="+auth_secret_key+"&free_plugin_source=smap&request_hash="+request_hash, "SmapSolutions Authorization", "toolbar=yes,scrollbars=yes,resizable=yes,left=500,width=600,height=600");
 	return false;	}
 }
 function smap_popup_connect_to_xyzscripts()
@@ -1632,7 +1878,9 @@ function xyz_smap_ProcessChildMessage(message) {
 				_wpnonce: xyz_smap_xyzscripts_accinfo_nonce
 			};
 		jQuery("#connect_to_xyzscripts").hide();
+		jQuery("#connect_to_xyzscripts_ln").hide();
 		jQuery("#ajax-save-xyzscript_acc").show();
+		jQuery("#ajax-save-xyzscript_acc_ln").show();
 		jQuery.post(ajaxurl, dataString ,function(response) {
 			 if(response==1)
 			       	alert("You do not have sufficient permissions");
@@ -1683,19 +1931,54 @@ function xyz_smap_ProcessChildMessage(message) {
 	}
 		});
 	}
+	else if((obj1.xyz_ln_user_id) && (obj1.ln_pages))
+	{
+	var obj=obj1.ln_pages;
+	var secretkey=obj1.secretkey;
+	var smapsoln_userid=obj1.smapsoln_userid;
+	var xyz_ln_user_id=obj1.xyz_ln_user_id;
+	var xyz_smap_xyzscripts_hash_val=obj1.xyz_smap_xyzscripts_hash_val;
+	var xyz_smap_xyzscripts_user_id=obj1.xyz_smap_xyzscripts_user_id;
+	var xyz_smap_ln_selected_pages_nonce= '<?php echo wp_create_nonce('xyz_smap_ln_selected_pages_nonce');?>';
+	var pages_obj = obj;
+	var list='';
+	for (var key in obj) {
+	  if (obj.hasOwnProperty(key)) {
+	    var val = obj[key];
+	    list=list+"<input type='checkbox' value='"+key+"' checked='checked' disabled>"+val+"<br>";
 }
-function xyz_smap_open_tab(evt, xyz_smap_form_div_id) {
-    var i, xyz_smap_tabcontent, xyz_smap_tablinks;
-    tabcontent = document.getElementsByClassName("xyz_smap_tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+	}
+	jQuery("#xyz_smap_selected_pages_ln").html(list);
+	jQuery("#xyz_smap_selected_pages_ln_tr").show();
+	jQuery("#auth_message").hide();
+	jQuery("#re_auth_message").show();
+// 	var pages_obj = JSON.stringify(obj);
+	var dataString = { 
+			action: 'xyz_smap_ln_selected_pages_auto_update',
+			pages: pages_obj ,
+			smap_secretkey: secretkey,
+			xyz_smap_premium_xyzscripts_user_id: xyz_smap_xyzscripts_user_id,
+			smapsoln_userid:smapsoln_userid,
+			xyz_ln_user_id:xyz_ln_user_id,
+			xyz_smap_xyzscripts_hash_val:xyz_smap_xyzscripts_hash_val,
+			dataType: 'json',
+			_wpnonce: xyz_smap_ln_selected_pages_nonce
+		};			
+		jQuery("#re_auth_message").hide();
+		jQuery("#auth_message").hide();
+		jQuery("#ajax-save").show();
+	jQuery.post(ajaxurl, dataString ,function(response) {
+		 if(response==1)
+		       	alert("You do not have sufficient permissions");
+		else{
+		  var base_url = '<?php echo admin_url('admin.php?page=social-media-auto-publish-settings');?>';//msg - 
+		window.location.href = base_url+'&msg=7';
     }
-    tablinks = document.getElementsByClassName("xyz_smap_tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+		});
+
     }
-    document.getElementById(xyz_smap_form_div_id).style.display = "block";
-    evt.currentTarget.className += " active";
+	
+	
 }
 </script>
 	<?php 

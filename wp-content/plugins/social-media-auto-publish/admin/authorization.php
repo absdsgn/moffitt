@@ -28,7 +28,7 @@ if(isset($_POST['fb_auth']))
 		
 		$dialog_url = "https://www.facebook.com/".XYZ_SMAP_FB_API_VERSION."/dialog/oauth?client_id="
 		. $app_id . "&redirect_uri=" . $my_url . "&state="
-		. $xyz_smap_session_state . "&scope=email,public_profile,publish_pages,user_photos,manage_pages";
+		. $xyz_smap_session_state . "&scope=email,public_profile,publish_pages,manage_pages";
 		
 		header("Location: " . $dialog_url);
 }
@@ -154,6 +154,7 @@ $redirecturl=urlencode(admin_url('admin.php?page=social-media-auto-publish-setti
 
 	$lnappikey=get_option('xyz_smap_lnapikey');
 	$lnapisecret=get_option('xyz_smap_lnapisecret');
+	$xyz_smap_ln_api_permission=get_option('xyz_smap_ln_api_permission');
 	if(isset($_POST['lnauth']))
 	{
 		if (! isset( $_REQUEST['_wpnonce'] )|| ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'xyz_smap_ln_auth_form_nonce' ))
@@ -163,7 +164,10 @@ $redirecturl=urlencode(admin_url('admin.php?page=social-media-auto-publish-setti
 		}
 		if(!isset($_GET['code']))
 		{
-			$linkedin_auth_url='https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id='.$lnappikey.'&redirect_uri='.$redirecturl.'&state='.$state.'&scope=w_share+rw_company_admin';//rw_groups not included as it requires linkedin partnership agreement
+			if ($xyz_smap_ln_api_permission==0)
+			$linkedin_auth_url='https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id='.$lnappikey.'&scope=r_liteprofile+w_member_social&state='.$state.'&redirect_uri='.$redirecturl;
+				elseif ($xyz_smap_ln_api_permission==1)
+				$linkedin_auth_url='https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id='.$lnappikey.'&redirect_uri='.$redirecturl.'&state='.$state.'&scope=r_liteprofile+w_member_social+w_organization_social+r_organization_social+rw_organization_admin';
 			wp_redirect($linkedin_auth_url);
 			echo '<script>document.location.href="'.$linkedin_auth_url.'"</script>';
 			die;
@@ -172,23 +176,33 @@ $redirecturl=urlencode(admin_url('admin.php?page=social-media-auto-publish-setti
 	}
 	if( isset($_GET['error']) && isset($_GET['error_description']) )//if any error
 	{
-		header("Location:".admin_url('admin.php?page=social-media-auto-publish-settings&msg=1'));
+		header("Location:".admin_url('admin.php?page=social-media-auto-publish-settings&ln_auth_err='.$_GET['error'].':'.$_GET['error_description']));
 		exit();
 	}
 	else if(isset($_GET['code']) && isset($_GET['state']) && $_GET['state']==$state)
 	{
-
-// 		$fields='grant_type=authorization_code&code='.$_GET['code'].'&redirect_uri='.$redirecturl.'&client_id='.$lnappikey.'&client_secret='.$lnapisecret;
-// 		$ln_acc_tok_json=xyzsmap_getpage('https://www.linkedin.com/uas/oauth2/accessToken', '', false, $fields);
-// 		$ln_acc_tok_json=$ln_acc_tok_json['content'];
-		$url = 'https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code='.$_GET['code'].'&redirect_uri='.$redirecturl.'&client_id='.$lnappikey.'&client_secret='.$lnapisecret;
+		$url = 'https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&redirect_uri='.$redirecturl.'&client_id='.$lnappikey.'&client_secret='.$lnapisecret.'&code='.$_GET['code'];
 		$response = wp_remote_post( $url, array('method' => 'POST',
 							'sslverify'=> (get_option('xyz_smap_peer_verification')=='1') ? true : false));	// Access Token request
 		$ln_acc_tok_json=$response['body'];
+		$ln_acc_tok_arr=json_decode($ln_acc_tok_json);
+		if(isset($ln_acc_tok_arr->access_token))
+		{
+		$ObjLinkedin = new SMAPLinkedInOAuth2($ln_acc_tok_arr->access_token);
+		$userdata=$ObjLinkedin->xyz_smap_fetch_user_data();
+		if (isset($userdata['id'])){
+			update_option('xyz_smap_lnappscoped_userid', $userdata['id']);
+		}
 		update_option('xyz_smap_application_lnarray', $ln_acc_tok_json);
 		update_option('xyz_smap_lnaf',0);
 		header("Location:".admin_url('admin.php?page=social-media-auto-publish-settings&msg=4'));
 		exit();
+		}
+		else if (isset($ln_acc_tok_arr->error)&& isset($ln_acc_tok_arr->error_description))
+		{
+			header("Location:".admin_url('admin.php?page=social-media-auto-publish-settings&ln_auth_err='.$ln_acc_tok_arr->error.':'.$ln_acc_tok_arr->error_description));
+			exit();
+		}
 	}
 
 ?>

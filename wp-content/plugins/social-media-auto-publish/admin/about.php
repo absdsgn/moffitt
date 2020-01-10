@@ -25,11 +25,14 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		<td><h2>SMAP Free</h2>
 		</td>
 		<td><h2>SMAP Premium</h2></td>
+		<td><h2>SMAP Premium+</h2></td>
 	</tr>
 	<!-- Supported Media  -->
 	<tr>
-		<td rowspan="6"><h4>Supported Media</h4></td>
+		<td rowspan="5"><h4>Supported Media</h4></td>
 		<td>Facebook</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
@@ -42,9 +45,13 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	<tr>
 		<td>LinkedIn</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
@@ -56,6 +63,8 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	<tr>
 		<td>Pinterest<span style="color: #FF8000;font-size: 14px;font-weight: bold;">*</span></td>
@@ -63,28 +72,28 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
-	</tr>
-	<tr>
-		<td>Google Plus<span style="color: #FF8000;font-size: 14px;font-weight: bold;">*</span></td>
-		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
-		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 	</tr>
+
 	
 		<!-- Posting Options  -->
 	<tr>
-		<td rowspan="16"><h4>Posting Options</h4></td>
+		<td rowspan="15"><h4>Posting Options</h4></td>
 		<td>Publish to facebook pages</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
-		<td>Publish to facebook groups/events</td>
+		<td>Publish to facebook groups</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -92,6 +101,8 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 	
 	<tr>
 		<td>Publish to twitter profile</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
@@ -104,10 +115,14 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Publish to linkedin company pages</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
@@ -120,6 +135,8 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
@@ -127,12 +144,6 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
-		</td>
-	</tr>
-	
-	<tr>
-		<td>Publish to google plus profile/pages</td>
-		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -144,11 +155,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Option to republish existing posts</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -160,6 +175,8 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
@@ -168,19 +185,25 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Save auto publish settings of individual posts</td>
-		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 	</tr>
 	
 	<tr>
-		<td>Hash Tags support for Facebook, Twitter, Linkedin, Pinterest and Google plus</td>
+		<td>Hash Tags support for Facebook, Twitter, Linkedin and Pinterest  </td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -191,10 +214,14 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Enable/Disable SSL peer verification</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
@@ -210,11 +237,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Separate default image url for publishing to multiple social media accounts</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -226,6 +257,8 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
@@ -234,11 +267,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Option to specify multiphoto preference from post content and post meta</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -253,11 +290,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>		
 	</tr>
 	
 	<tr>
 		<td>Option to specify preference from post content, post meta and open graph tags</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -268,10 +309,14 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	<tr>
 		<td>Option to specify audio preference from  post content, post meta and open graph tags</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -285,10 +330,14 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Filter posts to publish based on custom post types</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
@@ -301,11 +350,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Category filter for individual accounts</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -317,6 +370,8 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
@@ -325,10 +380,14 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	<tr>
 		<td>Override auto publish scheduling for individual accounts</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -343,11 +402,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Scheduled post publishing using cron</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -359,11 +422,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Configurable auto publishing time interval</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -380,9 +447,13 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	<tr>
 		<td>View auto publish error logs</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
@@ -395,11 +466,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	
 	<tr>
 		<td>Option to reschedule publishing</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -413,10 +488,14 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 	</tr>
 	<tr>
 		<td>Privilege customer support</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
@@ -427,11 +506,15 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		<td>Advanced Autopublish Scheduler</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		</tr>
 		<tr>
 		<td>URL-Shortener</td>
+		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
@@ -441,26 +524,38 @@ Social Media Auto Publish automatically publishes posts from your blog to your  
 		<td>Privilege Management</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
+		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
 		</td>
 	</tr>
 	<tr>
-		<td rowspan="2"><h4>Other</h4></td>
+		<td rowspan="3"><h4>Other</h4></td>
+		<td>SMAPSOLUTIONS API package for 1 year, worth 20 USD(1 fb account @ 10 api calls per hour, 1 linkedin account @ 25 api per day)</td>
+		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+		<td>3 months free subscription
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_SMAP_PLUGIN_FILE);?>">
+		</td>
+	</tr>
+	<tr>
 		<td>Price</td>
 		<td>FREE</td>
 		<td>Starts from 39 USD</td>
+		<td>Starts from 69 USD</td>
 	</tr>
 	<tr>
 		<td>Purchase</td>
 		<td></td>
-		<td style="padding: 2px" ><a target="_blank"href="https://xyzscripts.com/members/product/purchase/XYZWPSMPPRE"  class="xyz-smap-buy-button">Buy Now</a>
+		<td style="padding: 2px" colspan='2' ><a target="_blank"href="https://xyzscripts.com/wordpress-plugins/social-media-auto-publish/purchase"  class="xyz-smap-buy-button">Buy Now</a>
 		</td>
 	</tr>
 		
 </table>
 <br/>
 <div style="clear: both;"></div>
-<span style="color: #FF8000;font-size: 14px;font-weight: bold;"> * </span> Pinterest and Google Plus are added on experimental basis.
+<span style="color: #FF8000;font-size: 14px;font-weight: bold;"> * </span> Pinterest is added on experimental basis.
 <?php 
 
 ?>

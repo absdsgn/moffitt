@@ -592,10 +592,10 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
-function custom_add_google_fonts() {
- wp_enqueue_style( 'custom-google-fonts', '<link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer|Open+Sans:400,700" rel="stylesheet">', false );
- }
- add_action( 'wp_enqueue_scripts', 'custom_add_google_fonts' );
+// function custom_add_google_fonts() {
+//  wp_enqueue_style( 'custom-google-fonts', '<link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer|Open+Sans:400,700" rel="stylesheet">', false );
+//  }
+//  add_action( 'wp_enqueue_scripts', 'custom_add_google_fonts' );
 
  // Add menu item for Staff posts
 function add_staff_admin_menu_item() {

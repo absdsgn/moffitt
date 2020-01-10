@@ -60,14 +60,14 @@
 				</div>
 				<div class="moffitt-footer-content">
 					<p>NAVIGATION</p>
-					<a href="/dev/moffitt/" class="moffitt-footer-link">Home</a>
-					<a href="/dev/moffitt/?page_id=7" class="moffitt-footer-link">About Us</a>
-					<a href="/dev/moffitt/?page_id=9" class="moffitt-footer-link">Services</a>
-					<a href="/dev/moffitt/?page_id=11" class="moffitt-footer-link">Our Clients</a>
-					<a href="/dev/moffitt/?page_id=13" class="moffitt-footer-link">Candidates</a>
-					<a href="/dev/moffitt/?page_id=15" class="moffitt-footer-link">Contact Us</a>
-					<a href="/dev/moffitt/?page_id=494" class="moffitt-footer-link">Privacy Policy</a>
-					<a href="/dev/moffitt/?page_id=496" class="moffitt-footer-link">Terms & Conditions</a>
+					<a href="<?php echo get_home_url(); ?>" class="moffitt-footer-link">Home</a>
+					<a href="<?php echo get_home_url(); ?>/about-us" class="moffitt-footer-link">About Us</a>
+					<a href="<?php echo get_home_url(); ?>/services" class="moffitt-footer-link">Services</a>
+					<a href="<?php echo get_home_url(); ?>/clients" class="moffitt-footer-link">Our Clients</a>
+					<a href="<?php echo get_home_url(); ?>/candidates" class="moffitt-footer-link">Candidates</a>
+					<a href="<?php echo get_home_url(); ?>/contact" class="moffitt-footer-link">Contact Us</a>
+					<a href="<?php echo get_home_url(); ?>/privacy-cookies-policy" class="moffitt-footer-link">Privacy Policy</a>
+					<a href="<?php echo get_home_url(); ?>/terms-conditions" class="moffitt-footer-link">Terms & Conditions</a>
 				</div>
 				<div class="moffitt-footer-content">
 					<p>CONTACT</p>
@@ -115,9 +115,9 @@
 // Script to adjust the margin-top of the site content for the fixed nav
 	function customHeaderResize() {
 		// Get window inner heights, header height, and calculate new header height
-		var OGHeight 				= $(window).innerHeight();
+		var OGHeight			= $(window).innerHeight();
 		var MenuHeight 			= $('.navigation-top').outerHeight();
-		var ArticleHeight 	= $('.moffitt-featured-article').outerHeight();
+		var ArticleHeight		= $('.moffitt-featured-article').outerHeight();
 		var ComboHeight			= ( MenuHeight + ArticleHeight + 70 );
 		var HeadHeight 			= ( OGHeight - ComboHeight );
 		var MobileHeight		= ( OGHeight - MenuHeight );
@@ -175,42 +175,21 @@
 
 <script type="text/javascript">
 	// Get width of item, set as image div height to maintain square
-	function teamImageSquare() {
-		var teamItemWidth = $('.moffitt-team-item').width();
+	// function teamImageSquare() {
+	// 	var teamItemWidth = $('.moffitt-team-item').width();
 
-		// Set item width at image div height
-		$('.moffitt-team-image').css('height', teamItemWidth );
-	}
+	// 	// Set item width at image div height
+	// 	$('.moffitt-team-image').css('height', teamItemWidth );
+	// }
 
-	$(document).ready( function() {
-		teamImageSquare();
-	});
+	// $(document).ready( function() {
+	// 	teamImageSquare();
+	// });
 
-	$(window).on('resize', function() {
-		teamImageSquare();
-	});
+	// $(window).on('resize', function() {
+	// 	teamImageSquare();
+	// });
 </script>
-
-<?php if ( !is_front_page() ): ?>
-	<!-- <script type="text/javascript">
-	function ContentTopAdjust() {
-		// Get header height
-		var HeaderHeight = $('.navigation-top').outerHeight();
-		// Set margin-top of site content to height of header
-		$('.site-content-contain').css('margin-top', HeaderHeight);
-	}
-
-	// Run on page load and window resize
-	$(document).ready( function() {
-		ContentTopAdjust();
-	});
-
-	$(window).on('resize', function() {
-		ContentTopAdjust();
-	});
-
-	</script> -->
-<?php endif; ?>
 
 <script type="text/javascript">
 // Team Bio Modal

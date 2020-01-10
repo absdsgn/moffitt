@@ -124,6 +124,7 @@ if(tcheckid==1)
 		{
 		
 			document.getElementById("lnmf").style.display='';	
+			document.getElementById("lnpm").style.display='';	
 			document.getElementById("lnmftarea").style.display='';	
 			if(xyz_smap_lnshare_to_profile==1)
 			document.getElementById("shareprivate").style.display='';	
@@ -131,6 +132,7 @@ if(tcheckid==1)
 		else
 		{
 			document.getElementById("lnmf").style.display='none';	
+			document.getElementById("lnpm").style.display='none';
 			document.getElementById("lnmftarea").style.display='none';	
 			if(xyz_smap_lnshare_to_profile==1)
 			document.getElementById("shareprivate").style.display='none';		
@@ -152,7 +154,7 @@ function dethide_smap(id)
 	document.getElementById(id).style.display='none';
 }
 
-function drpdisplay()
+/*function drpdisplay()
 {
 	var shmethod= document.getElementById('xyz_smap_ln_sharingmethod').value;
 	if(shmethod==1)	
@@ -163,7 +165,7 @@ function drpdisplay()
 	{
 		document.getElementById('shareprivate').style.display="";
 	}
-}
+}*/
 
 jQuery(document).ready(function() {
 	displaycheck();
@@ -182,7 +184,7 @@ jQuery(document).ready(function() {
 		smap_get_categorylist(1);
 		});
 	
-	smap_get_categorylist(1);
+	smap_get_categorylist(1);smap_get_categorylist(2);
 	jQuery('#category-all').on("click",'input[name="post_category[]"]',function() {
 		smap_get_categorylist(1);
 				});
@@ -190,22 +192,46 @@ jQuery(document).ready(function() {
 	jQuery('#category-pop').on("click",'input[type="checkbox"]',function() {
 		smap_get_categorylist(2);
 				});
+	/////////gutenberg category selection
+	jQuery(document).on('change', 'input[type="checkbox"]', function() {
+		smap_get_categorylist(2);
+				});
 });
 
 function smap_get_categorylist(val)
 {
+	var flag=true;
 	var cat_list="";var chkdArray=new Array();var cat_list_array=new Array();
 	var posttype="<?php echo get_post_type() ;?>";
 	if(val==1){
 	 jQuery('input[name="post_category[]"]:checked').each(function() {
-		 cat_list+=this.value+",";
+		 cat_list+=this.value+",";flag=false;
 		});
 	}else if(val==2)
 	{
-		jQuery('#category-pop input[type="checkbox"]:checked').each(function() {
-			
+		jQuery('#category-pop input[type="checkbox"]').each(function() {
+			 if(jQuery(this).is(":checked"))
 			cat_list+=this.value+",";
+				flag=false;
 		});
+		jQuery('.editor-post-taxonomies__hierarchical-terms-choice input[type="checkbox"]').each(function() { //gutenberg category checkbox
+			 if(jQuery(this).is(":checked"))
+			cat_list+=this.value+",";
+				flag=false;
+		});
+		if(flag){
+		<?php
+		if (isset($_GET['post']))
+			$postid=intval($_GET['post']);
+		if (isset($GLOBALS['edit_flag']) && $GLOBALS['edit_flag']==1 && !empty($postid)){
+			$defaults = array('fields' => 'ids');
+			$categ_arr=wp_get_post_categories( $postid, $defaults );
+			$categ_str=implode(',', $categ_arr);
+			?>
+			cat_list+='<?php echo $categ_str; ?>';
+		<?php }?>
+					flag=false;
+			}
 	}
 	 if (cat_list.charAt(cat_list.length - 1) == ',') {
 		 cat_list = cat_list.substr(0, cat_list.length - 1);
@@ -266,7 +292,23 @@ function inArray(needle, haystack) {
 
 if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_option('xyz_smap_app_sel_mode')==0)|| (get_option('xyz_smap_app_sel_mode')==1 && get_option('xyz_smap_page_names')!="")&& get_option('xyz_smap_af')==0)
 {
-
+	$postid=0;
+	if (isset($_GET['post']))
+		$postid=intval($_GET['post']);
+	$post_permission=get_option('xyz_smap_post_permission');
+	$get_post_meta_future_data='';
+	if (get_option('xyz_smap_default_selection_edit')==2 && isset($GLOBALS['edit_flag']) && $GLOBALS['edit_flag']==1 && !empty($postid))
+		$get_post_meta_future_data=get_post_meta($postid,"xyz_smap_fb_future_to_publish",true);
+	if (!empty($get_post_meta_future_data)&& isset($get_post_meta_future_data['post_fb_permission']))
+	{
+		$post_permission=$get_post_meta_future_data['post_fb_permission'];
+		$xyz_fb_po_method=$get_post_meta_future_data['xyz_fb_po_method'];
+		$xyz_fb_message=$get_post_meta_future_data['xyz_fb_message'];
+	}
+	else {
+		$xyz_fb_po_method=get_option('xyz_smap_po_method');
+		$xyz_fb_message=get_option('xyz_smap_message');
+	}
 ?>
 
 <tr id="xyz_smap_fbMetabox"><td colspan="2" >
@@ -285,8 +327,8 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 		<td class="xyz_smap_pleft15" width="60%">Enable auto publish post to my facebook account
 		</td>
 	 <td  class="switch-field">
-		<label id="xyz_smap_post_permission_yes"><input type="radio" name="xyz_smap_post_permission" id="xyz_smap_post_permission_1" value="1" checked/>Yes</label>
-		<label id="xyz_smap_post_permission_no"><input type="radio" name="xyz_smap_post_permission" id="xyz_smap_post_permission_0" value="0" />No</label>
+		<label id="xyz_smap_post_permission_yes"><input type="radio" name="xyz_smap_post_permission" id="xyz_smap_post_permission_1" value="1" <?php if ($post_permission==1)echo 'checked';?>/>Yes</label>
+		<label id="xyz_smap_post_permission_no"><input type="radio" name="xyz_smap_post_permission" id="xyz_smap_post_permission_0" value="0" <?php if ($post_permission==0) echo 'checked';?>/>No</label>
 	 </td>
 	</tr>
 	<tr valign="top" id="fpmd">
@@ -294,21 +336,21 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 		</td>
 		<td><select id="xyz_smap_po_method" name="xyz_smap_po_method">
 				<option value="3"
-				<?php  if(get_option('xyz_smap_po_method')==3) echo 'selected';?>>Simple text message</option>
+				<?php  if($xyz_fb_po_method==3) echo 'selected';?>>Simple text message</option>
 				
 				<optgroup label="Text message with image">
 					<option value="4"
-					<?php  if(get_option('xyz_smap_po_method')==4) echo 'selected';?>>Upload image to app album</option>
+					<?php  if($xyz_fb_po_method==4) echo 'selected';?>>Upload image to app album</option>
 					<option value="5"
-					<?php  if(get_option('xyz_smap_po_method')==5) echo 'selected';?>>Upload image to timeline album</option>
+					<?php  if($xyz_fb_po_method==5) echo 'selected';?>>Upload image to timeline album</option>
 				</optgroup>
 				
 				<optgroup label="Text message with attached link">
 					<option value="1"
-					<?php  if(get_option('xyz_smap_po_method')==1) echo 'selected';?>>Attach
+					<?php  if($xyz_fb_po_method==1) echo 'selected';?>>Attach
 						your blog post</option>
 					<option value="2"
-					<?php  if(get_option('xyz_smap_po_method')==2) echo 'selected';?>>
+					<?php  if($xyz_fb_po_method==2) echo 'selected';?>>
 						Share a link to your blog post</option>
 					</optgroup>
 		</select>
@@ -343,7 +385,7 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 		</select> </td></tr>
 		
 		<tr id="fpmftarea"><td>&nbsp;</td><td>
-		<textarea id="xyz_smap_message"  name="xyz_smap_message" style="height:80px !important;" ><?php echo esc_textarea(get_option('xyz_smap_message'));?></textarea>
+		<textarea id="xyz_smap_message"  name="xyz_smap_message" style="height:80px !important;" ><?php echo esc_textarea($xyz_fb_message);?></textarea>
 	</td></tr>
 	
 	</table><?php }?>
@@ -353,6 +395,23 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 	<?php 
 	if(get_option('xyz_smap_twconsumer_id')!="" && get_option('xyz_smap_twconsumer_secret')!="" && get_option('xyz_smap_tw_id')!="" && get_option('xyz_smap_current_twappln_token')!="" && get_option('xyz_smap_twaccestok_secret')!="")
 	{
+		$postid=0;
+		if (isset($_GET['post']))
+			$postid=intval($_GET['post']);
+		$post_permission=get_option('xyz_smap_twpost_permission');
+		$get_post_meta_future_data='';
+		if (get_option('xyz_smap_default_selection_edit')==2 && isset($GLOBALS['edit_flag']) && $GLOBALS['edit_flag']==1 && !empty($postid))
+			$get_post_meta_future_data=get_post_meta($postid,"xyz_smap_tw_future_to_publish",true);
+		if (!empty($get_post_meta_future_data)&& isset($get_post_meta_future_data['post_tw_permission']))
+		{
+			$post_permission=$get_post_meta_future_data['post_tw_permission'];
+			$xyz_tw_img_permissn=$get_post_meta_future_data['xyz_tw_img_permissn'];
+			$xyz_tw_message=$get_post_meta_future_data['xyz_tw_message'];
+		}
+		else {
+			$xyz_tw_img_permissn=get_option('xyz_smap_twpost_image_permission');
+			$xyz_tw_message=get_option('xyz_smap_twmessage');
+		}
 	?>
 	
 	<tr id="xyz_smap_twMetabox"><td colspan="2" >
@@ -371,8 +430,8 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 		<td class="xyz_smap_pleft15" width="60%">Enable auto publish posts to my twitter account
 		</td>
  	 <td  class="switch-field">
-		<label id="xyz_smap_twpost_permission_yes"><input type="radio" name="xyz_smap_twpost_permission" id="xyz_smap_twpost_permission_1" value="1" checked/>Yes</label>
-		<label id="xyz_smap_twpost_permission_no"><input type="radio" name="xyz_smap_twpost_permission" id="xyz_smap_twpost_permission_0" value="0" />No</label>
+		<label id="xyz_smap_twpost_permission_yes"><input type="radio" name="xyz_smap_twpost_permission" id="xyz_smap_twpost_permission_1" value="1" <?php  if ($post_permission==1) echo 'checked';?>/>Yes</label>
+		<label id="xyz_smap_twpost_permission_no"><input type="radio" name="xyz_smap_twpost_permission" id="xyz_smap_twpost_permission_0" value="0" <?php if ($post_permission==0) echo "checked";?>/>No</label>
 	 </td>
 	</tr>
 	
@@ -381,10 +440,10 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 		</td>
 		<td><select id="xyz_smap_twpost_image_permission" name="xyz_smap_twpost_image_permission">
 				<option value="0"
-				<?php  if(get_option('xyz_smap_twpost_image_permission')==0) echo 'selected';?>>
+				<?php  if($xyz_tw_img_permissn==0) echo 'selected';?>>
 					No</option>
 				<option value="1"
-				<?php  if(get_option('xyz_smap_twpost_image_permission')==1) echo 'selected';?>>Yes</option>
+				<?php  if($xyz_tw_img_permissn==1) echo 'selected';?>>Yes</option>
 		</select>
 		</td>
 	</tr>
@@ -421,7 +480,7 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 		</select> </td></tr>
 		
 		<tr id="twmftarea"><td>&nbsp;</td><td>
-		<textarea id="xyz_smap_twmessage"  name="xyz_smap_twmessage" style="height:80px !important;" ><?php echo esc_textarea(get_option('xyz_smap_twmessage'));?></textarea>
+		<textarea id="xyz_smap_twmessage"  name="xyz_smap_twmessage" style="height:80px !important;" ><?php echo esc_textarea($xyz_tw_message);?></textarea>
 	</td></tr>
 	
 	</table>
@@ -432,7 +491,27 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 	<?php if(get_option('xyz_smap_lnaf')==0){?>
 	
 	<tr id="xyz_smap_lnMetabox"><td colspan="2" >
-<?php  if(get_option('xyz_smap_lnpost_permission')==1 && ( get_option('xyz_smap_ln_company_ids')!=''|| get_option('xyz_smap_lnshare_to_profile')==1)) {?>
+<?php  if(get_option('xyz_smap_lnpost_permission')==1 && ( get_option('xyz_smap_ln_company_ids')!=''|| get_option('xyz_smap_lnshare_to_profile')==1)) {
+	$postid=0;
+	if (isset($_GET['post']))
+		$postid=intval($_GET['post']);
+		$post_permission=get_option('xyz_smap_lnpost_permission');
+		$get_post_meta_future_data='';
+	if (get_option('xyz_smap_default_selection_edit')==2 && isset($GLOBALS['edit_flag']) && $GLOBALS['edit_flag']==1 && !empty($postid))
+		$get_post_meta_future_data=get_post_meta($postid,"xyz_smap_ln_future_to_publish",true);
+	if (!empty($get_post_meta_future_data)&& isset($get_post_meta_future_data['post_ln_permission']))
+	{
+		$post_permission=$get_post_meta_future_data['post_ln_permission'];
+		$xyz_smap_ln_shareprivate=$get_post_meta_future_data['xyz_smap_ln_shareprivate'];
+		$xyz_smap_lnmessage=$get_post_meta_future_data['xyz_smap_lnmessage'];
+		$xyz_smap_lnpost_method=$get_post_meta_future_data['xyz_smap_lnpost_method'];
+	}
+	else {
+		$xyz_smap_ln_shareprivate=get_option('xyz_smap_ln_shareprivate');
+		$xyz_smap_lnmessage=get_option('xyz_smap_lnmessage');
+		$xyz_smap_lnpost_method=get_option('xyz_smap_lnpost_method');
+	}
+	?>
 <table class="xyz_smap_meta_acclist_table"><!-- LI META -->
 
 
@@ -447,18 +526,18 @@ if((get_option('xyz_smap_af')==0 && get_option('xyz_smap_fb_token')!="" && get_o
 		<td class="xyz_smap_pleft15" width="60%">Enable auto publish posts to my linkedin account
 		</td>
 	 	  <td  class="switch-field">
-			<label id="xyz_smap_lnpost_permission_yes"><input type="radio" name="xyz_smap_lnpost_permission" id="xyz_smap_lnpost_permission_1" value="1" checked/>Yes</label>
-			<label id="xyz_smap_lnpost_permission_no"><input type="radio" name="xyz_smap_lnpost_permission" id="xyz_smap_lnpost_permission_0" value="0" />No</label>
+			<label id="xyz_smap_lnpost_permission_yes"><input type="radio" name="xyz_smap_lnpost_permission" id="xyz_smap_lnpost_permission_1" value="1" <?php if ($post_permission==1) echo 'checked';?>/>Yes</label>
+			<label id="xyz_smap_lnpost_permission_no"><input type="radio" name="xyz_smap_lnpost_permission" id="xyz_smap_lnpost_permission_0" value="0" <?php if ($post_permission==0) echo 'checked';?>/>No</label>
 		 </td>
 	</tr>
 	<?php if ( get_option('xyz_smap_lnshare_to_profile')==1){?>
 	<tr valign="top" id="shareprivate">
-	<input type="hidden" name="xyz_smap_ln_sharingmethod" id="xyz_smap_ln_sharingmethod" value="0">
+<!-- 	<input type="hidden" name="xyz_smap_ln_sharingmethod" id="xyz_smap_ln_sharingmethod" value="0"> -->
 	<td class="xyz_smap_pleft15">Share post content with</td>
 	<td>
 		<select id="xyz_smap_ln_shareprivate" name="xyz_smap_ln_shareprivate" >
-		 <option value="0" <?php  if(get_option('xyz_smap_ln_shareprivate')==0) echo 'selected';?>>
-Public</option><option value="1" <?php  if(get_option('xyz_smap_ln_shareprivate')==1) echo 'selected';?>>Connections only</option></select>
+		 <option value="0" <?php  if($xyz_smap_ln_shareprivate==0) echo 'selected';?>>
+Public</option><option value="1" <?php  if($xyz_smap_ln_shareprivate==1) echo 'selected';?>>Connections only</option></select>
 	</td></tr>
 	<?php }?>
 
@@ -492,8 +571,19 @@ Public</option><option value="1" <?php  if(get_option('xyz_smap_ln_shareprivate'
 		</select> </td></tr>
 		
 		<tr id="lnmftarea"><td>&nbsp;</td><td>
-		<textarea id="xyz_smap_lnmessage"  name="xyz_smap_lnmessage" style="height:80px !important;" ><?php echo esc_textarea(get_option('xyz_smap_lnmessage'));?></textarea>
+		<textarea id="xyz_smap_lnmessage"  name="xyz_smap_lnmessage" style="height:80px !important;" ><?php echo esc_textarea($xyz_smap_lnmessage);?></textarea>
 	</td></tr>
+	<tr valign="top" id="lnpm">
+		<td>Posting method</td>
+		<td>
+		<select id="xyz_smap_lnpost_method" name="xyz_smap_lnpost_method">
+				<option value="1"
+	<?php  if($xyz_smap_lnpost_method==1) echo 'selected';?>>Simple text message</option>
+				<option value="2"
+	<?php  if($xyz_smap_lnpost_method==2) echo 'selected';?>>Attach your blog post </option>
+		</select>
+		</td>
+	</tr>
 	
 	</table>
 	<?php }?>
@@ -515,7 +605,7 @@ Public</option><option value="1" <?php  if(get_option('xyz_smap_ln_shareprivate'
 		var xyz_smap_default_selection_edit="<?php echo esc_html(get_option('xyz_smap_default_selection_edit'));?>";
 		if(xyz_smap_default_selection_edit=="")
 			xyz_smap_default_selection_edit=0;
-		if(xyz_smap_default_selection_edit==1)
+		if(xyz_smap_default_selection_edit==1 || xyz_smap_default_selection_edit==2)
 			return;
 		
 		//FB 

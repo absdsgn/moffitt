@@ -5269,7 +5269,8 @@ input[type="search"]	{
 	width: 100%;
 	background-size: cover;
 	background-position: center center;
-	height: 250px;
+	height: auto;
+	padding-bottom: 100%;
 	align-self: flex-start;
 	filter: grayscale(100);
 	opacity: .6;
@@ -5334,6 +5335,7 @@ input[type="search"]	{
 	padding-bottom: 1rem;
 	font-weight: 500;
 	letter-spacing: 0;
+	font-size: .7rem;
 }
 
 .moffitt-team-info p	{

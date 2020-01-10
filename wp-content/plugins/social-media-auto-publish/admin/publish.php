@@ -28,11 +28,40 @@ function xyz_link_smap_future_to_publish($new_status, $old_status, $post){
 	$lnpost_permission=get_option('xyz_smap_lnpost_permission');
 	
 	if(isset($_POST['xyz_smap_post_permission']))
+	{
 		$post_permissin=intval($_POST['xyz_smap_post_permission']);
+		if ( (isset($_POST['xyz_smap_post_permission']) && isset($_POST['xyz_smap_po_method'])) )
+		{
+			$futToPubDataFbArray=array( 'post_fb_permission'	=>	$_POST['xyz_smap_post_permission'],
+									  'xyz_fb_po_method'	=>	$_POST['xyz_smap_po_method'],
+									  'xyz_fb_message'	=>	$_POST['xyz_smap_message']);
+			update_post_meta($postid, "xyz_smap_fb_future_to_publish", $futToPubDataFbArray);
+		}
+	}
 	if(isset($_POST['xyz_smap_twpost_permission']))
+	{
 		$post_twitter_permission=intval($_POST['xyz_smap_twpost_permission']);
+		if ( (isset($_POST['xyz_smap_twpost_permission']) && isset($_POST['xyz_smap_twpost_image_permission'])) )
+		{
+			$futToPubDataTwArray=array('post_tw_permission'	=>	$_POST['xyz_smap_twpost_permission'],
+					'xyz_tw_img_permissn'	=>	$_POST['xyz_smap_twpost_image_permission'],
+					'xyz_tw_message'	=>	$_POST['xyz_smap_twmessage']);
+			update_post_meta($postid, "xyz_smap_tw_future_to_publish", $futToPubDataTwArray);
+		}
+	}
 	if(isset($_POST['xyz_smap_lnpost_permission']))
+	{ 
 		$lnpost_permission=intval($_POST['xyz_smap_lnpost_permission']);
+		if ( (isset($_POST['xyz_smap_lnpost_permission']) && isset($_POST['xyz_smap_ln_shareprivate'])) )
+		{
+			$futToPubDataLnArray=array( 
+					'post_ln_permission'	=>	$_POST['xyz_smap_lnpost_permission'],
+					'xyz_smap_ln_shareprivate'	=>	$_POST['xyz_smap_ln_shareprivate'],
+					'xyz_smap_lnpost_method'	=>	$_POST['xyz_smap_lnpost_method'],
+					'xyz_smap_lnmessage'	=>	$_POST['xyz_smap_lnmessage']);
+			update_post_meta($postid, "xyz_smap_ln_future_to_publish", $futToPubDataLnArray);
+		}
+	}
 	if(!(isset($_POST['xyz_smap_post_permission']) || isset($_POST['xyz_smap_twpost_permission']) || isset($_POST['xyz_smap_lnpost_permission']))) 
 	{
 	
@@ -73,18 +102,41 @@ function xyz_link_publish($post_ID) {
 	
 	$_POST_CPY=$_POST;
 	$_POST=stripslashes_deep($_POST);
-	
+	$get_post_meta_future_data_fb=get_post_meta($post_ID,"xyz_smap_fb_future_to_publish",true);
+	$post_twitter_image_permission=$posting_method=$ln_posting_method=$xyz_smap_lnpost_method=$xyz_smap_ln_shareprivate=0;
+	$message=$messagetopost=$lmessagetopost='';
 	$post_permissin=get_option('xyz_smap_post_permission');
 	if(isset($_POST['xyz_smap_post_permission']))
 		$post_permissin=intval($_POST['xyz_smap_post_permission']);
+	elseif(!empty($get_post_meta_future_data_fb) && get_option('xyz_smap_default_selection_edit')==2 )///select values from post meta
+	{
+		$post_permissin=$get_post_meta_future_data_fb['post_fb_permission'];
+		$posting_method=$get_post_meta_future_data_fb['xyz_fb_po_method'];
+		$message=$get_post_meta_future_data_fb['xyz_fb_message'];
+	}
 	
 	$post_twitter_permission=get_option('xyz_smap_twpost_permission');
+	$get_post_meta_future_data_tw=get_post_meta($post_ID,"xyz_smap_tw_future_to_publish",true);
 	if(isset($_POST['xyz_smap_twpost_permission']))
 		$post_twitter_permission=intval($_POST['xyz_smap_twpost_permission']);
+	elseif(!empty($get_post_meta_future_data_tw) && get_option('xyz_smap_default_selection_edit')==2 )///select values from post meta
+	{
+		$post_twitter_permission=$get_post_meta_future_data_tw['post_tw_permission'];
+		$post_twitter_image_permission=$get_post_meta_future_data_tw['xyz_tw_img_permissn'];
+		$messagetopost=$get_post_meta_future_data_tw['xyz_tw_message'];
+	}
 	
 	$lnpost_permission=get_option('xyz_smap_lnpost_permission');
+	$get_post_meta_future_data_ln=get_post_meta($post_ID,"xyz_smap_ln_future_to_publish",true);
 	if(isset($_POST['xyz_smap_lnpost_permission']))
 		$lnpost_permission=intval($_POST['xyz_smap_lnpost_permission']);
+	elseif(!empty($get_post_meta_future_data_ln) && get_option('xyz_smap_default_selection_edit')==2 )///select values from post meta
+	{
+		$lnpost_permission=$get_post_meta_future_data_ln['post_ln_permission'];
+		$xyz_smap_ln_shareprivate=$get_post_meta_future_data_ln['xyz_smap_ln_shareprivate'];
+		$xyz_smap_lnpost_method=$get_post_meta_future_data_ln['xyz_smap_lnpost_method'];
+		$lmessagetopost=$get_post_meta_future_data_ln['xyz_smap_lnmessage'];
+	}
 	
 	if (($post_permissin != 1)&&($post_twitter_permission != 1)&&($lnpost_permission != 1)) {
 		$_POST=$_POST_CPY;
@@ -96,12 +148,6 @@ function xyz_link_publish($post_ID) {
 		return;
 	}
 	
-	
-	
-	$get_post_meta=get_post_meta($post_ID,"xyz_smap",true);
-	if($get_post_meta!=1)
-		add_post_meta($post_ID, "xyz_smap", "1");
-
 	global $current_user;
 	wp_get_current_user();
 	
@@ -113,12 +159,13 @@ function xyz_link_publish($post_ID) {
 	$twid=get_option('xyz_smap_tw_id');
 	$taccess_token=get_option('xyz_smap_current_twappln_token');
 	$taccess_token_secret=get_option('xyz_smap_twaccestok_secret');
+	if ($messagetopost=='')
 	$messagetopost=get_option('xyz_smap_twmessage');
 	if(isset($_POST['xyz_smap_twmessage']))
 		$messagetopost=$_POST['xyz_smap_twmessage'];
 	$appid=get_option('xyz_smap_application_id');
 	
-	
+	if ($post_twitter_image_permission==0)
 	$post_twitter_image_permission=get_option('xyz_smap_twpost_image_permission');
 	if(isset($_POST['xyz_smap_twpost_image_permission']))
 		$post_twitter_image_permission=intval($_POST['xyz_smap_twpost_image_permission']);
@@ -129,14 +176,12 @@ function xyz_link_publish($post_ID) {
 	$appsecret=get_option('xyz_smap_application_secret');
 	$useracces_token=get_option('xyz_smap_fb_token');
 
-
+	if ($message=='')
 	$message=get_option('xyz_smap_message');
 	if(isset($_POST['xyz_smap_message']))
 		$message=$_POST['xyz_smap_message'];
 	//$fbid=get_option('xyz_smap_fb_id');
-
-
-	
+	if ($posting_method==0)
 	$posting_method=get_option('xyz_smap_po_method');
 	if(isset($_POST['xyz_smap_po_method']))
 		$posting_method=intval($_POST['xyz_smap_po_method']);
@@ -146,15 +191,21 @@ function xyz_link_publish($post_ID) {
 	
 	$lnappikey=get_option('xyz_smap_lnapikey');
 	$lnapisecret=get_option('xyz_smap_lnapisecret');
+	if ($lmessagetopost=='')
 	$lmessagetopost=get_option('xyz_smap_lnmessage');
 	if(isset($_POST['xyz_smap_lnmessage']))
 		$lmessagetopost=$_POST['xyz_smap_lnmessage'];
 	
+	if ($ln_posting_method==0)
+		$ln_posting_method=get_option('xyz_smap_lnpost_method');
+	if(isset($_POST['xyz_smap_lnpost_method']))
+		$ln_posting_method=$_POST['xyz_smap_lnpost_method'];
+  if ($xyz_smap_ln_shareprivate==0)
   $xyz_smap_ln_shareprivate=get_option('xyz_smap_ln_shareprivate'); 
   if(isset($_POST['xyz_smap_ln_shareprivate']))
   $xyz_smap_ln_shareprivate=intval($_POST['xyz_smap_ln_shareprivate']);
- 
-  $xyz_smap_ln_sharingmethod=get_option('xyz_smap_ln_sharingmethod');
+//  if ($xyz_smap_lnpost_method==0)
+//   $xyz_smap_ln_sharingmethod=get_option('xyz_smap_ln_sharingmethod');
 //   if(isset($_POST['xyz_smap_ln_sharingmethod']))
 //   $xyz_smap_ln_sharingmethod=intval($_POST['xyz_smap_ln_sharingmethod']);
 
@@ -230,6 +281,9 @@ function xyz_link_publish($post_ID) {
 		
 		}
 
+		$get_post_meta=get_post_meta($post_ID,"xyz_smap",true);
+		if($get_post_meta!=1)
+			add_post_meta($post_ID, "xyz_smap", "1");
 		include_once ABSPATH.'wp-admin/includes/plugin.php';
 		$pluginName = 'bitly/bitly.php';
 		
@@ -572,7 +626,7 @@ function xyz_link_publish($post_ID) {
 
 			}
 
-			if(count($fb_publish_status)>0)
+			if(!empty($fb_publish_status))
 			  $fb_publish_status_insert=serialize($fb_publish_status);
 			else
 			{
@@ -773,6 +827,8 @@ function xyz_link_publish($post_ID) {
 			
 				$substring=$final_str;
 			}
+  		/* if (strlen($substring)>$tw_max_len)
+                	$substring=substr($substring, 0, $tw_max_len-3)."...";*/
 			
 				
 			$twobj = new SMAPTwitterOAuth(array( 'consumer_key' => $tappid, 'consumer_secret' => $tappsecret, 'user_token' => $taccess_token, 'user_secret' => $taccess_token_secret,'curl_ssl_verifypeer'   => false));
@@ -843,7 +899,7 @@ function xyz_link_publish($post_ID) {
 			if(isset($tw_publish_status["statuses/update"]))
 				$tw_publish_status_array=$tw_publish_status["statuses/update"].$tweet_id_string;
 
-			if(count($tw_publish_status)>0)
+			if(!empty($tw_publish_status))
 				$tw_publish_status_insert=serialize($tw_publish_status_array);
 			else{
 				$tw_publish_status["statuses/update"]="<span style=\"color:green\">statuses/update : Success.</span>".$tweet_id_string;
@@ -877,12 +933,12 @@ function xyz_link_publish($post_ID) {
 			
 		}
 	   
-		if($lnappikey!="" && $lnapisecret!=""  && $lnpost_permission==1 && $lnaf==0 && (get_option('xyz_smap_ln_company_ids')!=''|| get_option('xyz_smap_lnshare_to_profile')==1))
+		if((($lnappikey!="" && $lnapisecret!="" && get_option('xyz_smap_ln_api_permission')!=2)|| get_option('xyz_smap_ln_api_permission')==2 ) && $lnpost_permission==1 && $lnaf==0 && (get_option('xyz_smap_ln_company_ids')!=''|| get_option('xyz_smap_lnshare_to_profile')==1))
 		{	
 			$contentln=array();
 			
-			$description_li=xyz_smap_string_limit($description, 362);
-			$caption_li=xyz_smap_string_limit($caption, 200);
+			$description_li=xyz_smap_string_limit($description, 100);
+// 			$caption_li=xyz_smap_string_limit($caption, 200);
 			$name_li=xyz_smap_string_limit($name, 200);
 				
 			$message1=str_replace('{POST_TITLE}', $name, $lmessagetopost);
@@ -897,70 +953,166 @@ function xyz_link_publish($post_ID) {
 			$message5=str_replace('{POST_ID}', $post_ID, $message5);
 			$message5=str_replace('{USER_DISPLAY_NAME}', $display_name, $message5);
 			$message5=str_replace("&nbsp;","",$message5);
-			$message5=xyz_smap_string_limit($message5, 700);
-		
-				$contentln['comment'] =$message5;
-				$contentln['content']['title'] = $name_li;
-				$contentln['content']['submitted-url'] = $link;
-				if($attachmenturl!="")
-				$contentln['content']['submitted-image-url'] = $attachmenturl;
-				$contentln['content']['description'] = $description_li;
-		
-		
-		
+ 			$message5=xyz_smap_string_limit($message5, 1300);
 		
 		$xyz_smap_application_lnarray=get_option('xyz_smap_application_lnarray');
 	
-		
+		if (get_option('xyz_smap_ln_api_permission')!=2){
 		$ln_acc_tok_arr=json_decode($xyz_smap_application_lnarray);
 		$xyz_smap_application_lnarray=$ln_acc_tok_arr->access_token;
-		$ln_publish_status=array();
 
 		$ObjLinkedin = new SMAPLinkedInOAuth2($xyz_smap_application_lnarray);
-		//$contentln=xyz_wp_smap_linkedin_attachment_metas($contentln,$link);
-		if($xyz_smap_ln_sharingmethod==0)
+		}
+			$contentln['author'] ='urn:li:person:'.get_option('xyz_smap_lnappscoped_userid');
+			$contentln['lifecycleState'] ='PUBLISHED';
+				$ln_text=array('text'=>$message5);
+			if ($ln_posting_method==1)//if simple text message
+			{
+				$shareCommentary=array('shareCommentary'=>$ln_text,'shareMediaCategory'=>'NONE');
+				$com_linkedin_ugc_ShareContent=array('com.linkedin.ugc.ShareContent'=>$shareCommentary);
+				$contentln['specificContent']=$com_linkedin_ugc_ShareContent;
+			}
+			elseif ($ln_posting_method==2)//link share
+			{
+				update_post_meta($post_ID, "xyz_smap_insert_og", "1");
+				$ln_title=array('text'=>$name_li);				
+				$media_array=array( 'status'=> 'READY','description'=>array('text'=>$description_li),'originalUrl'=>$link,'title'=>$ln_title);
+				$shareCommentary=array('shareCommentary'=>$ln_text,'shareMediaCategory'=>'ARTICLE','media'=>array($media_array));
+				$com_linkedin_ugc_ShareContent=array('com.linkedin.ugc.ShareContent'=>$shareCommentary);
+				$contentln['specificContent']=$com_linkedin_ugc_ShareContent;
+			}
+		$ln_publish_status["new"]='';
+// 		if($xyz_smap_ln_sharingmethod==0)
 		{
 			if (get_option('xyz_smap_lnshare_to_profile')==1)
 			{
 				if($xyz_smap_ln_shareprivate==1)
 			{
-					$contentln['visibility']['code']='connections-only';
+					$contentln['visibility']['com.linkedin.ugc.MemberNetworkVisibility']='CONNECTIONS';
 				}
 				else
 				{
-					$contentln['visibility']['code']='anyone';
+					$contentln['visibility']['com.linkedin.ugc.MemberNetworkVisibility']='PUBLIC';
 				}
+				//////////////////////////////////////////
+				if (get_option('xyz_smap_ln_api_permission')==2)
+				{
+					$xyz_smap_smapsoln_userid=get_option('xyz_smap_smapsoln_userid_ln');
+					////smap api
+					$xyz_smap_xyzscripts_userid=get_option('xyz_smap_xyzscripts_user_id');
+					$post_details=array('xyz_smap_userid'=>$xyz_smap_smapsoln_userid,
+							'xyz_smap_attachment'=>$contentln,
+							'xyz_smap_page_id'=>-1,
+							'xyz_smap_xyzscripts_userid'=>$xyz_smap_xyzscripts_userid,
+					);
+					$xyz_smap_smapsoln_sec_key=get_option('xyz_smap_secret_key_ln');
+					$url=XYZ_SMAP_SOLUTION_LN_PUBLISH_URL.'api/publish.php';
+					$result=xyz_smap_post_to_smap_api($post_details,$url,$xyz_smap_smapsoln_sec_key);
+					//print_r($result);die;
+					$result=json_decode($result);
+					if(!empty($result))
+					{
+						if (isset($result->postid) && !empty($result->postid))
+						{
+							$postid =$result->postid;
+							$linkedin_post="https://www.linkedin.com/feed/update/".$postid;
+							$post_link='<br/><span style="color:#21759B;text-decoration:underline;"><a target="_blank" href="'.$linkedin_post.'">View Post</a></span>';
+						}
+						else
+							$err=$result->msg;
+							$ln_api_count=$result->ln_api_count;
+							if($result->status==0)
+								$ln_publish_status["new"].="<span style=\"color:red\">".$err."</span><br/><span style=\"color:#21759B\">No. of api calls used: ".$ln_api_count."</span><br/>";
+								elseif ($result->status==1)
+								$ln_publish_status["new"].="<span style=\"color:green\">Success.</span>".$post_link."<br/><span style=\"color:#21759B\">No. of api calls used: ".$ln_api_count."</span><br/>";
+					}
+				}
+				else{
+				//////////////////////////////////////////////
 				try{
 				$arrResponse = $ObjLinkedin->shareStatus($contentln);
 				$post_link='';
 				if (isset($arrResponse['updateUrl'])){
 					$linkedin_post=$arrResponse["updateUrl"];
 					$post_link='<br/><span style="color:#21759B;text-decoration:underline;"><a target="_blank" href="https://'.$linkedin_post.'">View Post</a></span>';
+					$ln_publish_status["new"].="<span style=\"color:green\"> profile:Success.</span>".$post_link."<br/>";
 					}
-						if ( isset($arrResponse['errorCode']) && isset($arrResponse['message']) && ($arrResponse['message']!='') ) {//as per old api ; need to confirm which is correct
+				if(isset($arrResponse['id'])){
+					$linkedin_post="https://www.linkedin.com/feed/update/".$arrResponse['id'];
+					$post_link='<br/><span style="color:#21759B;text-decoration:underline;"><a target="_blank" href="'.$linkedin_post.'">View Post</a></span>';
+					$ln_publish_status["new"].="<span style=\"color:green\"> profile:Success.</span>".$post_link."<br/>";
+				}
+				if (( isset($arrResponse['errorCode'])|| isset($arrResponse['serviceErrorCode'])) && isset($arrResponse['message']) && ($arrResponse['message']!='') ) {//as per old api ; need to confirm which is correct
 								$ln_publish_status["new"].="<span style=\"color:red\"> profile:".$arrResponse['message'].".</span><br/>";//$arrResponse['message'];
 						}
-							/*if(isset($response2['error']) && $response2['error']!="")//as per new api ; need to confirm which is correct
-								$ln_publish_status["new"].=$response2['error'];*/
-							if ( isset($arrResponse['updateKey']) && isset($arrResponse['updateUrl']) && ($arrResponse['updateUrl']!='') )
-								$ln_publish_status["new"].="<span style=\"color:green\"> profile:Success.</span>".$post_link."<br/>";
-
 				}
 				catch(Exception $e)
 				{
 				$ln_publish_status["new"]=$e->getMessage();
 				}
 			}
+			}
+			////////////////////////////////////////////////////////////////////////////////////////////////
+			$xyz_smap_ln_company_id1=$ln_publish_status_comp=array();$ln_publish_status_comp["new"]='';
 			if(get_option('xyz_smap_ln_company_ids')!='')//company
 				$xyz_smap_ln_company_id1=explode(",",get_option('xyz_smap_ln_company_ids'));
 			if (!empty($xyz_smap_ln_company_id1)){
+				$contentln=array();
+				if ($ln_posting_method==1)//if simple text message
+				{
+					$shareCommentary=array('shareCommentary'=>$ln_text,'shareMediaCategory'=>'NONE');
+					$com_linkedin_ugc_ShareContent=array('com.linkedin.ugc.ShareContent'=>$shareCommentary);
+					$contentln['specificContent']=$com_linkedin_ugc_ShareContent;
+				}
+				elseif ($ln_posting_method==2)//link share
+				{
+					update_post_meta($post_ID, "xyz_smap_insert_og", "1");
+					$ln_title=array('text'=>$name_li);
+					$media_array=array( 'status'=> 'READY','description'=>array('text'=>$description_li),'originalUrl'=>$link,'title'=>$ln_title);
+					$shareCommentary=array('shareCommentary'=>$ln_text,'shareMediaCategory'=>'ARTICLE','media'=>array($media_array));
+					$com_linkedin_ugc_ShareContent=array('com.linkedin.ugc.ShareContent'=>$shareCommentary);
+					$contentln['specificContent']=$com_linkedin_ugc_ShareContent;
+				}
 				foreach ($xyz_smap_ln_company_id1 as $xyz_smap_ln_company_id)
 				{
-					if($xyz_smap_ln_company_id!=-1)
-						try
+							$contentln['lifecycleState'] ='PUBLISHED';
+							$contentln['author'] ='urn:li:organization:'.$xyz_smap_ln_company_id;
+							$contentln['visibility']['com.linkedin.ugc.MemberNetworkVisibility']='PUBLIC';
+				//	if($xyz_smap_ln_company_id!=-1)
+				if (get_option('xyz_smap_ln_api_permission')==2){
+					$xyz_smap_smapsoln_userid=get_option('xyz_smap_smapsoln_userid_ln');
+					////smap api
+					$xyz_smap_xyzscripts_userid=get_option('xyz_smap_xyzscripts_user_id');
+					$post_details=array('xyz_smap_userid'=>$xyz_smap_smapsoln_userid,
+							'xyz_smap_attachment'=>$contentln,
+							'xyz_smap_page_id'=>$xyz_smap_ln_company_id,
+							'xyz_smap_xyzscripts_userid'=>$xyz_smap_xyzscripts_userid,
+					);
+					$xyz_smap_smapsoln_sec_key=get_option('xyz_smap_secret_key_ln');
+					$url=XYZ_SMAP_SOLUTION_LN_PUBLISH_URL.'api/publish.php';
+					$result=xyz_smap_post_to_smap_api($post_details,$url,$xyz_smap_smapsoln_sec_key);
+					//	die;
+					$result=json_decode($result);
+					if(!empty($result))
+					{
+						if (isset($result->postid) && !empty($result->postid))
 						{
-							$ln_api_count++;
-							$response2 = $ObjLinkedin->postToCompany($xyz_smap_ln_company_id,$contentln);
+							$postid =$result->postid;
+							$linkedin_post="https://www.linkedin.com/feed/update/".$postid;
+							$post_link='<br/><span style="color:#21759B;text-decoration:underline;"><a target="_blank" href="'.$linkedin_post.'">View Post</a></span>';
+						}
+						else
+							$err=$result->msg;
+							$ln_api_count=$result->ln_api_count;
+							if($result->status==0)
+								$ln_publish_status_comp["new"].="<span style=\"color:red\">".$err."</span><br/><span style=\"color:#21759B\">No. of api calls used: ".$ln_api_count."</span><br/>";
+								elseif ($result->status==1)
+								$ln_publish_status_comp["new"].="<span style=\"color:green\">Success.</span>".$post_link."<br/><span style=\"color:#21759B\">No. of api calls used: ".$ln_api_count."</span><br/>";
+					}
+				}
+				else{	try
+						{
+							$response2 = $ObjLinkedin->shareStatus($contentln);
 							$post_link='';
 							if (isset($response2['updateUrl'])&& $response2['updateKey']){
 								$updateKey = $response2['updateUrl']-$response2['updateKey'];
@@ -968,6 +1120,8 @@ function xyz_link_publish($post_ID) {
 								$updateKey = substr($token_id,1,strlen($token_id));
 								$post_link='<br/><span style="color:#21759B;text-decoration:underline;"> <a target="_blank" href="https://www.linkedin.com/feed/update/urn:li:activity:'.$updateKey.'">View Post</a></span>';
 							}
+							if (isset($response2['id']))
+								$post_link='<br/><span style="color:#21759B;text-decoration:underline;"> <a target="_blank" href="https://www.linkedin.com/feed/update/'.$response2['id'].'">View Post</a></span>';
 							if ( isset($response2['errorCode']) && isset($response2['message']) && ($response2['message']!='') )
 							{
 								$ln_publish_status_comp["new"].="<span style=\"color:red\"> company/".$xyz_smap_ln_company_id.":".$response2['message'].".</span><br/>";
@@ -981,8 +1135,10 @@ function xyz_link_publish($post_ID) {
 					{
 						$ln_publish_status_comp["new"].="<span style=\"color:red\">company/".$xyz_smap_ln_company_id.":".$e->getMessage().".</span><br/>";
 					}
+					}
 				}
 			}
+			///////////////////////////////////////////////////////////////////////////////////////
 		}
 		/*else
 		{ 
@@ -999,11 +1155,11 @@ function xyz_link_publish($post_ID) {
 				$ln_publish_status["updateNetwork"]=$response2['error'];
 		}*/
 			$ln_publish_status_insert='';
-			if(count($ln_publish_status['new'])>0)
+			if(!empty($ln_publish_status['new']))
 				$ln_publish_status_insert.=$ln_publish_status['new'];
 				if(isset($ln_publish_status_comp["new"]))
 					$ln_publish_status_insert.=$ln_publish_status_comp["new"];
-		$ln_publish_status_insert=serialize($ln_publish_status_insert);
+		$ln_publish_status_inserts=serialize($ln_publish_status_insert);
 		
 		/*if(count($ln_publish_status)>0)
 			$ln_publish_status_insert=serialize($ln_publish_status);
@@ -1015,7 +1171,7 @@ function xyz_link_publish($post_ID) {
 				'postid'	=>	$post_ID,
 				'acc_type'	=>	"Linkedin",
 				'publishtime'	=>	$time,
-				'status'	=>	$ln_publish_status_insert
+				'status'	=>	$ln_publish_status_inserts
 		);
 		
 		$smap_ln_update_opt_array=array();

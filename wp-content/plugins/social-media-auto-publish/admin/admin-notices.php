@@ -49,7 +49,6 @@ $xyz_smap_notice = wp_nonce_url($xyz_smap_notice,'smap-shw');
 	<a class="button" style="background-color:#3b5998;color:white;margin-right:4px;margin-left:100px;margin-top: 25px;" href="http://www.facebook.com/sharer/sharer.php?u=https://xyzscripts.com/wordpress-plugins/social-media-auto-publish/" target="_blank">Facebook</a>
 	<a class="button" style="background-color:#00aced;color:white;margin-right:4px;margin-left:20px;margin-top: 25px;" href="http://twitter.com/share?url=https://xyzscripts.com/wordpress-plugins/social-media-auto-publish/&text='.$sharelink_text.'" target="_blank">Twitter</a>
 	<a class="button" style="background-color:#007bb6;color:white;margin-right:4px;margin-left:20px;margin-top: 25px;" href="http://www.linkedin.com/shareArticle?mini=true&url=https://xyzscripts.com/wordpress-plugins/social-media-auto-publish/" target="_blank">LinkedIn</a>
-	<a class="button" style="background-color:#dd4b39;color:white;margin-right:4px;margin-left:20px;margin-top: 25px;" href="https://plus.google.com/share?&hl=en&url=https://xyzscripts.com/wordpress-plugins/social-media-auto-publish/" target="_blank">Google +</a>
 	</div>
 	</div>';
 	
@@ -59,7 +58,7 @@ $smap_installed_date = get_option('smap_installed_date');
 if ($smap_installed_date=="") {
 	$smap_installed_date = time();
 }
-if($smap_installed_date < ( time() - (30*24*60*60) ))
+if($smap_installed_date < ( time() - (20*24*60*60) ))
 {
 	if (get_option('xyz_smap_dnt_shw_notice') != "hide")
 	{
