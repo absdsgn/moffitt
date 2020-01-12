@@ -82,7 +82,9 @@
 								<h3>
 									<?php the_field('about_us_title'); ?>
 								</h3>
-								<?php the_field('about_us_introduction'); ?>
+								<div class="page">
+									<?php the_field('about_us_introduction'); ?>
+								</div>
 								<a class="moffitt-about-button" href="<?php the_field('about_us_button_url') ?>"><?php the_field('about_us_button_text'); ?></a>
 							</div>
 							<div class="moffitt-about-image">
